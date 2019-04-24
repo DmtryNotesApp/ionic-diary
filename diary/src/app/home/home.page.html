@@ -1,0 +1,14 @@
+
+<ion-content>
+  <div class="events-week">
+    <div class="ion-padding">
+      <app-day-card [events]="events | eventsFilter: {dayNumber: 0}" [dayNum]="0"></app-day-card>
+      <app-day-card [events]="events | eventsFilter: {dayNumber: 1}" [dayNum]="1"></app-day-card>
+      <app-day-card [events]="events | eventsFilter: {dayNumber: 2}" [dayNum]="2"></app-day-card>
+      <app-day-card [events]="events | eventsFilter: {dayNumber: 3}" [dayNum]="3"></app-day-card>
+      <app-day-card [events]="events | eventsFilter: {dayNumber: 4}" [dayNum]="4"></app-day-card>
+      <app-day-card [events]="events | eventsFilter: {dayNumber: 5}" [dayNum]="5"></app-day-card>
+      <app-day-card [events]="events | eventsFilter: {dayNumber: 6}" [dayNum]="6"></app-day-card>
+    </div>
+  </div>
+</ion-content>

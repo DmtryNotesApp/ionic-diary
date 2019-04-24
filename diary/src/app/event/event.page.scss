@@ -1,0 +1,22 @@
+.input-description {
+  width: 100%;
+  border: 1.3px solid greenyellow;
+  border-radius: 8px;
+  background-color: #ffffffa3;
+}
+.event-component {
+  background-color: #a2a4ab30;
+  height: 100%;
+}
+.buttons-area {
+  display: flex;
+  justify-content: center;
+}
+.buttons-div {
+  display: inline-block;
+}
+.button-item {
+  width: 8rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
