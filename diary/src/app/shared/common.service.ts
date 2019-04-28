@@ -27,9 +27,25 @@ export class CommonService {
 
     getDate(n): Date {
       // let todayMillis = Date.now() + n * 1000 * 3600 * 24;
+      this.firstDayOfWeek.setHours(0);
+      this.firstDayOfWeek.setMinutes(0);
+      this.firstDayOfWeek.setSeconds(0);
       let curDate = this.firstDayOfWeek.setDate(this.firstDayOfWeek.getDate());
       let date: Date = new Date(curDate + n * 24 * 3600 * 1000);
       return date;
+    }
+
+    getPickedDate(eventDateS) {
+      let pickedDate = new Date(Date.parse(eventDateS.toString()));
+      console.log('pickedDate', pickedDate);
+
+      pickedDate.setHours(0);
+      pickedDate.setMinutes(0);
+      pickedDate.setSeconds(0);
+      pickedDate.setMilliseconds(0);
+      console.log('pickedDate', pickedDate);
+
+      return pickedDate;
     }
 
     getOutputDate(date: Date): string {
@@ -64,13 +80,13 @@ export class CommonService {
       let lastEventId = +localStorage.getItem('lastEventId') || 0;
       eventId = lastEventId + 1;
       localStorage.setItem('lastEventId', eventId);
-      let processedEvent = new DiaryEvent(eventId, event.creationDate, event.isDone, event.description);
+      let processedEvent = new DiaryEvent(eventId, event.eventDate, event.isDone, event.description);
       this.events.push(processedEvent);
     } else {
       eventId = event.id;
       let eventToUpdate = this.events.find(ev => ev.id == eventId);
       let index = this.events.indexOf(eventToUpdate);
-      eventToUpdate = new DiaryEvent(eventId, event.creationDate, event.isDone, event.description);
+      eventToUpdate = new DiaryEvent(eventId, event.eventDate, event.isDone, event.description);
       console.log('eventToUpdate', eventToUpdate);
       this.events[index] = eventToUpdate;
     }

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { EventPage } from './event.page';
 import {DatePicker} from "@ionic-native/date-picker/ngx";
+import {SharedModule} from "../shared/shared.module";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   providers: [DatePicker],

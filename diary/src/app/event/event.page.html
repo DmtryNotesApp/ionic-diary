@@ -1,21 +1,25 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>My Navigation Bar</ion-title>
-  </ion-toolbar>
-</ion-header>-->
 <ion-content>
   <div class="event-component">
     <div class="ion-padding">
-      <ion-textarea rows="3" class="input-description" placeholder="Enter description" [(ngModel)]="eventDescription"></ion-textarea>
-    </div>
-    <div>
-      <ion-item>
-        <ion-label>Is Done?</ion-label>
-        <ion-toggle [(ngModel)]="isDone"></ion-toggle>
-      </ion-item>
+      <ion-textarea rows="3" class="input-description" placeholder="Enter description"
+                    [(ngModel)]="eventDescription">
+      </ion-textarea>
+      <div class="date-time">
+        <ion-item class="date">
+          <ion-label>{{displayDate}}</ion-label>
+          <ion-icon name="calendar"></ion-icon>
+          <ion-datetime
+                  display-format="none" picker-format="DD MMM, YYYY"
+                  [(ngModel)]="eventDateS" (ionChange)="changeDate()"
+          ></ion-datetime>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label>Is Done?</ion-label>
+          <ion-toggle [(ngModel)]="isDone"></ion-toggle>
+        </ion-item>
+      </div>
     </div>
   </div>
 </ion-content>

@@ -2,7 +2,7 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 
 import {DiaryEvent} from "../models/diary-event";
 import {CommonService} from "../shared/common.service";
-import {ActionSheetController, AlertController, NavController} from "@ionic/angular";
+import {ActionSheetController, AlertController, Events, NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-day-card',
@@ -15,7 +15,8 @@ export class DayCardComponent implements OnInit {
     public commonService: CommonService,
     public navCtrl: NavController,
     public actionSheetController: ActionSheetController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public eventEmitter: Events
   ) { }
 
   @Input()
@@ -29,39 +30,48 @@ export class DayCardComponent implements OnInit {
   progress: number;
   message: string;
   isDoneValue: boolean = false;
+  eventDateS: Date;
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  updateHomePage() {
+    console.log('updateHomePage');
+    this.eventEmitter.publish('updateHomePage');
   }
 
   async showMenu(event) {
     console.log('------ showMenu ------');
 
+    console.log('event', event);
+    this.commonService.eventParams = event;
+    console.log('this.commonService.eventParams', this.commonService.eventParams);
     const actionSheet = await this.actionSheetController.create({
-      header: event.description,
+      header: this.commonService.eventParams.description,
       backdropDismiss: true,
       buttons: [
         {
-          text: 'Mark as ' + (event.isDone ? 'Uncompleted' : 'Completed'),
+          text: 'Mark as ' + (this.commonService.eventParams.isDone ? 'Uncompleted' : 'Completed'),
           icon: 'checkmark',
           handler: () => {
-            console.log('Mark as Completed');
-            event.isDone = !event.isDone;
-            this.markEventAsDone(event);
+            console.log('Mark as Completed/Uncompleted clicked');
+            this.commonService.eventParams.isDone = !this.commonService.eventParams.isDone;
+            this.updateEvent(null);
           }
         }, {
         text: 'Edit',
         icon: 'settings',
         handler: () => {
-          console.log('Play clicked');
-          this.redirectToEventPage(false, event);
+          console.log('Edit clicked');
+          this.redirectToEventPage(false, this.commonService.eventParams);
           this.prepareData();
         }
       }, {
         text: 'Change Date',
         icon: 'calendar',
         handler: () => {
-          console.log('Favorite clicked');
+          console.log('Change Date clicked');
+          let datePicker = document.getElementById('datePicker');
+          datePicker.click();
         }
       }, {
           text: 'Delete',
@@ -69,7 +79,7 @@ export class DayCardComponent implements OnInit {
           icon: 'trash',
           handler: () => {
             console.log('Delete clicked');
-            this.showAlert(event);
+            this.showAlert(this.commonService.eventParams);
           }
         }, {
         text: 'Cancel',
@@ -114,7 +124,7 @@ export class DayCardComponent implements OnInit {
   redirectToEventPage(isCreationMode, event) {
       let eventParams = {
           isCreationMode: isCreationMode,
-          creationDate: this.date,
+          eventDate: this.date,
           event: event
       };
 
@@ -126,10 +136,18 @@ export class DayCardComponent implements OnInit {
       });
   }
 
-  markEventAsDone(event) {
+  changeDate() {
+    console.log('------ changeDate ------');
+    console.log('currentEvent', this.commonService.eventParams);
+    this.commonService.eventParams.eventDate = this.commonService.getPickedDate(this.eventDateS);
+    this.updateEvent(null);
+    this.updateHomePage();
+  }
+
+  updateEvent(event) {
     console.log('------ markEventAsDone ------');
     console.log('this.events', this.events);
-    this.commonService.processEvent(event);
+    this.commonService.processEvent(event || this.commonService.eventParams);
   }
 
   deleteEvent(event) {

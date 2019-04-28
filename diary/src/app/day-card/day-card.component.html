@@ -26,7 +26,7 @@
         <div class="event-item">
           <div class="check-box-item">
             <ion-item>
-              <ion-toggle color="primary" slot="start" [(ngModel)]="event.isDone" (ionChange)="markEventAsDone(event)"></ion-toggle>
+              <ion-toggle color="primary" slot="start" [(ngModel)]="event.isDone" (ionChange)="updateEvent(event)"></ion-toggle>
             </ion-item>
           </div>
           <div class="event-item-description center-align">
@@ -38,23 +38,26 @@
           </div>
           <div class="center-align menu-button">
             <div>
-
               <ion-button (click)="showMenu(event)">
                 <ion-icon name="menu"></ion-icon>
               </ion-button>
-              <!--<div class="menu">-->
-              <!--<ul class="menu-options">-->
-              <!--<li class="menu-option">Back</li>-->
-              <!--<li class="menu-option">Reload</li>-->
-              <!--<li class="menu-option">Save</li>-->
-              <!--<li class="menu-option">Save As</li>-->
-              <!--<li class="menu-option">Inspect</li>-->
-              <!--</ul>-->
-              <!--</div>-->
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="date-picker">
+    <ion-item>
+      <ion-label></ion-label>
+      <ion-icon name="calendar"></ion-icon>
+      <ion-datetime
+              id="datePicker"
+              display-format="none" picker-format="DD MMM, YYYY"
+              [(ngModel)]="eventDateS" (ionChange)="changeDate()"
+      ></ion-datetime>
+    </ion-item>
+  </div>
+
 </div>
