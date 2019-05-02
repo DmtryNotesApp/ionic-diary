@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IonDatetime, NavController} from "@ionic/angular";
+import {NavController} from "@ionic/angular";
 import {CommonService} from "../shared/common.service";
 
 @Component({
@@ -9,12 +9,14 @@ import {CommonService} from "../shared/common.service";
 })
 export class EventPage implements OnInit {
 
+  firstDayOfWeek: Date;
   eventDescription: string;
   isDone: boolean;
   eventOptions;
   event;
   id;
   eventDate: Date;
+  previousEventDate: Date;
   eventDateS: Date;
   displayDate;
 
@@ -42,6 +44,7 @@ export class EventPage implements OnInit {
   ngOnInit() {
     console.log('------ ngOnInit ------');
     this.eventOptions = this.commonService.getEventParams();
+    this.firstDayOfWeek = this.eventOptions.firstDayOfWeek;
     this.event = this.eventOptions.event;
 
     this.setDisplayDate(this.eventOptions.eventDate);
@@ -51,15 +54,17 @@ export class EventPage implements OnInit {
     if (this.event) {
       this.isDone = this.eventOptions.event.isDone;
       this.eventDescription = this.eventOptions.event.description;
+      this.previousEventDate = this.eventOptions.previousEventDate;
       this.id = this.eventOptions.event.id;
     }
   }
 
   saveEvent() {
-    let date = this.commonService.getDate(6);
+    let date = this.commonService.getDate(this.firstDayOfWeek,6);
     this.commonService.processEvent({
       description: this.eventDescription,
       eventDate: this.eventOptions.eventDate,
+      previousEventDate: this.previousEventDate,
       isDone: this.isDone,
       isCreationMode: this.eventOptions.isCreationMode,
       id: this.id

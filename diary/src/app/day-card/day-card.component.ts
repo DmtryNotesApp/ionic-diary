@@ -17,20 +17,40 @@ export class DayCardComponent implements OnInit {
     public actionSheetController: ActionSheetController,
     public alertController: AlertController,
     public eventEmitter: Events
-  ) { }
+  ) {
+    eventEmitter.subscribe('updateDayCardComponent', (datesArray: string[]) => {
+      console.log('1111111111111111111111111111111');
+      console.log('this.date', this.date);
+      console.log('this.date', this.date.toDateString());
+      console.log('datesArray', datesArray);
+      console.log(datesArray.indexOf(this.date.toDateString()) != -1);
+
+      if (datesArray.indexOf(this.date.toDateString()) != -1) {
+        this.prepareData();
+      }
+    });
+  }
+
+  events: DiaryEvent[] = [];
 
   @Input()
-  events: DiaryEvent[] = [];
+  firstDayOfWeek: Date;
 
   @Input()
   dayNum: number;
 
-  date: Date;
-  progressStatus: string;
-  progress: number;
-  message: string;
+  @Input()
+  num: number;
+
+  date: Date = new Date();
+  progressStatus: string = 'success';
+  progress: number = 1;
+  message: string = 'No events planned';
   isDoneValue: boolean = false;
   eventDateS: Date;
+
+  isLoaded: boolean = false;
+  showEvents: boolean = false;
 
   ngOnInit() {}
 
@@ -39,7 +59,14 @@ export class DayCardComponent implements OnInit {
     this.eventEmitter.publish('updateHomePage');
   }
 
-  async showMenu(event) {
+  updateDayCardComponent(newDate) {
+    console.log('------ updateDayCardComponent from updateDayCardComponent ------');
+    console.log('this.date', this.date);
+    console.log('newDate', newDate);
+    this.eventEmitter.publish('updateDayCardComponent', this.commonService.cameFromFirstDayOfWeek, newDate);
+  }
+
+ async showMenu(event) {
     console.log('------ showMenu ------');
 
     console.log('event', event);
@@ -70,6 +97,7 @@ export class DayCardComponent implements OnInit {
         icon: 'calendar',
         handler: () => {
           console.log('Change Date clicked');
+          this.commonService.cameFromFirstDayOfWeek = this.date;
           let datePicker = document.getElementById('datePicker');
           datePicker.click();
         }
@@ -94,52 +122,67 @@ export class DayCardComponent implements OnInit {
   }
 
   prepareData() {
-      this.date = this.commonService.getDate(this.dayNum);
+    console.log('------ prepareDate() ------');
+    this.commonService.addIteration();
+    this.date = this.commonService.getDate(this.firstDayOfWeek, this.dayNum);
+    this.events = this.commonService.eventsMap[this.date] || [];
 
-      let isdone: number = this.events.filter(event => event.isDone).length;
-      this.progress = isdone / this.events.length;
-      if (this.progress == 1) {
-          this.message = 'No events left'
-      } else if (this.events.length == 0) {
-          this.progress = 1;
-          this.message = 'No events planned';
-      } else {
-          this.message = this.events.length - isdone + ' of ' + this.events.length + ' events left';
-      }
-      this.progressStatus =
-          this.progress == 1
-              ? 'success'
-              : this.progress > 0.7
-              ? 'primary'
-              : this.progress > 0.3
-                  ? 'secondary'
-                  : 'warning'
-      ;
+    let isdone: number = this.events.filter(event => event.isDone).length;
+    this.progress = isdone / this.events.length;
+    if (this.progress == 1) {
+      this.message = 'No events left'
+    } else if (this.events.length == 0) {
+      this.progress = 1;
+      this.message = 'No events planned';
+    } else {
+      this.message = this.events.length - isdone + ' of ' + this.events.length + ' events left';
+    }
+    this.progressStatus =
+      this.progress == 1
+        ? 'success'
+        : this.progress > 0.7
+        ? 'primary'
+        : this.progress > 0.3
+          ? 'secondary'
+          : 'warning'
+    ;
+    console.log('this.events', this.events);
+    this.isLoaded = true;
   }
 
-  ngAfterContentChecked() {
+  switchShowEventsMode() {
+    this.showEvents = !this.showEvents;
+  }
+
+  ngAfterViewInit() {
+    console.log('------ ngAfterViewInit ------');
     this.prepareData();
   }
 
   redirectToEventPage(isCreationMode, event) {
-      let eventParams = {
-          isCreationMode: isCreationMode,
-          eventDate: this.date,
-          event: event
-      };
+    let eventParams = {
+      firstDayOfWeek: this.firstDayOfWeek,
+      isCreationMode: isCreationMode,
+      eventDate: this.date,
+      previousEventDate: event ? event.eventDate : this.date,
+      event: event
+    };
 
-      this.commonService.setEventParams(eventParams);
+    this.commonService.setEventParams(eventParams);
 
-      this.navCtrl.navigateForward('event', {
-          animated: true,
-          animationDirection: 'forward'
-      });
+    this.navCtrl.navigateForward('event', {
+      animated: true,
+      animationDirection: 'forward'
+    });
   }
 
   changeDate() {
     console.log('------ changeDate ------');
-    console.log('currentEvent', this.commonService.eventParams);
-    this.commonService.eventParams.eventDate = this.commonService.getPickedDate(this.eventDateS);
+    console.log('currentDate: ' + this.date);
+    let evDate = this.commonService.getPickedDate(this.eventDateS);
+    console.log('evDate', evDate);
+    this.commonService.eventParams.previousEventDate = this.commonService.eventParams.eventDate;
+    this.commonService.eventParams.eventDate = evDate;
     this.updateEvent(null);
     this.updateHomePage();
   }
@@ -148,6 +191,7 @@ export class DayCardComponent implements OnInit {
     console.log('------ markEventAsDone ------');
     console.log('this.events', this.events);
     this.commonService.processEvent(event || this.commonService.eventParams);
+    this.prepareData();
   }
 
   deleteEvent(event) {

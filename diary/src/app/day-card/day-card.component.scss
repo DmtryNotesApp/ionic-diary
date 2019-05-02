@@ -3,7 +3,7 @@
   background-color: #ffffff9e;
   height: 4rem;
   display: flex;
-  width: 96%;
+  width: 100%;
   //padding: 0.4rem;
 }
 
@@ -26,7 +26,7 @@
   text-align: center;
 }
 .events-list {
-  width: 96%;
+  width: 100%;
   margin: 0px 0.5rem 0.5rem 0.5rem;
   background: #ffffff;
 }
@@ -35,10 +35,17 @@
   border: 1px solid bisque;
 }
 .event-item-description {
-  width: 80%;
+  width: 73%;
+}
+.description-text {
+  width: 11rem;
+  height: 3rem;
+  font-size: smaller;
+  overflow: scroll;
+  display: contents;
 }
 .check-box-item {
-  width: 12%;
+  width: 26%;
 }
 .center-align {
   display: flex;
@@ -46,7 +53,7 @@
   align-items: center;
 }
 .menu-button {
-  width: 10%;
+  width: 27%;
 }
 .menu {
   width: 120px;

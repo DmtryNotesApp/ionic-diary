@@ -1,5 +1,5 @@
 <div>
-  <div class="day-card">
+  <div class="day-card" *ngIf="isLoaded" (click)="switchShowEventsMode()">
     <div class="common-day-class day-date">
       <i>
         {{date | dateFormat}}
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="events-list">
+  <div class="events-list" *ngIf="showEvents">
     <div *ngFor="let event of events">
       <div >
         <div class="event-item">
@@ -30,7 +30,7 @@
             </ion-item>
           </div>
           <div class="event-item-description center-align">
-            <div>
+            <div class="description-text">
               <i>
                 {{event.description}}
               </i>
@@ -53,9 +53,9 @@
       <ion-label></ion-label>
       <ion-icon name="calendar"></ion-icon>
       <ion-datetime
-              id="datePicker"
-              display-format="none" picker-format="DD MMM, YYYY"
-              [(ngModel)]="eventDateS" (ionChange)="changeDate()"
+        id="datePicker"
+        display-format="none" picker-format="DD MMM, YYYY"
+        [(ngModel)]="eventDateS" (ionChange)="changeDate()"
       ></ion-datetime>
     </ion-item>
   </div>

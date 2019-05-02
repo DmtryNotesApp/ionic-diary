@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import {DayCardComponent} from "../day-card/day-card.component";
 import {SharedModule} from "../shared/shared.module";
+import {WeekContainerComponent} from "../week-container/week-container.component";
 
 @NgModule({
   imports: [
@@ -21,11 +22,12 @@ import {SharedModule} from "../shared/shared.module";
       }
     ])
   ],
-  declarations: [HomePage, DayCardComponent],
+  declarations: [HomePage, DayCardComponent, WeekContainerComponent],
   exports: [
       SharedModule,
       HomePage,
-      DayCardComponent
+      DayCardComponent,
+    WeekContainerComponent
   ],
   entryComponents: [
 

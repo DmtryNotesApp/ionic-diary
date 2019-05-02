@@ -12,7 +12,9 @@ export class DateFormatPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     let date: string;
-    date = this.commonService.getOutputDate(value);
+    if (value) {
+      date = this.commonService.getOutputDate(value);
+    }
     return date;
   }
 

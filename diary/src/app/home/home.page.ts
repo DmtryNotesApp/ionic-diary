@@ -13,35 +13,57 @@ import {Events} from "@ionic/angular";
 @Injectable()
 export class HomePage implements OnInit{
 
-    firstDayOfWeek: Date;
-    events: any;
+  firstDayOfWeek: Date;
+  firstDaysOfWeeks: Date[] = [];
+  events: any;
 
-    constructor(
-      public commonService: CommonService,
-      public eventEmitter: Events
-    ) {
-      eventEmitter.subscribe('updateHomePage', () => {
-        console.log('updateHomePage on HomePage');
-        this.prepareData();
-      });
-    }
+  slideOpts = {
+    initialSlide: 12,
+    speed: 400
+  };
 
-    ngOnInit() {
-        this.prepareData();
-    }
+  constructor(
+    public commonService: CommonService,
+    public eventEmitter: Events
+  ) {
+    eventEmitter.subscribe('updateHomePage', () => {
+      console.log('updateHomePage on HomePage');
+      this.prepareData();
+    });
+  }
 
-    prepareData() {
-        this.firstDayOfWeek = this.commonService.getFirstDayOfWeek();
+  ngOnInit() {
+      this.prepareData();
+  }
 
-        this.events = localStorage.getItem('plannedEvents')
-            ? JSON.parse(localStorage.getItem('plannedEvents'))
-            : [];
-        console.log('this.events', this.events);
-        // this.commonService.saveEvents([]);
-        this.commonService.setEvents(this.events);
-    }
+  prepareData() {
+      this.firstDayOfWeek = this.commonService.getFirstDayOfWeek();
+      this.firstDaysOfWeeks = this.commonService.getFirstDaysOfWeeks();
 
-    ionViewDidEnter() {
-        this.prepareData();
-    }
+      console.log('this.firstDayOfWeek', this.firstDayOfWeek);
+      console.log('this.firstDaysOfWeeks', this.firstDaysOfWeeks);
+
+      this.events = localStorage.getItem('plannedEvents')
+          ? JSON.parse(localStorage.getItem('plannedEvents'))
+          : [];
+      let eventsMap = {};
+
+      if (this.events.length > 0) {
+
+        for (let i = 0; i < this.events.length; i++) {
+          let date = new Date(this.events[i].eventDate);
+          this.commonService.setNoneHour(date);
+
+          let eventsArray = eventsMap[date] || [];
+          eventsArray.push(this.events[i]);
+          eventsMap[date] = eventsArray;
+        }
+      }
+      this.commonService.setEvents(this.events);
+      this.commonService.setEventsMap(eventsMap);
+  }
+
+  ionViewDidEnter() {
+      this.prepareData();
+  }
 }

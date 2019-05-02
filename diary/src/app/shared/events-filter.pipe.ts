@@ -10,7 +10,7 @@ export class EventsFilterPipe implements PipeTransform {
 
   transform(events: any, args?: any): any {
     events = events || [];
-    let date: Date = this.commonService.getDate(args.dayNumber);
+    let date: Date = this.commonService.getDate(args.firstDayOfWeek, args.dayNumber);
     let dayMills: number = date.setDate(date.getDate());
     return events.filter(event => {
       let eventDate = event.eventDate;
