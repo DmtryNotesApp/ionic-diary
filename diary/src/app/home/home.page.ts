@@ -18,19 +18,13 @@ export class HomePage implements OnInit{
   events: any;
 
   slideOpts = {
-    initialSlide: 12,
+    initialSlide: 4,
     speed: 400
   };
 
   constructor(
-    public commonService: CommonService,
-    public eventEmitter: Events
-  ) {
-    eventEmitter.subscribe('updateHomePage', () => {
-      console.log('updateHomePage on HomePage');
-      this.prepareData();
-    });
-  }
+    public commonService: CommonService
+  ) {}
 
   ngOnInit() {
       this.prepareData();
@@ -54,9 +48,9 @@ export class HomePage implements OnInit{
           let date = new Date(this.events[i].eventDate);
           this.commonService.setNoneHour(date);
 
-          let eventsArray = eventsMap[date] || [];
+          let eventsArray = eventsMap[date + ''] || [];
           eventsArray.push(this.events[i]);
-          eventsMap[date] = eventsArray;
+          eventsMap[date + ''] = eventsArray;
         }
       }
       this.commonService.setEvents(this.events);

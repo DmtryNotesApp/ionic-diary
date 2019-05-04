@@ -14,12 +14,25 @@ export class WeekContainerComponent implements OnInit {
   @Input()
   firstDayOfWeek: Date = new Date();
 
+  mondayString: string;
+  sundayString: string;
+
   constructor() { }
 
   ngOnInit() {
-    console.log('------ WeekContainerComponent ------');
-    console.log('this.firstDayOfWeek', this.firstDayOfWeek);
-    console.log('this.events', this.events);
+    this.mondayString = this.firstDayOfWeek.toDateString();
+    let tempDateMls = this.firstDayOfWeek;
+    let tempDate = new Date(
+      this.firstDayOfWeek.getFullYear(),
+      this.firstDayOfWeek.getMonth(),
+      this.firstDayOfWeek.getDate()
+    );
+    tempDate.setDate(tempDate.getDate() + 6);
+    this.sundayString = tempDate.toDateString();
+  }
+
+  showCalendar() {
+    console.log('------ showCalendar ------');
   }
 
 }

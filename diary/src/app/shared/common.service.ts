@@ -32,7 +32,7 @@ export class CommonService {
   }
     setFirstDaysArray() {
       console.log('------ setFirstDaysArray ------');
-      for (let i = -12; i < 13; i++) {
+      for (let i = -4; i < 5; i++) {
         this.firstDaysOfWeeks.push(this.addDays(7 * i));
       }
       console.log('this.firstDaysOfWeeks', this.firstDaysOfWeeks);
@@ -130,15 +130,16 @@ export class CommonService {
     let prevDate;
     let datesArray = [date.toDateString()];
 
-    console.log(date);
-    let eventsArray = this.eventsMap[date] || [];
+    console.log('date', date);
+    let eventsArray = this.eventsMap[date + ''] || [];
+    console.log('eventsArray', eventsArray);
 
     if (event.previousEventDate) {
       prevDate = new Date(event.previousEventDate);
       this.setNoneHour(prevDate);
       datesArray.push(prevDate.toDateString());
 
-      eventsArray = this.eventsMap[prevDate] || [];
+      eventsArray = this.eventsMap[prevDate + ''] || [];
     }
 
     if (event.isCreationMode) {
@@ -148,32 +149,35 @@ export class CommonService {
       let processedEvent = new DiaryEvent(eventId, event.eventDate, event.isDone, event.description);
       this.events.push(processedEvent);
 
-      eventsArray.push(event);
-      this.eventsMap[date] = eventsArray;
+      eventsArray.push(processedEvent);
+      this.eventsMap[date + ''] = eventsArray;
     } else {
       console.log('else');
       eventId = event.id;
       let eventToUpdate = this.events.find(ev => ev.id == eventId);
+      console.log('eventToUpdate 1', eventToUpdate);
       let index = this.events.indexOf(eventToUpdate);
       eventToUpdate = new DiaryEvent(eventId, event.eventDate, event.isDone, event.description);
-      console.log('eventToUpdate', eventToUpdate);
+      console.log('eventToUpdate 2', eventToUpdate);
       this.events[index] = eventToUpdate;
 
       if (event.previousEventDate) {
         eventsArray = eventsArray.filter(ev => ev.id !== event.id);
 
-        let targetArray = this.eventsMap[date] || [];
+        let targetArray = this.eventsMap[date + ''] || [];
         targetArray.push(eventToUpdate);
 
-        this.eventsMap[prevDate] = eventsArray;
-        this.eventsMap[date] = targetArray;
+        this.eventsMap[prevDate + ''] = eventsArray;
+        this.eventsMap[date + ''] = targetArray;
       } else {
         let eventToUpdateInMap = eventsArray.find(ev => ev.id == eventId);
+        console.log('eventToUpdateInMap', eventToUpdateInMap);
         let indexInMap = eventsArray.indexOf(eventToUpdateInMap);
-
+        console.log('indexInMap', indexInMap);
         eventsArray[indexInMap] = eventToUpdate;
-        console.log(eventsArray);
-        this.eventsMap[date] = eventsArray;
+
+        console.log('eventsArray', eventsArray);
+        this.eventsMap[date + ''] = eventsArray;
       }
 
     }
@@ -194,7 +198,7 @@ export class CommonService {
     console.log('event', event);
     let date = new Date(event.eventDate);
     this.setNoneHour(date);
-    this.eventsMap[date] = this.eventsMap[date].filter(ev => ev.id !== event.id);
+    this.eventsMap[date + ''] = this.eventsMap[date + ''].filter(ev => ev.id !== event.id);
     this.events = this.events.filter(ev => ev.id !== event.id);
     this.saveEvents(this.events);
   }

@@ -19,12 +19,6 @@ export class DayCardComponent implements OnInit {
     public eventEmitter: Events
   ) {
     eventEmitter.subscribe('updateDayCardComponent', (datesArray: string[]) => {
-      console.log('1111111111111111111111111111111');
-      console.log('this.date', this.date);
-      console.log('this.date', this.date.toDateString());
-      console.log('datesArray', datesArray);
-      console.log(datesArray.indexOf(this.date.toDateString()) != -1);
-
       if (datesArray.indexOf(this.date.toDateString()) != -1) {
         this.prepareData();
       }
@@ -53,11 +47,6 @@ export class DayCardComponent implements OnInit {
   showEvents: boolean = false;
 
   ngOnInit() {}
-
-  updateHomePage() {
-    console.log('updateHomePage');
-    this.eventEmitter.publish('updateHomePage');
-  }
 
   updateDayCardComponent(newDate) {
     console.log('------ updateDayCardComponent from updateDayCardComponent ------');
@@ -125,7 +114,7 @@ export class DayCardComponent implements OnInit {
     console.log('------ prepareDate() ------');
     this.commonService.addIteration();
     this.date = this.commonService.getDate(this.firstDayOfWeek, this.dayNum);
-    this.events = this.commonService.eventsMap[this.date] || [];
+    this.events = this.commonService.eventsMap[this.date + ''] || [];
 
     let isdone: number = this.events.filter(event => event.isDone).length;
     this.progress = isdone / this.events.length;
@@ -184,14 +173,13 @@ export class DayCardComponent implements OnInit {
     this.commonService.eventParams.previousEventDate = this.commonService.eventParams.eventDate;
     this.commonService.eventParams.eventDate = evDate;
     this.updateEvent(null);
-    this.updateHomePage();
   }
 
   updateEvent(event) {
     console.log('------ markEventAsDone ------');
+    console.log('event', event);
     console.log('this.events', this.events);
     this.commonService.processEvent(event || this.commonService.eventParams);
-    this.prepareData();
   }
 
   deleteEvent(event) {

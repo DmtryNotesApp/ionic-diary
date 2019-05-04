@@ -1,6 +1,10 @@
 <div class="events-week">
   <div class="ion-padding">
 
+    <div (click)="showCalendar()" class="dates-string">
+      <p style="text-align:center;">{{mondayString}} - {{sundayString}}</p>
+    </div>
+
     <app-day-card
         [dayNum]="0"
         [firstDayOfWeek]="firstDayOfWeek">
