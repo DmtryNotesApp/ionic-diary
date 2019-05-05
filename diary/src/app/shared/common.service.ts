@@ -13,33 +13,34 @@ export class CommonService {
   events;
   eventsMap = {};
   cameFromFirstDayOfWeek: Date;
+  actualDate: Date = new Date();
 
   iterations: number = 0;
 
   constructor(
     public eventEmitter: Events
   ) {
-    this.firstDayOfWeek = this.getMonday(new Date());
+    this.setUpData();
+  }
+
+  setUpData() {
+    console.log('------ setUpData -------');
+    console.log('this.actualDate', this.actualDate);
+    this.firstDayOfWeek = this.getMonday(this.actualDate);
     console.log('this.firstDayOfWeek', this.firstDayOfWeek);
     if (this.firstDayOfWeek) {
       this.setFirstDaysArray();
     }
   }
 
-  addIteration() {
-    this.iterations += 1;
-    console.log('this.iterations', this.iterations);
-  }
-    setFirstDaysArray() {
-      console.log('------ setFirstDaysArray ------');
-      for (let i = -4; i < 5; i++) {
-        this.firstDaysOfWeeks.push(this.addDays(7 * i));
-      }
-      console.log('this.firstDaysOfWeeks', this.firstDaysOfWeeks);
+  setFirstDaysArray() {
+    this.firstDaysOfWeeks = [];
+    for (let i = -4; i < 5; i++) {
+      this.firstDaysOfWeeks.push(this.addDays(7 * i));
     }
+  }
 
   addDays(num) {
-    console.log('num', num);
     let date = new Date(
       this.firstDayOfWeek.getFullYear(),
       this.firstDayOfWeek.getMonth(),
@@ -81,13 +82,11 @@ export class CommonService {
 
   getPickedDate(eventDateS) {
     let pickedDate = new Date(Date.parse(eventDateS.toString()));
-    console.log('pickedDate', pickedDate);
 
     pickedDate.setHours(0);
     pickedDate.setMinutes(0);
     pickedDate.setSeconds(0);
     pickedDate.setMilliseconds(0);
-    console.log('pickedDate', pickedDate);
 
     return pickedDate;
   }
@@ -112,7 +111,6 @@ export class CommonService {
 
   setEvents(events) {
     console.log('------ setEvents ------');
-    console.log('this.events', this.events);
     this.events = events;
   }
 
@@ -122,7 +120,6 @@ export class CommonService {
 
   processEvent(event) {
     console.log('------- processEvent -------');
-    console.log('event', event);
     let eventId;
 
     let date = new Date(event.eventDate);
@@ -130,9 +127,7 @@ export class CommonService {
     let prevDate;
     let datesArray = [date.toDateString()];
 
-    console.log('date', date);
     let eventsArray = this.eventsMap[date + ''] || [];
-    console.log('eventsArray', eventsArray);
 
     if (event.previousEventDate) {
       prevDate = new Date(event.previousEventDate);
@@ -152,13 +147,10 @@ export class CommonService {
       eventsArray.push(processedEvent);
       this.eventsMap[date + ''] = eventsArray;
     } else {
-      console.log('else');
       eventId = event.id;
       let eventToUpdate = this.events.find(ev => ev.id == eventId);
-      console.log('eventToUpdate 1', eventToUpdate);
       let index = this.events.indexOf(eventToUpdate);
       eventToUpdate = new DiaryEvent(eventId, event.eventDate, event.isDone, event.description);
-      console.log('eventToUpdate 2', eventToUpdate);
       this.events[index] = eventToUpdate;
 
       if (event.previousEventDate) {
@@ -171,31 +163,24 @@ export class CommonService {
         this.eventsMap[date + ''] = targetArray;
       } else {
         let eventToUpdateInMap = eventsArray.find(ev => ev.id == eventId);
-        console.log('eventToUpdateInMap', eventToUpdateInMap);
         let indexInMap = eventsArray.indexOf(eventToUpdateInMap);
-        console.log('indexInMap', indexInMap);
         eventsArray[indexInMap] = eventToUpdate;
 
-        console.log('eventsArray', eventsArray);
         this.eventsMap[date + ''] = eventsArray;
       }
 
     }
-    console.log('this.eventsMap', this.eventsMap);
-    console.log('this.events', this.events);
     this.updateDayCardComponent(datesArray);
     this.saveEvents(this.events);
   }
 
   updateDayCardComponent(dateArray) {
     console.log('------ updateDayCardComponent from Event ------');
-    console.log(dateArray);
     this.eventEmitter.publish('updateDayCardComponent', dateArray);
   }
 
   deleteEvent(event) {
     console.log('------ common service + deleteEvent ------');
-    console.log('event', event);
     let date = new Date(event.eventDate);
     this.setNoneHour(date);
     this.eventsMap[date + ''] = this.eventsMap[date + ''].filter(ev => ev.id !== event.id);
@@ -205,7 +190,6 @@ export class CommonService {
 
   saveEvents(events) {
     console.log('------ saveEvents ------');
-    console.log('events', events);
     localStorage.setItem('plannedEvents', JSON.stringify(events));
   }
 

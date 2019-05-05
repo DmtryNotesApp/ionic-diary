@@ -1,16 +1,16 @@
 <div>
-  <div class="day-card" *ngIf="isLoaded" (click)="switchShowEventsMode()">
+  <div class="day-card" (click)="switchShowEventsMode()">
     <div class="common-day-class day-date">
       <i>
         {{date | dateFormat}}
       </i>
     </div>
     <div class="common-day-class day-progress">
-      <div class="day-progress-text">
+      <div class="day-progress-text" *ngIf="isLoaded">
         {{message}}
       </div>
       <div>
-        <ion-progress-bar color="{{progressStatus}}" value="{{progress}}"></ion-progress-bar>
+        <ion-progress-bar color="{{progressStatus}}" value="{{progress}}" *ngIf="isLoaded"></ion-progress-bar>
       </div>
     </div>
     <div class="common-day-class">

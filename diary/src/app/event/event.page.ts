@@ -22,21 +22,10 @@ export class EventPage implements OnInit {
 
   constructor(public navCtrl: NavController, public commonService: CommonService) {}
 
-  displayDateTime() {
-    console.log('------ displayDateTime ------');
-    console.log('eventDateS', this.eventDateS);
-    console.log('this.eventDateFromDatePicker', this.eventDate.toString());
-  }
-
   changeDate () {
     console.log('------ changeDate ------');
-    console.log('eventDate', this.eventDateS);
-    console.log('eventDate', new Date(Date.parse(this.eventDateS.toString())));
     let pickedDate = this.commonService.getPickedDate(this.eventDateS);
-    console.log('pickedDate', pickedDate);
 
-    // console.log('this.eventDateS', this.eventDateS.);
-    // console.log('this.eventDateS', this.eventDateS.);
     this.eventOptions.eventDate = pickedDate;
     this.setDisplayDate(pickedDate);
   }
@@ -48,8 +37,6 @@ export class EventPage implements OnInit {
     this.event = this.eventOptions.event;
 
     this.setDisplayDate(this.eventOptions.eventDate);
-    console.log('this.eventOptions.eventDate', this.eventOptions.eventDate);
-    console.log('2019-04-28T14:43:22.805+03:00');
 
     if (this.event) {
       this.isDone = this.eventOptions.event.isDone;
@@ -83,7 +70,6 @@ export class EventPage implements OnInit {
       timezone: 'UTC'
     };
     this.displayDate = date.toLocaleDateString('en-US', options);
-    console.log('this.displayDate', this.displayDate);
   }
 
   goBack() {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 
 import {DiaryEvent} from "../models/diary-event";
 import {CommonService} from "../shared/common.service";
@@ -9,7 +9,7 @@ import {ActionSheetController, AlertController, Events, NavController} from "@io
   templateUrl: './day-card.component.html',
   styleUrls: ['./day-card.component.scss'],
 })
-export class DayCardComponent implements OnInit {
+export class DayCardComponent implements OnInit, OnDestroy {
 
   constructor(
     public commonService: CommonService,
@@ -48,19 +48,16 @@ export class DayCardComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngOnDestroy() {
+    this.eventEmitter.unsubscribe('updateDayCardComponent');
+  }
+
   updateDayCardComponent(newDate) {
-    console.log('------ updateDayCardComponent from updateDayCardComponent ------');
-    console.log('this.date', this.date);
-    console.log('newDate', newDate);
     this.eventEmitter.publish('updateDayCardComponent', this.commonService.cameFromFirstDayOfWeek, newDate);
   }
 
  async showMenu(event) {
-    console.log('------ showMenu ------');
-
-    console.log('event', event);
     this.commonService.eventParams = event;
-    console.log('this.commonService.eventParams', this.commonService.eventParams);
     const actionSheet = await this.actionSheetController.create({
       header: this.commonService.eventParams.description,
       backdropDismiss: true,
@@ -112,7 +109,6 @@ export class DayCardComponent implements OnInit {
 
   prepareData() {
     console.log('------ prepareDate() ------');
-    this.commonService.addIteration();
     this.date = this.commonService.getDate(this.firstDayOfWeek, this.dayNum);
     this.events = this.commonService.eventsMap[this.date + ''] || [];
 
@@ -135,8 +131,6 @@ export class DayCardComponent implements OnInit {
           ? 'secondary'
           : 'warning'
     ;
-    console.log('this.events', this.events);
-    this.isLoaded = true;
   }
 
   switchShowEventsMode() {
@@ -144,8 +138,9 @@ export class DayCardComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log('------ ngAfterViewInit ------');
+    console.log('ngAfterViewInit');
     this.prepareData();
+    this.isLoaded = true;
   }
 
   redirectToEventPage(isCreationMode, event) {
@@ -166,19 +161,13 @@ export class DayCardComponent implements OnInit {
   }
 
   changeDate() {
-    console.log('------ changeDate ------');
-    console.log('currentDate: ' + this.date);
     let evDate = this.commonService.getPickedDate(this.eventDateS);
-    console.log('evDate', evDate);
     this.commonService.eventParams.previousEventDate = this.commonService.eventParams.eventDate;
     this.commonService.eventParams.eventDate = evDate;
     this.updateEvent(null);
   }
 
   updateEvent(event) {
-    console.log('------ markEventAsDone ------');
-    console.log('event', event);
-    console.log('this.events', this.events);
     this.commonService.processEvent(event || this.commonService.eventParams);
   }
 

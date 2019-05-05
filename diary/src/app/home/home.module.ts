@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Ionic4DatepickerModule } from
+    '@logisticinfotech/ionic4-datepicker';
 
 import { HomePage } from './home.page';
 import {DayCardComponent} from "../day-card/day-card.component";
@@ -15,6 +17,7 @@ import {WeekContainerComponent} from "../week-container/week-container.component
     FormsModule,
     IonicModule,
     SharedModule,
+    Ionic4DatepickerModule,
     RouterModule.forChild([
       {
         path: '',
@@ -27,7 +30,7 @@ import {WeekContainerComponent} from "../week-container/week-container.component
       SharedModule,
       HomePage,
       DayCardComponent,
-    WeekContainerComponent
+      WeekContainerComponent
   ],
   entryComponents: [
 
