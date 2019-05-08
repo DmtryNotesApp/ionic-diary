@@ -1,3 +1,24 @@
-.events-week {
-  background: #10dc6038;
+.my-custom-menu {
+  --width: 80%;
+}
+.dates-string {
+  font-size: smaller;
+  height: 8%;
+}
+.calendar {
+  display: none;
+}
+.li-ionic4-datePicker {
+  .modal-wrapper {
+    height: 75%;
+    width: 310px;
+    border-radius: 0px;
+    @media (min-width: 768px) {
+      width: 350px;
+      height: 65%;
+    }
+  }
+}
+.dates-container {
+  display: flex;
 }

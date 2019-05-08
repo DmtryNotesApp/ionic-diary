@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DiaryEvent} from "../models/diary-event";
-import {Events} from "@ionic/angular";
+import {Events, NavController} from "@ionic/angular";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class CommonService {
   iterations: number = 0;
 
   constructor(
-    public eventEmitter: Events
+    public eventEmitter: Events,
+    public navCtrl: NavController
   ) {
     this.setUpData();
   }
@@ -118,8 +119,34 @@ export class CommonService {
     this.eventsMap = eventsMap;
   }
 
+  getEventsMap() {
+    return this.eventsMap;
+  }
+
+  redirectToEventPage(isCreationMode, event) {
+    let eventParams = {
+      firstDayOfWeek: event.firstDayOfWeek || this.getMonday(new Date(event.eventDate)),
+      isCreationMode: isCreationMode,
+      eventDate: event.date || new Date(event.eventDate),
+      previousEventDate: event.previousEventDate || new Date(event.eventDate),
+      event: event,
+      description: event.description || '',
+      isDone: event.isDone || false,
+      comeFromEventManager: event.comeFromEventManager
+    };
+
+    console.log('eventParams', eventParams);
+    this.setEventParams(eventParams);
+
+    this.navCtrl.navigateForward('event', {
+      animated: true,
+      animationDirection: 'forward'
+    });
+  }
+
   processEvent(event) {
     console.log('------- processEvent -------');
+    console.log('event', event);
     let eventId;
 
     let date = new Date(event.eventDate);
@@ -155,9 +182,14 @@ export class CommonService {
 
       if (event.previousEventDate) {
         eventsArray = eventsArray.filter(ev => ev.id !== event.id);
-
         let targetArray = this.eventsMap[date + ''] || [];
+        if (targetArray.length > 0) {
+          targetArray = targetArray.filter(ev => ev.id !== event.id);
+        }
+
         targetArray.push(eventToUpdate);
+        console.log('eventsArray', eventsArray);
+        console.log('targetArray', targetArray);
 
         this.eventsMap[prevDate + ''] = eventsArray;
         this.eventsMap[date + ''] = targetArray;
@@ -170,12 +202,21 @@ export class CommonService {
       }
 
     }
+    console.log('datesArray', datesArray);
     this.updateDayCardComponent(datesArray);
+    if (event.comeFromEventManager) {
+      this.updateEventsManagerPage();
+    }
     this.saveEvents(this.events);
   }
 
+  updateEventsManagerPage() {
+    console.log('------ updateEventsManagerPage from Common Service ------');
+    this.eventEmitter.publish('updateEventsManagerPage');
+  }
+
   updateDayCardComponent(dateArray) {
-    console.log('------ updateDayCardComponent from Event ------');
+    console.log('------ updateDayCardComponent from Common Service ------');
     this.eventEmitter.publish('updateDayCardComponent', dateArray);
   }
 
@@ -186,6 +227,19 @@ export class CommonService {
     this.eventsMap[date + ''] = this.eventsMap[date + ''].filter(ev => ev.id !== event.id);
     this.events = this.events.filter(ev => ev.id !== event.id);
     this.saveEvents(this.events);
+    this.updateDayCardComponent([date.toDateString()]);
+  }
+
+  deleteArrayOfEvents(eventsIds) {
+    console.log('eventsIds', eventsIds);
+    console.log('this.events', this.events);
+    let arrayOfEvents = this.events.filter(ev => eventsIds.indexOf(ev.id) != -1);
+    console.log('arrayOfEvents', arrayOfEvents);
+    if (arrayOfEvents && arrayOfEvents.length > 0) {
+      for(let i = 0; i < arrayOfEvents.length; i++) {
+        this.deleteEvent(arrayOfEvents[i]);
+      }
+    }
   }
 
   saveEvents(events) {

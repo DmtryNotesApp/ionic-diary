@@ -46,7 +46,10 @@ export class DayCardComponent implements OnInit, OnDestroy {
   isLoaded: boolean = false;
   showEvents: boolean = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.prepareData();
+    this.isLoaded = true;
+  }
 
   ngOnDestroy() {
     this.eventEmitter.unsubscribe('updateDayCardComponent');
@@ -66,15 +69,13 @@ export class DayCardComponent implements OnInit, OnDestroy {
           text: 'Mark as ' + (this.commonService.eventParams.isDone ? 'Uncompleted' : 'Completed'),
           icon: 'checkmark',
           handler: () => {
-            console.log('Mark as Completed/Uncompleted clicked');
             this.commonService.eventParams.isDone = !this.commonService.eventParams.isDone;
             this.updateEvent(null);
           }
         }, {
-        text: 'Edit',
+        text: 'View/Edit',
         icon: 'settings',
         handler: () => {
-          console.log('Edit clicked');
           this.redirectToEventPage(false, this.commonService.eventParams);
           this.prepareData();
         }
@@ -82,7 +83,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
         text: 'Change Date',
         icon: 'calendar',
         handler: () => {
-          console.log('Change Date clicked');
           this.commonService.cameFromFirstDayOfWeek = this.date;
           let datePicker = document.getElementById('datePicker');
           datePicker.click();
@@ -92,7 +92,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
           role: 'destructive',
           icon: 'trash',
           handler: () => {
-            console.log('Delete clicked');
             this.showAlert(this.commonService.eventParams);
           }
         }, {
@@ -100,7 +99,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
         }
       }]
     });
@@ -108,7 +106,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
   }
 
   prepareData() {
-    console.log('------ prepareDate() ------');
     this.date = this.commonService.getDate(this.firstDayOfWeek, this.dayNum);
     this.events = this.commonService.eventsMap[this.date + ''] || [];
 
@@ -120,7 +117,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
       this.progress = 1;
       this.message = 'No events planned';
     } else {
-      this.message = this.events.length - isdone + ' of ' + this.events.length + ' events left';
+      this.message = this.events.length - isdone + ' of ' + this.events.length + ' in progress events left';
     }
     this.progressStatus =
       this.progress == 1
@@ -137,27 +134,18 @@ export class DayCardComponent implements OnInit, OnDestroy {
     this.showEvents = !this.showEvents;
   }
 
-  ngAfterViewInit() {
-    console.log('ngAfterViewInit');
-    this.prepareData();
-    this.isLoaded = true;
-  }
-
   redirectToEventPage(isCreationMode, event) {
     let eventParams = {
       firstDayOfWeek: this.firstDayOfWeek,
       isCreationMode: isCreationMode,
-      eventDate: this.date,
+      date: this.date,
       previousEventDate: event ? event.eventDate : this.date,
-      event: event
+      description: event ? event.description : '',
+      isDone: event ? event.isDone : false,
+      id: event.id
     };
 
-    this.commonService.setEventParams(eventParams);
-
-    this.navCtrl.navigateForward('event', {
-      animated: true,
-      animationDirection: 'forward'
-    });
+    this.commonService.redirectToEventPage(isCreationMode, eventParams);
   }
 
   changeDate() {
@@ -172,10 +160,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
   }
 
   deleteEvent(event) {
-    console.log('------ deleteEvent ------');
     this.commonService.deleteEvent(event);
-    this.events = this.events.filter(ev => ev.id !== event.id);
-    this.prepareData();
   }
 
   async showAlert(event) {
@@ -186,7 +171,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
         {
           text: 'Yes',
           handler: () => {
-            console.log('Confirm Okay');
             this.deleteEvent(event);
           }
         }, {
@@ -194,7 +178,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
           }
         }
       ]

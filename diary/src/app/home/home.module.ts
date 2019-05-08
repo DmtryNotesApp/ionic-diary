@@ -10,6 +10,8 @@ import { HomePage } from './home.page';
 import {DayCardComponent} from "../day-card/day-card.component";
 import {SharedModule} from "../shared/shared.module";
 import {WeekContainerComponent} from "../week-container/week-container.component";
+import {EventsManagerPage} from "../events-manager/events-manager.page";
+import {EventPageModule} from "../event/event.module";
 
 @NgModule({
   imports: [
@@ -32,8 +34,6 @@ import {WeekContainerComponent} from "../week-container/week-container.component
       DayCardComponent,
       WeekContainerComponent
   ],
-  entryComponents: [
-
-  ]
+  entryComponents: []
 })
 export class HomePageModule {}

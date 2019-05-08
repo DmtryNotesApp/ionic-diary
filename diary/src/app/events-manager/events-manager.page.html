@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="dates-string">Manage Your Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+        <ion-checkbox [(ngModel)]="allEventsMarked" slot="start" (ionChange)="markAllEvents()"></ion-checkbox>
+        <ion-buttons>
+            <ion-button (click)="deleteSelectedEvents()">
+                <ion-icon name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-label class="events-label">
+            {{numberOfEvents}} Events Created
+        </ion-label>
+        <ion-buttons slot="end">
+            <ion-button (click)="createNewEvent()">
+                <ion-icon name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <!--<ion-label>Action</ion-label>-->
+    </ion-item>
+
+    <ion-item-group *ngFor="let dateString of eventsMapKeys let i = index">
+      <ion-item-divider (click)="switchDay(i)" color="light" *ngIf="eventsMap[dateString].length > 0">
+        <ion-label class="date-string">
+          {{dateString | formatDateString}}
+        </ion-label>
+      </ion-item-divider>
+
+      <div *ngIf="switchedDays[i]">
+        <ion-item *ngFor="let event of eventsMap[dateString]">
+
+          <ion-checkbox slot="start" [(ngModel)]="markedEvents[event.id]"></ion-checkbox>
+
+          <ion-label>{{event.description}}</ion-label>
+
+            <ion-buttons>
+              <ion-button (click)="showMenu($event, event)">
+                <ion-icon slot="icon-only" name="more"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+
+        </ion-item>
+      </div>
+    </ion-item-group>
+  </ion-list>
+
+</ion-content>

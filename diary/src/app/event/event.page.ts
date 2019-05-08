@@ -19,6 +19,7 @@ export class EventPage implements OnInit {
   previousEventDate: Date;
   eventDateS: Date;
   displayDate;
+  comeFromEventManager: boolean = false;
 
   constructor(public navCtrl: NavController, public commonService: CommonService) {}
 
@@ -33,16 +34,22 @@ export class EventPage implements OnInit {
   ngOnInit() {
     console.log('------ ngOnInit ------');
     this.eventOptions = this.commonService.getEventParams();
-    this.firstDayOfWeek = this.eventOptions.firstDayOfWeek;
-    this.event = this.eventOptions.event;
+    console.log('this.eventOptions', this.eventOptions);
+    if (this.eventOptions) {
+      this.firstDayOfWeek = this.eventOptions.firstDayOfWeek;
+      this.event = this.eventOptions.event;
+      this.comeFromEventManager = this.eventOptions.comeFromEventManager;
 
-    this.setDisplayDate(this.eventOptions.eventDate);
+      this.setDisplayDate(this.eventOptions.eventDate);
 
-    if (this.event) {
-      this.isDone = this.eventOptions.event.isDone;
-      this.eventDescription = this.eventOptions.event.description;
-      this.previousEventDate = this.eventOptions.previousEventDate;
-      this.id = this.eventOptions.event.id;
+      if (this.event) {
+        if (this.eventOptions && this.eventOptions.event) {
+          this.isDone = this.eventOptions.event.isDone;
+          this.eventDescription = this.eventOptions.event.description;
+          this.id = this.eventOptions.event.id;
+        }
+        this.previousEventDate = this.eventOptions.previousEventDate;
+      }
     }
   }
 
@@ -54,7 +61,8 @@ export class EventPage implements OnInit {
       previousEventDate: this.previousEventDate,
       isDone: this.isDone,
       isCreationMode: this.eventOptions.isCreationMode,
-      id: this.id
+      id: this.id,
+      comeFromEventManager: this.comeFromEventManager
     });
     this.eventDescription = '';
     this.isDone = false;
@@ -73,10 +81,11 @@ export class EventPage implements OnInit {
   }
 
   goBack() {
-      this.navCtrl.navigateBack('home', {
-          animated: true,
-          animationDirection: 'back'
-      });
+    let url = this.comeFromEventManager ? 'events-manager' : 'home';
+    this.navCtrl.navigateBack(url, {
+        animated: true,
+        animationDirection: 'back'
+    });
   }
 
 }

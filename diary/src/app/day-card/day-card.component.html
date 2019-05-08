@@ -14,15 +14,17 @@
       </div>
     </div>
     <div class="common-day-class">
-      <ion-button ion-button round icon-only (click)="redirectToEventPage(true)">
-        <ion-icon name="add"></ion-icon>
-      </ion-button>
+      <ion-buttons>
+        <ion-button ion-button round icon-only (click)="redirectToEventPage(true)">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </div>
   </div>
 
   <div class="events-list" *ngIf="showEvents">
     <div *ngFor="let event of events">
-      <div >
+      <div>
         <div class="event-item">
           <div class="check-box-item">
             <ion-item>
@@ -38,9 +40,11 @@
           </div>
           <div class="center-align menu-button">
             <div>
-              <ion-button (click)="showMenu(event)">
-                <ion-icon name="menu"></ion-icon>
-              </ion-button>
+              <ion-buttons>
+                <ion-button (click)="showMenu(event)">
+                  <ion-icon slot="icon-only" name="more"></ion-icon>
+                </ion-button>
+              </ion-buttons>
             </div>
           </div>
         </div>
