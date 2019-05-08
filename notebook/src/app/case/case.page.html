@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="dates-string">{{displayDate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="case">
+    <div class="ion-padding">
+      <ion-textarea rows="3" class="input-description" placeholder="Enter description"
+                    [(ngModel)]="caseDescription">
+      </ion-textarea>
+      <div class="date-time">
+        <ion-item class="date">
+          <ion-label>{{displayDate}}</ion-label>
+          <ion-icon name="calendar"></ion-icon>
+          <ion-datetime
+                  display-format="none" picker-format="DD MMM, YYYY"
+                  [(ngModel)]="caseDateS" (ionChange)="changeDate()"
+          ></ion-datetime>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label>Is Done?</ion-label>
+          <ion-toggle [(ngModel)]="isFinished"></ion-toggle>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="buttons-area">
+      <div class="ion-padding buttons-div">
+        <ion-button class="button-item" ion-button round color="danger" (click)="goBack()">Cancel</ion-button>
+        <ion-button class="button-item" ion-button round color="secondary" (click)="saveCase()" >Save</ion-button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

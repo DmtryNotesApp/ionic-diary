@@ -1,0 +1,86 @@
+.day-card {
+  margin: 0.5rem 0.5rem 0px 0.5rem;
+  background-color: #ffffff9e;
+  height: 4rem;
+  display: flex;
+  width: 100%;
+  //padding: 0.4rem;
+}
+
+.common-day-class {
+  width: min-content;
+  display: flex;
+  align-items: center;
+  margin: 0 0.4rem 0 0.4rem;
+}
+.day-date {
+  width: 18%;
+  padding-right: 0.4rem;
+}
+.day-progress {
+  width: 100%;
+  font-size: small;
+  display: grid;
+}
+.day-progress-text {
+  text-align: center;
+}
+.cases-list {
+  width: 100%;
+  margin: 0px 0.5rem 0.5rem 0.5rem;
+  background: #ffffff;
+}
+.case-item {
+  display: flex;
+  border: 1px solid bisque;
+}
+.case-item-description {
+  width: 73%;
+}
+.description-text {
+  width: 11rem;
+  height: 3rem;
+  font-size: smaller;
+  overflow: scroll;
+  display: contents;
+}
+.check-box-item {
+  width: 26%;
+}
+.center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-button {
+  width: 27%;
+}
+.cases-label {
+  margin-left: 12%;
+}
+.menu {
+  width: 120px;
+  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: none;
+
+  .menu-options {
+    list-style: none;
+    padding: 10px 0;
+
+    .menu-option {
+      font-weight: 500;
+      font-size: 14px;
+      padding: 10px 40px 10px 20px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.date-picker {
+  display: none;
+}

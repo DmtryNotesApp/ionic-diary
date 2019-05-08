@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="dates-string">Manage Your Cases</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+        <ion-checkbox [(ngModel)]="allCasesMarked" slot="start" (ionChange)="markAllCases()"></ion-checkbox>
+        <ion-buttons>
+            <ion-button (click)="deleteSelectedCases()">
+                <ion-icon name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-label class="cases-label">
+            {{numberOfCases}} Cases Created
+        </ion-label>
+        <ion-buttons slot="end">
+            <ion-button (click)="createNewCase()">
+                <ion-icon name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <!--<ion-label>Action</ion-label>-->
+    </ion-item>
+
+    <ion-item-group *ngFor="let dateString of casesMapKeys let i = index">
+      <ion-item-divider (click)="switchDay(i)" color="light" *ngIf="casesMap[dateString].length > 0">
+        <ion-label class="date-string">
+          {{dateString | formatDateString}}
+        </ion-label>
+      </ion-item-divider>
+
+      <div *ngIf="switchedDays[i]">
+        <ion-item *ngFor="let case of casesMap[dateString]">
+
+          <ion-checkbox slot="start" [(ngModel)]="markedCases[case.id]"></ion-checkbox>
+
+          <ion-label>{{case.description}}</ion-label>
+
+            <ion-buttons>
+              <ion-button (click)="showMenu($event, case)">
+                <ion-icon slot="icon-only" name="more"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+
+        </ion-item>
+      </div>
+    </ion-item-group>
+  </ion-list>
+
+</ion-content>
