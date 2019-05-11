@@ -4,7 +4,7 @@
   </ion-buttons>
 
   <ion-buttons slot="secondary">
-    <ion-button (click)="changeDate()">
+    <ion-button (click)="changeDate(true, null)">
       <ion-icon slot="icon-only" name="calendar"></ion-icon>
     </ion-button>
   </ion-buttons>
@@ -20,17 +20,21 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item (click)="closeMenu()">
+      <ion-item (click)="goHome()">
         <ion-icon slot="start" name="home"></ion-icon>
         Home
       </ion-item>
-      <ion-item (click)="changeDate()">
+      <ion-item (click)="changeDate(false, null)">
         <ion-icon slot="start" name="calendar"></ion-icon>
         Calendar
       </ion-item>
       <ion-item (click)="openCasesManager()">
-        <ion-icon slot="start" name="browsers"></ion-icon>
+        <ion-icon slot="start" name="appstore"></ion-icon>
         Manage Cases
+      </ion-item>
+      <ion-item (click)="openStandingTasksPage()">
+        <ion-icon slot="start" name="archive"></ion-icon>
+        Standing Tasks
       </ion-item>
     </ion-list>
   </ion-content>

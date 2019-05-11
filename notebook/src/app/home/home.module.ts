@@ -10,8 +10,6 @@ import { HomePage } from './home.page';
 import {DayCardComponent} from "../day-card/day-card.component";
 import {SharedModule} from "../shared/shared.module";
 import {WeekContainerComponent} from "../week-container/week-container.component";
-import {CasesManagerPage} from "../cases-manager/cases-manager.page";
-import {CasePageModule} from "../case/case.module";
 
 @NgModule({
   imports: [

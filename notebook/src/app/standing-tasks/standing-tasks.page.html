@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Standing Tasks
+    </ion-title>
+
+    <div slot="end" class="reorder-button">
+      <a (click)="switchReorderState()" *ngIf="areChangesDisabled">
+        Change
+      </a>
+      <a (click)="switchReorderState(true)" *ngIf="!areChangesDisabled">
+        Done
+      </a>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-reorder-group [disabled]="areChangesDisabled">
+
+    <ion-item *ngFor="let task of standingTasks; let i= index">
+      <ion-textarea
+        rows="3"
+        maxlength="115"
+        [(ngModel)]="task.description"
+        [readonly]="areChangesDisabled"
+      >
+      </ion-textarea>
+      <ion-reorder slot="start"></ion-reorder>
+      <ion-buttons slot="end" *ngIf="!areChangesDisabled">
+        <ion-button (click)="deleteTask(task.priority)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    </ion-reorder-group>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="add-task-button">
+      <ion-button round="true" large shape="round" (click)="presentTaskPrompt()">
+        Add New Task
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

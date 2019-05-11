@@ -20,10 +20,11 @@ export class HomePage implements OnInit, OnDestroy{
   firstDaysOfWeeks: Date[] = [];
   cases: any;
 
-  defaultSlide: number = 4;
+  defaultSlide: number = 12;
 
   slideOpts = {
     initialSlide: this.defaultSlide,
+    allowTouchMove: false,
     speed: 400
   };
 
@@ -88,6 +89,7 @@ export class HomePage implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.prepareData();
+    this.slideOpts.allowTouchMove = true;
   }
   ngOnDestroy() {
     this.eventEmitter.unsubscribe('updateHomePage');
@@ -139,21 +141,33 @@ export class HomePage implements OnInit, OnDestroy{
 
       this.slides.getActiveIndex().then(slideNumber => {
         this.setDatesToDisplay(slideNumber);
+
+        if ((
+          slideNumber + 1 == this.firstDaysOfWeeks.length) ||
+          slideNumber == 0
+        ) {
+          this.slideOpts.allowTouchMove = false;
+          this.changeDate(true, slideNumber);
+        }
       });
     }
   }
 
-  async changeDate() {
-    this.closeMenu();
+  async changeDate(leaveMenu, slideNumber) {
+    if (!leaveMenu) {
+      this.closeMenu();
+    }
     const datePickerModal = await this.modalCtrl.create({
       component: Ionic4DatepickerModalComponent,
       cssClass: 'li-ionic4-datePicker',
       componentProps: {'objConfig': this.datePickerObj}
     });
     await datePickerModal.present();
+    if (slideNumber != null) {
+      await this.eventEmitter.publish('updateHomePage', [this.firstDaysOfWeeks[slideNumber]]);
+    }
     datePickerModal.onDidDismiss()
       .then((data) => {
-        // this.isModalOpen = false;
         this.myDate = data.data.date;
         if (this.myDate != 'Invalid date') {
           this.eventEmitter.publish('updateHomePage', [new Date(this.myDate)]);
@@ -163,16 +177,25 @@ export class HomePage implements OnInit, OnDestroy{
 
   closeMenu() {
     this.menu.toggle();
+  }
 
+  goHome() {
     this.eventEmitter.publish('updateHomePage', [new Date()]);
+    this.closeMenu();
   }
 
   async openCasesManager() {
-    this.closeMenu();
-
     this.navCtrl.navigateForward('cases-manager', {
       animated: true,
       animationDirection: 'forward'
     });
+    this.closeMenu();
+  }
+  async openStandingTasksPage() {
+    this.navCtrl.navigateForward('standing-tasks', {
+      animated: true,
+      animationDirection: 'forward'
+    });
+    this.closeMenu();
   }
 }

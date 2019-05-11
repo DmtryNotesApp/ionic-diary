@@ -33,7 +33,7 @@ export class CommonService {
 
   setFirstDaysArray() {
     this.firstDaysOfWeeks = [];
-    for (let i = -4; i < 5; i++) {
+    for (let i = -12; i < 13; i++) {
       this.firstDaysOfWeeks.push(this.addDays(7 * i));
     }
   }
@@ -228,6 +228,16 @@ export class CommonService {
 
   saveCases(cases) {
     localStorage.setItem('plannedCases', JSON.stringify(cases));
+  }
+
+  saveStandingTasks(tasks) {
+    localStorage.setItem('standingTasks', JSON.stringify(tasks));
+  }
+
+  getStandingTasks() {
+    let standingTasksString: string = localStorage.getItem('standingTasks');
+    let standingTasks = standingTasksString ? JSON.parse(standingTasksString) : [];
+    return standingTasks;
   }
 
   customAlertOptions: any = {
