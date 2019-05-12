@@ -5,8 +5,11 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>
+    <ion-title *ngIf="areChangesDisabled">
       Standing Tasks
+    </ion-title>
+    <ion-title *ngIf="!areChangesDisabled">
+      Change Records
     </ion-title>
 
     <div slot="end" class="reorder-button">
@@ -27,9 +30,17 @@
     <ion-reorder-group [disabled]="areChangesDisabled">
 
     <ion-item *ngFor="let task of standingTasks; let i= index">
+      <p class="overflow-visible" *ngIf="areChangesDisabled">
+        {{task.description}}
+      </p>
+
       <ion-textarea
+        class="overflow-visible"
+        *ngIf="!areChangesDisabled"
+        style="text-align: center;"
+        #myInput id="myInput"
+        (keyup)="resize($event)"
         rows="3"
-        maxlength="115"
         [(ngModel)]="task.description"
         [readonly]="areChangesDisabled"
       >

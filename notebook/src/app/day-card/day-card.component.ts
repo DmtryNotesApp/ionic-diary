@@ -112,12 +112,12 @@ export class DayCardComponent implements OnInit, OnDestroy {
     let isFinished: number = this.cases.filter(caseEvent => caseEvent.isFinished).length;
     this.progress = isFinished / this.cases.length;
     if (this.progress == 1) {
-      this.message = 'None of ' + this.cases.length + ' active cases left'
+      this.message = 'None active of ' + this.cases.length + ' cases left'
     } else if (this.cases.length == 0) {
       this.progress = 1;
       this.message = 'No cases planned';
     } else {
-      this.message = this.cases.length - isFinished + ' of ' + this.cases.length + ' active cases left';
+      this.message = this.cases.length - isFinished + ' active of ' + this.cases.length + ' cases left';
     }
     this.progressStatus =
       this.progress == 1

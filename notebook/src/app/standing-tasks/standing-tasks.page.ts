@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AlertController} from "@ionic/angular";
 import {CommonService} from "../shared/common.service";
 import {StandingTask} from "../models/standing-task";
@@ -64,14 +64,12 @@ export class StandingTasksPage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           handler: data => {
-            console.log('Cancel clicked');
           }
         },
         {
           text: 'Ok',
           handler: description => {
             let [task] = description;
-            console.log(task);
             if (task) {
               this.addStandingTask(task);
             }
@@ -83,13 +81,18 @@ export class StandingTasksPage implements OnInit {
   }
 
   switchReorderState(needToSave) {
-    console.log('switchReorderState');
     this.areChangesDisabled = !this.areChangesDisabled;
 
     if (needToSave) {
-      console.log('save tasks');
       this.commonService.saveStandingTasks(this.standingTasks);
     }
+  }
+
+  resize(event) {
+    let textArea = event.target;
+    textArea.style.overflow = 'hidden';
+    textArea.style.height = 'auto';
+    textArea.style.height = (textArea.scrollHeight + 23) + "px";
   }
 
 }
