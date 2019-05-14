@@ -20,7 +20,7 @@ export class HomePage implements OnInit, OnDestroy{
   firstDaysOfWeeks: Date[] = [];
   cases: any;
 
-  defaultSlide: number = 12;
+  defaultSlide: number = 4;
 
   slideOpts = {
     initialSlide: this.defaultSlide,
@@ -94,10 +94,14 @@ export class HomePage implements OnInit, OnDestroy{
   ngOnDestroy() {
     this.eventEmitter.unsubscribe('updateHomePage');
   }
+  clickMenu() {
+    this.menu.open('first')
+  }
 
   setDatesToDisplay(slideNumber) {
     let mondayDate = this.firstDaysOfWeeks[slideNumber];
-    this.mondayString = mondayDate.toDateString();
+    let tmpMondayArray = mondayDate.toDateString().split(' ').slice(1);
+    this.mondayString = tmpMondayArray.join(' ');
     let tempDateMls = mondayDate;
     let tempDate = new Date(
       mondayDate.getFullYear(),
@@ -105,7 +109,8 @@ export class HomePage implements OnInit, OnDestroy{
       mondayDate.getDate()
     );
     tempDate.setDate(tempDate.getDate() + 6);
-    this.sundayString = tempDate.toDateString();
+    let tmpSundayArray = tempDate.toDateString().split(' ').slice(1);
+    this.sundayString = tmpSundayArray.join(' ');
   }
 
   prepareData() {

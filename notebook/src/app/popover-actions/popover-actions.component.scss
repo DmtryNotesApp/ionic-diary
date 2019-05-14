@@ -1,0 +1,49 @@
+ion-list {
+  height: 100%;
+  margin: auto;
+  
+  @media (min-height: 600px) {
+    height: 7rem;
+    width: 13rem;
+  }
+  @media (min-height: 700px) {
+    height: 7rem;
+    width: 14rem;
+  }
+  @media (min-height: 800px) {
+    height: 8rem;
+    width: 17rem;
+  }
+  @media (min-height: 1000px) {
+    height: 12rem;
+    width: 21rem;
+  }
+}
+.item-action {
+  height: 50%;
+
+  @media (min-height: 600px) {
+    height: 3rem;
+    width: 13rem;
+    font-size: large;
+  }
+  @media (min-height: 700px) {
+    height: 3.5rem;
+    width: 14rem;
+  }
+  @media (min-height: 800px) {
+    height: 4rem;
+    width: 17rem;
+    font-size: larger;
+  }
+  @media (min-height: 1000px) {
+    height: 6rem;
+    width: 21rem;
+    font-size: x-large;
+  }
+}
+.icon-class {
+  @media (min-height: 1000px) {
+    height: 6rem;
+  }
+}

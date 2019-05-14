@@ -1,18 +1,20 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="tool-bar-class">
 
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" class="back-button"></ion-icon>
+      </ion-button>
     </ion-buttons>
 
-    <ion-title *ngIf="areChangesDisabled">
+    <ion-title *ngIf="areChangesDisabled" class="header-string">
       Standing Tasks
     </ion-title>
-    <ion-title *ngIf="!areChangesDisabled">
+    <ion-title *ngIf="!areChangesDisabled" class="header-string">
       Change Records
     </ion-title>
 
-    <div slot="end" class="reorder-button">
+    <div slot="end" class="reorder-button header-string">
       <a (click)="switchReorderState()" *ngIf="areChangesDisabled">
         Change
       </a>
@@ -29,8 +31,8 @@
   <ion-list>
     <ion-reorder-group [disabled]="areChangesDisabled">
 
-    <ion-item *ngFor="let task of standingTasks; let i= index">
-      <p class="overflow-visible" *ngIf="areChangesDisabled">
+    <ion-item *ngFor="let task of standingTasks; let i = index">
+      <p class="overflow-visible task-item" *ngIf="areChangesDisabled">
         {{task.description}}
       </p>
 
@@ -45,10 +47,10 @@
         [readonly]="areChangesDisabled"
       >
       </ion-textarea>
-      <ion-reorder slot="start"></ion-reorder>
+      <ion-reorder slot="start" class="item-button"></ion-reorder>
       <ion-buttons slot="end" *ngIf="!areChangesDisabled">
-        <ion-button (click)="deleteTask(task.priority)">
-          <ion-icon name="trash"></ion-icon>
+        <ion-button (click)="preventClosure(task)">
+          <ion-icon name="trash" class="item-button"></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-item>
@@ -58,10 +60,10 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer class="tool-bar-class">
   <ion-toolbar>
     <div class="add-task-button">
-      <ion-button round="true" large shape="round" (click)="presentTaskPrompt()">
+      <ion-button round="true" large shape="round" class="add-button-class" (click)="presentTaskPrompt()">
         Add New Task
       </ion-button>
     </div>

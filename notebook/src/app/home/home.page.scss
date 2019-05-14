@@ -1,12 +1,120 @@
+ion-toolbar {
+  min-height: 4rem;
+  justify-content: center;
+  display: flex;
+
+  @media (min-height: 700px) {
+    min-height: 5rem;
+  }
+  @media (min-height: 1000px) {
+    min-height: 6rem;
+  }
+  @media (min-height: 1200px) {
+    min-height: 7rem;
+  }
+}
+.slyde-styles {
+  height: auto;
+}
+
+.week-container {
+  height: 100%;
+  width: 100%;
+}
 .my-custom-menu {
   --width: 80%;
 }
-.dates-string {
+.dates-header-string {
   font-size: smaller;
-  height: 8%;
+  height: 100%;
+  width: 106%;
+  text-align: center;
+
+  @media (min-height: 600px) {
+    font-size: medium;
+  }
+  @media (min-height: 800px) {
+    font-size: large;
+  }
+  @media (min-height: 1000px) {
+    font-size: x-large;
+  }
+  @media (min-height: 1200px) {
+    font-size: xx-large;
+  }
+}
+.header-button {
+  @media (min-height: 500px) {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+  @media (min-height: 600px) {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  @media (min-height: 700px) {
+    height: 2rem;
+    width: 2rem;
+  }
+  @media (min-height: 1000px) {
+    height: 3rem;
+    width: 3rem;
+  }
+  @media (min-height: 1200px) {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 .calendar {
   display: none;
+}
+.menu-item {
+  @media (min-height: 600px) {
+    height: 4rem;
+    font-size: larger;
+  }
+  @media (min-height: 800px) {
+    height: 5rem;
+    font-size: larger;
+  }
+  @media (min-height: 1000px) {
+    height: 6rem;
+    font-size: x-large;
+  }
+  @media (min-height: 1200px) {
+    height: 7rem;
+    font-size: xx-large;
+  }
+}
+.first-menu-element {
+  @media (min-height: 600px) {
+    margin-top: 1rem;
+  }
+  @media (min-height: 800px) {
+    margin-top: 2rem;
+  }
+  @media (min-height: 1000px) {
+    margin-top: 3rem;
+  }
+  @media (min-height: 1200px) {
+    margin-top: 4rem;
+  }
+}
+.menu-title {
+  width: auto;
+
+  @media (min-height: 600px) {
+    font-size: larger;
+  }
+  @media (min-height: 800px) {
+    font-size: x-large;
+  }
+  @media (min-height: 1000px) {
+    font-size: x-large;
+  }
+  @media (min-height: 1200px) {
+    font-size: x-large;
+  }
 }
 .li-ionic4-datePicker {
   .modal-wrapper {

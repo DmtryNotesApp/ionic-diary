@@ -1,10 +1,30 @@
+.day-card-container {
+  min-height: 13%;
+}
 .day-card {
   margin: 0.5rem 0.5rem 0px 0.5rem;
   background-color: #ffffff9e;
-  height: 4rem;
+  height: 100%;
   display: flex;
   width: 100%;
-  //padding: 0.4rem;
+  @media (min-height: 600px) {
+    height: 4.5rem;
+  }
+  @media (min-height: 700px) {
+    height: 5rem;
+  }
+  @media (min-height: 800px) {
+    height: 5.9rem;
+  }
+  @media (min-height: 900px) {
+    height: 6.5rem;
+  }
+  @media (min-height: 1000px) {
+    height: 7.5rem;
+  }
+  @media (min-height: 1200px) {
+    height: 9.5rem;
+  }
 }
 
 .common-day-class {
@@ -16,6 +36,31 @@
 .day-date {
   width: 18%;
   padding-right: 0.4rem;
+
+  @media (min-height: 1000px) {
+    font-size: x-large;
+  }
+  @media (min-height: 1200px) {
+    font-size: xx-large;
+  }
+}
+.add-button {
+  @media (min-height: 600px) {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  @media (min-height: 700px) {
+    height: 2rem;
+    width: 2rem;
+  }
+  @media (min-height: 1000px) {
+    height: 3rem;
+    width: 3rem;
+  }
+  @media (min-height: 1200px) {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 .day-progress {
   width: 100%;
@@ -24,6 +69,19 @@
 }
 .day-progress-text {
   text-align: center;
+
+  @media (min-height: 500px) {
+    font-size: medium;
+  }
+  @media (min-height: 800px) {
+    font-size: large;
+  }
+  @media (min-height: 1000px) {
+    font-size: x-large;
+  }
+  @media (min-height: 1200px) {
+    font-size: xx-large;
+  }
 }
 .cases-list {
   width: 100%;
@@ -33,16 +91,57 @@
 .case-item {
   display: flex;
   border: 1px solid bisque;
+  
+  @media (min-height: 500px) {
+    height: 4rem;
+  }
+  @media (min-height: 800px) {
+    height: 6rem;
+  }
+  @media (min-height: 1000px) {
+    height: 4rem;
+  }
+}
+.toggle-class {
+  @media (min-height: 700px) {
+    margin-top: 9%;
+  }
+  @media (min-height: 800px) {
+    margin-top: 36%;
+  }
+  @media (min-height: 1000px) {
+    margin-top: 18%;
+  }
+  @media (min-height: 1200px) {
+    margin-top: 12%;
+  }
+  @media (min-height: 1000px) and (min-width: 1200px) {
+    margin-top: 9%;
+  }
 }
 .case-item-description {
   width: 73%;
+  line-height: 1rem;
+  position: relative;
 }
 .description-text {
   width: 11rem;
   height: 3rem;
-  font-size: smaller;
+  font-size: inherit;
   overflow: scroll;
-  display: contents;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 52%;
+  margin: auto;
+
+  @media (min-height: 1000px) {
+    font-size: x-large;
+  }
 }
 .check-box-item {
   width: 26%;

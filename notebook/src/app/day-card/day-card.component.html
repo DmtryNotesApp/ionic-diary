@@ -1,4 +1,4 @@
-<div>
+<div class="day-card-container">
   <div class="day-card" (click)="switchShowCasesMode()">
     <div class="common-day-class day-date">
       <i>
@@ -7,7 +7,7 @@
     </div>
     <div class="common-day-class day-progress">
       <div class="day-progress-text" *ngIf="isLoaded">
-        {{message}}
+          {{message}}
       </div>
       <div>
         <ion-progress-bar color="{{progressStatus}}" value="{{progress}}" *ngIf="isLoaded"></ion-progress-bar>
@@ -15,8 +15,8 @@
     </div>
     <div class="common-day-class">
       <ion-buttons>
-        <ion-button ion-button round icon-only (click)="redirectToCasePage(true)">
-          <ion-icon name="add"></ion-icon>
+        <ion-button ion-button round icon-only (click)="redirectToCasePage(true, null)">
+          <ion-icon name="add" large class="add-button"></ion-icon>
         </ion-button>
       </ion-buttons>
     </div>
@@ -28,7 +28,7 @@
         <div class="case-item">
           <div class="check-box-item">
             <ion-item>
-              <ion-toggle color="primary" slot="start" [(ngModel)]="case.isFinished" (ionChange)="updateCase(case)"></ion-toggle>
+              <ion-toggle color="primary" slot="start" [(ngModel)]="case.isFinished" (ionChange)="updateCase(case)" class="toggle-class"></ion-toggle>
             </ion-item>
           </div>
           <div class="case-item-description center-align">
@@ -42,7 +42,7 @@
             <div>
               <ion-buttons>
                 <ion-button (click)="showMenu(case)">
-                  <ion-icon slot="icon-only" name="more"></ion-icon>
+                  <ion-icon slot="icon-only" name="more" style="margin-right: 10%;"></ion-icon>
                 </ion-button>
               </ion-buttons>
             </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonService} from "../shared/common.service";
-import {AlertController, Events, PopoverController} from "@ionic/angular";
+import {AlertController, Events, NavController, PopoverController} from "@ionic/angular";
 import {PopoverActionsComponent} from "../popover-actions/popover-actions.component";
 
 @Component({
@@ -22,7 +22,8 @@ export class CasesManagerPage implements OnInit {
     public commonService: CommonService,
     public alertController: AlertController,
     public eventEmitter: Events,
-    public popoverController: PopoverController
+    public popoverController: PopoverController,
+    public navCtrl: NavController
   ) {
     let self = this;
     this.eventEmitter.subscribe('updateCasesManagerPage', function eventHandler() {
@@ -149,5 +150,13 @@ export class CasesManagerPage implements OnInit {
       translucent: true
     });
     return await popover.present();
+  }
+
+  goBack() {
+    let url = 'home';
+    this.navCtrl.navigateBack(url, {
+      animated: true,
+      animationDirection: 'back'
+    });
   }
 }

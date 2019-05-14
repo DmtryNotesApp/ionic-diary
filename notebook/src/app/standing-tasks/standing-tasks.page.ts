@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AlertController} from "@ionic/angular";
+import {AlertController, NavController} from "@ionic/angular";
 import {CommonService} from "../shared/common.service";
 import {StandingTask} from "../models/standing-task";
 
@@ -12,6 +12,7 @@ export class StandingTasksPage implements OnInit {
 
   constructor(
     public alertCtrl: AlertController,
+    public navCtrl: NavController,
     public commonService: CommonService
   ) { }
 
@@ -79,6 +80,28 @@ export class StandingTasksPage implements OnInit {
     });
     await alert.present();
   }
+  async preventClosure(task) {
+    let alert = await this.alertCtrl.create({
+      header: 'Are you sure you want to delete the task?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Ok',
+          handler: data => {
+            if (task) {
+              this.deleteTask(task.priority);
+            }
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
 
   switchReorderState(needToSave) {
     this.areChangesDisabled = !this.areChangesDisabled;
@@ -93,6 +116,14 @@ export class StandingTasksPage implements OnInit {
     textArea.style.overflow = 'hidden';
     textArea.style.height = 'auto';
     textArea.style.height = (textArea.scrollHeight + 23) + "px";
+  }
+
+  goBack() {
+    let url = 'home';
+    this.navCtrl.navigateBack(url, {
+      animated: true,
+      animationDirection: 'back'
+    });
   }
 
 }

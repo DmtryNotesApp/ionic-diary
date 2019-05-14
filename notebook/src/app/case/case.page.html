@@ -1,7 +1,9 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="case-header">
+  <ion-toolbar class="case-header">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" class="back-button"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title class="dates-string">{{displayDate}}</ion-title>
   </ion-toolbar>
@@ -9,14 +11,14 @@
 
 <ion-content>
   <div class="case">
-    <div class="ion-padding">
-      <ion-textarea rows="3" class="input-description" placeholder="Enter description"
+    <div class="ion-padding case">
+      <ion-textarea rows="3" class="input-description input-element" placeholder="Enter description"
                     [(ngModel)]="caseDescription">
       </ion-textarea>
       <div class="date-time">
         <ion-item class="date">
-          <ion-label>{{displayDate}}</ion-label>
-          <ion-icon name="calendar"></ion-icon>
+          <ion-label class="input-label">{{displayDate}}</ion-label>
+          <ion-icon name="calendar" slot="end" class="back-button"></ion-icon>
           <ion-datetime
                   display-format="none" picker-format="DD MMM, YYYY"
                   [(ngModel)]="caseDateS" (ionChange)="changeDate()"
@@ -24,8 +26,8 @@
         </ion-item>
       </div>
       <div>
-        <ion-item>
-          <ion-label>Is Done?</ion-label>
+        <ion-item class="input-element">
+          <ion-label class="input-label">Is Done?</ion-label>
           <ion-toggle [(ngModel)]="isFinished"></ion-toggle>
         </ion-item>
       </div>
@@ -33,8 +35,8 @@
   </div>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
+<ion-footer class="case-footer">
+  <ion-toolbar class="case-footer">
     <div class="buttons-area">
       <div class="ion-padding buttons-div">
         <ion-button class="button-item" ion-button round color="danger" (click)="goBack()">Cancel</ion-button>

@@ -1,3 +1,154 @@
+ion-toolbar {
+  min-height: 4rem;
+  justify-content: center;
+  display: flex;
+
+  @media (min-height: 700px) {
+    min-height: 5rem;
+  }
+  @media (min-height: 1000px) {
+    min-height: 6rem;
+  }
+  @media (min-height: 1200px) {
+    min-height: 7rem;
+  }
+}
+.header-label {
+  text-align: center;
+}
+.header-string {
+  text-align: center;
+  margin-right: 12%;
+
+  @media (min-height: 600px) {
+    font-size: larger;
+  }
+  @media (min-height: 800px) {
+    font-size: x-large;
+  }
+  @media (min-height: 1000px) {
+    font-size: xx-large;
+  }
+  @media (min-height: 1200px) {
+    font-size: xx-large;
+  }
+}
+.back-button {
+  @media (min-height: 500px) {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+  @media (min-height: 600px) {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  @media (min-height: 700px) {
+    height: 2rem;
+    width: 2rem;
+  }
+  @media (min-height: 1000px) {
+    height: 3rem;
+    width: 3rem;
+  }
+  @media (min-height: 1200px) {
+    height: 4rem;
+    width: 4rem;
+  }
+}
 .date-string {
   font-size: larger;
+
+  @media (min-height: 700px) {
+    font-size: larger;
+  }
+  @media (min-height: 1000px) {
+    font-size: x-large;
+  }
+  @media (min-height: 1200px) {
+    font-size: xx-large;
+  }
+}
+.case-item-icon {
+  margin-bottom: 3%;
+
+  @media (min-height: 500px) {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+  @media (min-height: 700px) and (max-width: 900px) {
+    height: 2rem;
+    width: 2rem;
+    margin-top: 2%;
+  }
+  @media (min-height: 700px) and (min-width: 900px) {
+    margin-bottom: 0px;
+  }
+  @media (min-height: 800px) and (max-width: 800px) {
+    margin-bottom: 3%;
+  }
+  @media (min-height: 1000px) {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  @media (min-height: 1000px) and (min-width: 1200px) {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-top: -0.3%;
+  }
+  @media (min-height: 1200px) {
+    height: 3rem;
+    width: 3rem;
+    margin-top: -0.5%;
+  }
+}
+.buttons-class {
+  margin-bottom: 3%;
+  margin-right: 0px;
+
+  @media (min-height: 700px) and (min-width: 700px) {
+    margin-bottom: 0px;
+  }
+}
+.case-item {
+  margin-left: 0.5rem;
+  padding: 1%;
+
+  @media (min-height: 500px) {
+    height: 2rem;
+    font-size: medium;
+  }
+  @media (min-height: 700px) {
+    height: 2rem;
+    font-size: large;
+  }
+  @media (min-height: 1000px) {
+    height: 3rem;
+    font-size: larger;
+  }
+  @media (min-height: 1200px) {
+    height: 4rem;
+    font-size: x-large;
+  }
+  @media (min-height: 1300px) {
+    height: 4rem;
+    font-size: xx-large;
+  }
+}
+.case-item-container {
+  @media (min-height: 500px) {
+    height: 3.3rem;
+    font-size: large;
+  }
+  @media (min-height: 700px) {
+    height: 3rem;
+  }
+  @media (min-height: 700px) and (min-width: 400px) {
+    font-size: larger;
+  }
+  @media (min-height: 1000px) {
+    height: 4rem;
+  }
+  @media (min-height: 1200px) {
+    height: 5rem;
+  }
 }

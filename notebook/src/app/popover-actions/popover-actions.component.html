@@ -1,14 +1,12 @@
 <ion-list>
-  <ion-item (click)="changeCase()">
-    <ion-icon slot="start" name="settings"></ion-icon>
-    <ion-label>
+  <ion-item (click)="changeCase()" class="item-action">
+    <ion-icon slot="start" name="settings" class="icon-class"></ion-icon>
+    <p>
       View/Edit
-    </ion-label>
+    </p>
   </ion-item>
-  <ion-item (click)="showAlert()">
-    <ion-icon slot="start" name="trash"></ion-icon>
-    <ion-label>
-      Delete
-    </ion-label>
+  <ion-item (click)="showAlert()" class="item-action">
+    <ion-icon slot="start" name="trash" class="icon-class"></ion-icon>
+      <p>Delete</p>
   </ion-item>
 </ion-list>

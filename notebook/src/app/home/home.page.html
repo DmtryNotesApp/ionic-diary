@@ -1,38 +1,43 @@
 <ion-toolbar>
   <ion-buttons slot="start">
-    <ion-menu-button autoHide="false"></ion-menu-button>
-  </ion-buttons>
-
-  <ion-buttons slot="secondary">
-    <ion-button (click)="changeDate(true, null)">
-      <ion-icon slot="icon-only" name="calendar"></ion-icon>
+    <ion-menu-button autoHide="true" class="header-button" style="display: none" id="menuButton"></ion-menu-button>
+    <ion-button (click)="clickMenu()">
+      <ion-icon name="menu" class="header-button"></ion-icon>
     </ion-button>
   </ion-buttons>
-  <ion-title class="dates-string">{{mondayString}} - {{sundayString}}</ion-title>
+
+  <ion-title class="dates-header-string">{{mondayString}} - {{sundayString}}</ion-title>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="changeDate(true, null)">
+      <ion-icon slot="icon-only" name="calendar" class="header-button"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
 </ion-toolbar>
 
 
-<ion-menu side="start" menuId="first">
+<ion-menu style="z-index: inherit;" side="start" menuId="first">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Notes Menu</ion-title>
+      <ion-title class="menu-title">Notes Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item (click)="goHome()">
+      <ion-item class="menu-item first-menu-element" (click)="goHome()">
         <ion-icon slot="start" name="home"></ion-icon>
         Home
       </ion-item>
-      <ion-item (click)="changeDate(false, null)">
+      <ion-item class="menu-item" (click)="changeDate(false, null)">
         <ion-icon slot="start" name="calendar"></ion-icon>
         Calendar
       </ion-item>
-      <ion-item (click)="openCasesManager()">
+      <ion-item class="menu-item" (click)="openCasesManager()">
         <ion-icon slot="start" name="appstore"></ion-icon>
         Manage Cases
       </ion-item>
-      <ion-item (click)="openStandingTasksPage()">
+      <ion-item class="menu-item" (click)="openStandingTasksPage()">
         <ion-icon slot="start" name="archive"></ion-icon>
         Standing Tasks
       </ion-item>
@@ -44,11 +49,11 @@
 
 <ion-content>
 
-  <ion-slides #slides (ionSlideDidChange)="slideChanged()" pager="false" [options]="slideOpts">
+  <ion-slides #slides (ionSlideDidChange)="slideChanged(false)" pager="false" [options]="slideOpts" style="height: 100%;">
 
-    <ion-slide *ngFor="let firstDayOfCurrentWeek of firstDaysOfWeeks let i = index">
+    <ion-slide class="slide-styles" *ngFor="let firstDayOfCurrentWeek of firstDaysOfWeeks let i = index">
 
-      <app-week-container [firstDayOfWeek]="firstDayOfCurrentWeek">
+      <app-week-container class="week-container" [firstDayOfWeek]="firstDayOfCurrentWeek">
       </app-week-container>
 
     </ion-slide>

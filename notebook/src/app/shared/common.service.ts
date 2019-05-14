@@ -33,7 +33,7 @@ export class CommonService {
 
   setFirstDaysArray() {
     this.firstDaysOfWeeks = [];
-    for (let i = -12; i < 13; i++) {
+    for (let i = -4; i < 5; i++) {
       this.firstDaysOfWeeks.push(this.addDays(7 * i));
     }
   }
