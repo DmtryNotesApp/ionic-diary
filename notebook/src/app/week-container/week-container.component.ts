@@ -13,6 +13,8 @@ export class WeekContainerComponent implements OnInit {
 
   @Input()
   firstDayOfWeek: Date = new Date();
+  @Input()
+  slideNumber: number;
 
   constructor(
 

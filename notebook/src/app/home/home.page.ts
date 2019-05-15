@@ -28,6 +28,9 @@ export class HomePage implements OnInit, OnDestroy{
     speed: 400
   };
 
+  surroundSlidesLoaded: boolean = false;
+  currentSlide: number = 4;
+
   mondayString: string;
   sundayString: string;
 
@@ -79,15 +82,18 @@ export class HomePage implements OnInit, OnDestroy{
   ) {
     let self = this;
     eventEmitter.subscribe('updateHomePage', function(args) {
+      console.log('updateHomePage');
       let date: Date = args[0];
       commonService.actualDate = date;
       commonService.setUpData();
-      self.prepareData();
       self.slideChanged(true);
+      self.prepareData();
+      console.log(new Date().getTime());
     });
   }
 
   ngOnInit() {
+    console.log('home page ngOnInit');
     this.prepareData();
     this.slideOpts.allowTouchMove = true;
   }
@@ -114,6 +120,7 @@ export class HomePage implements OnInit, OnDestroy{
   }
 
   prepareData() {
+    console.log('prepareData');
     this.firstDayOfWeek = this.commonService.getFirstDayOfWeek();
     this.firstDaysOfWeeks = this.commonService.getFirstDaysOfWeeks();
 
@@ -131,6 +138,8 @@ export class HomePage implements OnInit, OnDestroy{
         let casesArray = casesMap[date + ''] || [];
         casesArray.push(this.cases[i]);
         casesMap[date + ''] = casesArray;
+
+        this.eventEmitter.publish('loadSlide', this.currentSlide, true);
       }
     }
 
@@ -146,6 +155,7 @@ export class HomePage implements OnInit, OnDestroy{
 
       this.slides.getActiveIndex().then(slideNumber => {
         this.setDatesToDisplay(slideNumber);
+        this.currentSlide = slideNumber;
 
         if ((
           slideNumber + 1 == this.firstDaysOfWeeks.length) ||
@@ -155,6 +165,7 @@ export class HomePage implements OnInit, OnDestroy{
           this.changeDate(true, slideNumber);
         }
       });
+      this.surroundSlidesLoaded = false;
     }
   }
 
@@ -168,18 +179,25 @@ export class HomePage implements OnInit, OnDestroy{
       componentProps: {'objConfig': this.datePickerObj}
     });
     await datePickerModal.present();
-    if (slideNumber != null) {
+    /*if (slideNumber != null) {
       await this.eventEmitter.publish('updateHomePage', [this.firstDaysOfWeeks[slideNumber]]);
-    }
+    }*/
     datePickerModal.onDidDismiss()
       .then((data) => {
         this.myDate = data.data.date;
         if (this.myDate != 'Invalid date') {
+          console.log(new Date().getTime());
           this.eventEmitter.publish('updateHomePage', [new Date(this.myDate)]);
         }
       });
   }
 
+  startChangeSlider() {
+    if (!this.surroundSlidesLoaded) {
+      this.surroundSlidesLoaded = true;
+      this.eventEmitter.publish('loadSlide', this.currentSlide, false);
+    }
+  }
   closeMenu() {
     this.menu.toggle();
   }

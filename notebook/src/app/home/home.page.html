@@ -49,11 +49,16 @@
 
 <ion-content>
 
-  <ion-slides #slides (ionSlideDidChange)="slideChanged(false)" pager="false" [options]="slideOpts" style="height: 100%;">
+  <ion-slides #slides
+              (ionSlideDrag)="startChangeSlider()"
+              (ionSlideDidChange)="slideChanged(false)"
+              pager="false" [options]="slideOpts"
+              style="height: 100%;"
+  >
 
     <ion-slide class="slide-styles" *ngFor="let firstDayOfCurrentWeek of firstDaysOfWeeks let i = index">
 
-      <app-week-container class="week-container" [firstDayOfWeek]="firstDayOfCurrentWeek">
+      <app-week-container class="week-container" [slideNumber]="i" [firstDayOfWeek]="firstDayOfCurrentWeek">
       </app-week-container>
 
     </ion-slide>

@@ -20,7 +20,28 @@ export class DayCardComponent implements OnInit, OnDestroy {
   ) {
     eventEmitter.subscribe('updateDayCardComponent', (datesArray: string[]) => {
       if (datesArray.indexOf(this.date.toDateString()) != -1) {
+        console.log('updateDayCardComponent');
         this.prepareData();
+      }
+    });
+    eventEmitter.subscribe('loadSlide', (slideNumber: number, isInitial: boolean) => {
+      if (!this.isLoaded) {
+        if (
+          isInitial &&
+          this.slideNumber == 4
+        ) {
+          console.log('loadSlide initial');
+          this.prepareData();
+        } else if (
+          !isInitial &&
+          (
+            this.slideNumber == slideNumber + 1 ||
+            this.slideNumber == slideNumber - 1
+          )
+        ) {
+          console.log('loadSlide not initial');
+          this.prepareData();
+        }
       }
     });
   }
@@ -29,6 +50,8 @@ export class DayCardComponent implements OnInit, OnDestroy {
 
   @Input()
   firstDayOfWeek: Date;
+  @Input()
+  slideNumber: number;
 
   @Input()
   dayNum: number;
@@ -47,8 +70,10 @@ export class DayCardComponent implements OnInit, OnDestroy {
   showCases: boolean = false;
 
   ngOnInit() {
-    this.prepareData();
-    this.isLoaded = true;
+    if (this.slideNumber == 4) {
+      console.log('day-card ngOnInit');
+      this.prepareData();
+    }
   }
 
   ngOnDestroy() {
@@ -77,7 +102,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
         icon: 'settings',
         handler: () => {
           this.redirectToCasePage(false, this.commonService.caseParams);
-          this.prepareData();
         }
       }, {
         text: 'Change Date',
@@ -106,6 +130,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
   }
 
   prepareData() {
+    console.log('prepareData');
     this.date = this.commonService.getDate(this.firstDayOfWeek, this.dayNum);
     this.cases = this.commonService.casesMap[this.date + ''] || [];
 
@@ -128,6 +153,9 @@ export class DayCardComponent implements OnInit, OnDestroy {
           ? 'secondary'
           : 'warning'
     ;
+    this.isLoaded = true;
+    console.log(this.slideNumber);
+    console.log(new Date().getTime());
   }
 
   switchShowCasesMode() {
