@@ -82,18 +82,14 @@ export class HomePage implements OnInit, OnDestroy{
   ) {
     let self = this;
     eventEmitter.subscribe('updateHomePage', function(args) {
-      console.log('updateHomePage');
       let date: Date = args[0];
       commonService.actualDate = date;
       commonService.setUpData();
-      self.slideChanged(true);
       self.prepareData();
-      console.log(new Date().getTime());
     });
   }
 
   ngOnInit() {
-    console.log('home page ngOnInit');
     this.prepareData();
     this.slideOpts.allowTouchMove = true;
   }
@@ -120,7 +116,6 @@ export class HomePage implements OnInit, OnDestroy{
   }
 
   prepareData() {
-    console.log('prepareData');
     this.firstDayOfWeek = this.commonService.getFirstDayOfWeek();
     this.firstDaysOfWeeks = this.commonService.getFirstDaysOfWeeks();
 
@@ -186,7 +181,7 @@ export class HomePage implements OnInit, OnDestroy{
       .then((data) => {
         this.myDate = data.data.date;
         if (this.myDate != 'Invalid date') {
-          console.log(new Date().getTime());
+          this.slideChanged(true);
           this.eventEmitter.publish('updateHomePage', [new Date(this.myDate)]);
         }
       });
@@ -203,6 +198,7 @@ export class HomePage implements OnInit, OnDestroy{
   }
 
   goHome() {
+    this.slideChanged(true);
     this.eventEmitter.publish('updateHomePage', [new Date()]);
     this.closeMenu();
   }

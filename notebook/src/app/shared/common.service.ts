@@ -149,7 +149,7 @@ export class CommonService {
 
     let casesArray = this.casesMap[date + ''] || [];
 
-    if (caseEvent.previousCaseDate) {
+    if (caseEvent.previousCaseDate && !caseEvent.isCreationMode) {
       prevDate = new Date(caseEvent.previousCaseDate);
       this.setNoneHour(prevDate);
       datesArray.push(prevDate.toDateString());

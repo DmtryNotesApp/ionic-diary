@@ -26,7 +26,7 @@
     <session id="-1697578264">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.101" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -41,11 +41,12 @@
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.55" value="2" />
           <entry key="project.open.time.57" value="1" />
+          <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.70" value="1" />
           <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -53,7 +54,7 @@
           <entry key="html" value="4631" />
           <entry key="js" value="1" />
           <entry key="scss" value="2657" />
-          <entry key="ts" value="18902" />
+          <entry key="ts" value="19113" />
           <entry key="xml" value="8" />
         </counts>
       </usages-collector>
@@ -62,7 +63,7 @@
           <entry key="HTML" value="4631" />
           <entry key="JavaScript" value="1" />
           <entry key="SCSS" value="2657" />
-          <entry key="TypeScript" value="18902" />
+          <entry key="TypeScript" value="19113" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
@@ -71,7 +72,7 @@
           <entry key="html" value="77" />
           <entry key="json" value="2" />
           <entry key="scss" value="61" />
-          <entry key="ts" value="153" />
+          <entry key="ts" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -79,64 +80,25 @@
           <entry key="HTML" value="77" />
           <entry key="JSON" value="2" />
           <entry key="SCSS" value="61" />
-          <entry key="TypeScript" value="153" />
+          <entry key="TypeScript" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="18" />
+          <entry key="Angular2LanguageService" value="19" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="60" column="61" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="95" column="14" lean-forward="true" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="61" column="2" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="89" column="22" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="22" />
+            <state relative-caret-position="332">
+              <caret line="136" column="44" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="44" />
               <folding>
                 <element signature="e#0#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
-              <folding>
-                <element signature="n#style#0;n#ion-item#0;n#div#1;n#div#0;n#div#0;n#ion-content#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,17 +107,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="30" column="135" selection-start-line="30" selection-start-column="123" selection-end-line="30" selection-end-column="135" />
+            <state relative-caret-position="312">
+              <caret line="141" column="5" lean-forward="true" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -171,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>clickMenu</find>
-      <find>this.mondayString</find>
       <find>input-description</find>
       <find>ion-padding</find>
       <find>case</find>
@@ -189,18 +140,20 @@
       <find>switchReorderState</find>
       <find>reorder-button</find>
       <find>toolbar-title</find>
-      <find>console.log</find>
       <find>console</find>
       <find>stretch</find>
       <find>day-date</find>
       <find>toggle</find>
       <find>emit</find>
       <find>updateDayCardComponent</find>
-      <find>console.log(</find>
       <find>toggle-class</find>
-      <find>loadSlide</find>
       <find>slideChanged</find>
       <find>prepareData</find>
+      <find>process</find>
+      <find>loadSlide</find>
+      <find>updateHomePage</find>
+      <find>console.log</find>
+      <find>console.log(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -236,7 +189,6 @@
         <option value="$PROJECT_DIR$/notebook/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/models/standing-task.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/shared/autosize.directive.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/shared/common.service.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/home/home.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/global.scss" />
@@ -258,6 +210,7 @@
         <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.html" />
+        <option value="$PROJECT_DIR$/notebook/src/app/shared/common.service.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/home/home.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts" />
       </list>
@@ -284,7 +237,7 @@
       <path value="$PROJECT_DIR$/notebook/plugins/cordova-plugin-datepicker/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -295,7 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -352,12 +304,21 @@
               <item name="notebook" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
+              <item name="notebook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="week-container" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,18 +377,19 @@
       <workItem from="1557768682386" duration="17996000" />
       <workItem from="1557857807521" duration="10128000" />
       <workItem from="1557870032736" duration="398000" />
-      <workItem from="1557949341215" duration="11095000" />
+      <workItem from="1557949341215" duration="11554000" />
+      <workItem from="1558031925236" duration="5197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234857000" />
+    <option name="totallyTimeSpent" value="240513000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24281392" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24659607" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -649,9 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
-          <folding>
-            <element signature="n#style#0;n#ion-textarea#0;n#ion-item#0;n#ion-reorder-group#0;n#ion-list#0;n#ion-content#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -707,27 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="61" column="2" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="30" column="135" selection-start-line="30" selection-start-column="123" selection-end-line="30" selection-end-column="135" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -742,30 +680,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="30" column="135" selection-start-line="30" selection-start-column="123" selection-end-line="30" selection-end-column="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="212" selection-start-line="212" selection-end-line="212" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="89" column="22" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="22" />
+        <state relative-caret-position="332">
+          <caret line="136" column="44" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="44" />
           <folding>
             <element signature="e#0#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
-          <folding>
-            <element signature="n#style#0;n#ion-item#0;n#div#1;n#div#0;n#div#0;n#ion-content#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        <state relative-caret-position="312">
+          <caret line="141" column="5" lean-forward="true" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
         </state>
       </provider>
     </entry>

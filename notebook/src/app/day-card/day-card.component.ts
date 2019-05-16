@@ -19,8 +19,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
     public eventEmitter: Events
   ) {
     eventEmitter.subscribe('updateDayCardComponent', (datesArray: string[]) => {
-      if (datesArray.indexOf(this.date.toDateString()) != -1) {
-        console.log('updateDayCardComponent');
+      if (this.isLoaded && datesArray.indexOf(this.date.toDateString()) != -1) {
         this.prepareData();
       }
     });
@@ -30,7 +29,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
           isInitial &&
           this.slideNumber == 4
         ) {
-          console.log('loadSlide initial');
           this.prepareData();
         } else if (
           !isInitial &&
@@ -39,7 +37,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
             this.slideNumber == slideNumber - 1
           )
         ) {
-          console.log('loadSlide not initial');
           this.prepareData();
         }
       }
@@ -59,7 +56,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
   @Input()
   num: number;
 
-  date: Date = new Date();
+  date: Date;
   progressStatus: string = 'success';
   progress: number = 1;
   message: string = 'No cases planned';
@@ -71,13 +68,13 @@ export class DayCardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (this.slideNumber == 4) {
-      console.log('day-card ngOnInit');
       this.prepareData();
     }
   }
 
   ngOnDestroy() {
     this.eventEmitter.unsubscribe('updateDayCardComponent');
+    this.eventEmitter.unsubscribe('loadSlide');
   }
 
   updateDayCardComponent(newDate) {
@@ -130,7 +127,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
   }
 
   prepareData() {
-    console.log('prepareData');
     this.date = this.commonService.getDate(this.firstDayOfWeek, this.dayNum);
     this.cases = this.commonService.casesMap[this.date + ''] || [];
 
@@ -154,8 +150,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
           : 'warning'
     ;
     this.isLoaded = true;
-    console.log(this.slideNumber);
-    console.log(new Date().getTime());
   }
 
   switchShowCasesMode() {
