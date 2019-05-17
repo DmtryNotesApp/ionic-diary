@@ -8,7 +8,7 @@ import {CommonService} from "./common.service";
 @Injectable()
 export class DateFormatPipe implements PipeTransform {
 
-  constructor(public commonService: CommonService) {}
+  constructor(private commonService: CommonService) {}
 
   transform(value: any, args?: any): any {
     let date: string;

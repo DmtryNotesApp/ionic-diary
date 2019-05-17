@@ -6,7 +6,7 @@ import {CommonService} from "./common.service";
 })
 export class CasesFilterPipe implements PipeTransform {
 
-  constructor(public commonService: CommonService){}
+  constructor(private commonService: CommonService){}
 
   transform(cases: any, args?: any): any {
     cases = cases || [];

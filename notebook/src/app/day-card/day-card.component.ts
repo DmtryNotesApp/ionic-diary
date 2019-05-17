@@ -12,11 +12,11 @@ import {ActionSheetController, AlertController, Events, NavController} from "@io
 export class DayCardComponent implements OnInit, OnDestroy {
 
   constructor(
-    public commonService: CommonService,
-    public navCtrl: NavController,
-    public actionSheetController: ActionSheetController,
-    public alertController: AlertController,
-    public eventEmitter: Events
+    private commonService: CommonService,
+    private navCtrl: NavController,
+    private actionSheetController: ActionSheetController,
+    private alertController: AlertController,
+    private eventEmitter: Events
   ) {
     eventEmitter.subscribe('updateDayCardComponent', (datesArray: string[]) => {
       if (this.isLoaded && datesArray.indexOf(this.date.toDateString()) != -1) {
@@ -67,9 +67,9 @@ export class DayCardComponent implements OnInit, OnDestroy {
   showCases: boolean = false;
 
   ngOnInit() {
-    if (this.slideNumber == 4) {
-      this.prepareData();
-    }
+    // if (this.slideNumber == 4) {
+    //   this.prepareData();
+    // }
   }
 
   ngOnDestroy() {
@@ -150,6 +150,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
           : 'warning'
     ;
     this.isLoaded = true;
+    console.log(new Date().getTime());
   }
 
   switchShowCasesMode() {

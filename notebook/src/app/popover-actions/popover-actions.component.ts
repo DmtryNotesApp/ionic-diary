@@ -13,9 +13,9 @@ export class PopoverActionsComponent implements OnInit {
   calendarCase;
 
   constructor(
-    public popoverController: PopoverController,
-    public alertController: AlertController,
-    public commonService: CommonService
+    private popoverController: PopoverController,
+    private alertController: AlertController,
+    private commonService: CommonService
   ) { }
 
   ngOnInit() {}
