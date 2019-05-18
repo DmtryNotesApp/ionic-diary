@@ -19,7 +19,7 @@ export class CommonService {
 
   lastCaseId: number = 0;
 
-  iterations: number = 0;
+  isInitialized: boolean = false;
 
   constructor(
     private eventEmitter: Events,

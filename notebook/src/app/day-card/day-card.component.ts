@@ -67,9 +67,9 @@ export class DayCardComponent implements OnInit, OnDestroy {
   showCases: boolean = false;
 
   ngOnInit() {
-    // if (this.slideNumber == 4) {
-    //   this.prepareData();
-    // }
+    if (this.slideNumber == 4 && this.commonService.isInitialized) {
+      this.prepareData();
+    }
   }
 
   ngOnDestroy() {
@@ -150,7 +150,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
           : 'warning'
     ;
     this.isLoaded = true;
-    console.log(new Date().getTime());
   }
 
   switchShowCasesMode() {

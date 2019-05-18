@@ -86,12 +86,12 @@ export class HomePage implements OnInit, OnDestroy{
       let date: Date = args[0];
       commonService.actualDate = date;
       commonService.setUpData();
-      self.prepareData();
+      self.prepareData(false);
     });
   }
 
   ngOnInit() {
-    this.prepareData();
+    this.prepareData(true);
     this.slideOpts.allowTouchMove = true;
   }
   ngOnDestroy() {
@@ -116,34 +116,40 @@ export class HomePage implements OnInit, OnDestroy{
     this.sundayString = tmpSundayArray.join(' ');
   }
 
-  prepareData() {
+  prepareData(isInitial) {
     this.firstDayOfWeek = this.commonService.getFirstDayOfWeek();
     this.firstDaysOfWeeks = this.commonService.getFirstDaysOfWeeks();
 
-    let getDataPromise = this.commonService.getDataAcync('plannedCases');
-    Promise.all([getDataPromise])
-    .then(data => {
-      let casesArrayString = data[0];
-      this.cases = casesArrayString
-        ? JSON.parse(casesArrayString)
-        : [];
-      let casesMap = {};
+    if (isInitial) {
+      let getDataPromise = this.commonService.getDataAcync('plannedCases');
+      Promise.all([getDataPromise])
+        .then(data => {
+          let casesArrayString = data[0];
+          this.cases = casesArrayString
+            ? JSON.parse(casesArrayString)
+            : [];
+          let casesMap = {};
 
-      if (this.cases.length > 0) {
+          if (this.cases.length > 0) {
 
-        for (let i = 0; i < this.cases.length; i++) {
-          let date = new Date(this.cases[i].caseDate);
-          this.commonService.setNoneHour(date);
+            for (let i = 0; i < this.cases.length; i++) {
+              let date = new Date(this.cases[i].caseDate);
+              this.commonService.setNoneHour(date);
 
-          let casesArray = casesMap[date + ''] || [];
-          casesArray.push(this.cases[i]);
-          casesMap[date + ''] = casesArray;
-        }
-        this.commonService.setCases(this.cases);
-        this.commonService.setCasesMap(casesMap);
-      }
+              let casesArray = casesMap[date + ''] || [];
+              casesArray.push(this.cases[i]);
+              casesMap[date + ''] = casesArray;
+            }
+            this.commonService.setCases(this.cases);
+            this.commonService.setCasesMap(casesMap);
+          }
+          this.commonService.isInitialized = true;
+          this.eventEmitter.publish('loadSlide', this.currentSlide, true);
+        })
+    } else {
       this.eventEmitter.publish('loadSlide', this.currentSlide, true);
-    })
+    }
+
   }
 
   slideChanged(setDefault) {

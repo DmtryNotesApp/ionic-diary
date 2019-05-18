@@ -62,7 +62,7 @@ export class StandingTasksPage implements OnInit {
       header: 'Describe The Task',
       inputs: [
         {
-          placeholder: 'need to do...'
+          placeholder: 'enter description...'
         }
       ],
       buttons: [
