@@ -21,7 +21,7 @@ export class CasePage implements OnInit {
   displayDate;
   comeFromCasesManager: boolean = false;
 
-  constructor(public navCtrl: NavController, public commonService: CommonService) {}
+  constructor(private navCtrl: NavController, private commonService: CommonService) {}
 
   changeDate () {
     let pickedDate = this.commonService.getPickedDate(this.caseDateS);

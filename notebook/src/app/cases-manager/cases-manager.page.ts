@@ -19,11 +19,11 @@ export class CasesManagerPage implements OnInit {
   showAllDays: boolean = true;
 
   constructor(
-    public commonService: CommonService,
-    public alertController: AlertController,
-    public eventEmitter: Events,
-    public popoverController: PopoverController,
-    public navCtrl: NavController
+    private commonService: CommonService,
+    private alertController: AlertController,
+    private eventEmitter: Events,
+    private popoverController: PopoverController,
+    private navCtrl: NavController
   ) {
     let self = this;
     this.eventEmitter.subscribe('updateCasesManagerPage', function eventHandler() {

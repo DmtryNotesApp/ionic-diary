@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Case} from "../models/case";
 import {Events, NavController} from "@ionic/angular";
+import { Storage } from '@ionic/storage';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +12,37 @@ export class CommonService {
   firstDayOfWeek: Date;
   firstDaysOfWeeks: Date[] = [];
   caseParams;
-  cases;
+  cases = [];
   casesMap = {};
   cameFromFirstDayOfWeek: Date;
   actualDate: Date = new Date();
 
-  iterations: number = 0;
+  lastCaseId: number = 0;
+
+  isInitialized: boolean = false;
 
   constructor(
-    public eventEmitter: Events,
-    public navCtrl: NavController
+    private eventEmitter: Events,
+    private navCtrl: NavController,
+    private storage: Storage
   ) {
+    this.getLastCaseId();
     this.setUpData();
+  }
+
+  getLastCaseId() {
+    this.getDataAcync('lastCaseId')
+    .then(data => {
+      this.lastCaseId = (data && data[0]) ? +data[0] : 0;
+    })
+  }
+
+  saveData(key: string, value) {
+    this.storage.set(key, value);
+  }
+
+  async getDataAcync(key) {
+    return await this.storage.get(key);
   }
 
   setUpData() {
@@ -158,9 +179,9 @@ export class CommonService {
     }
 
     if (caseEvent.isCreationMode) {
-      let lastCaseId = +localStorage.getItem('lastCaseId') || 0;
-      caseId = lastCaseId + 1;
-      localStorage.setItem('lastCaseId', caseId);
+      caseId = this.lastCaseId + 1;
+      this.lastCaseId += 1;
+      this.saveData('lastCaseId', caseId);
       let processedCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description);
       this.cases.push(processedCase);
 
@@ -227,17 +248,11 @@ export class CommonService {
   }
 
   saveCases(cases) {
-    localStorage.setItem('plannedCases', JSON.stringify(cases));
+    this.saveData('plannedCases', JSON.stringify(cases));
   }
 
   saveStandingTasks(tasks) {
-    localStorage.setItem('standingTasks', JSON.stringify(tasks));
-  }
-
-  getStandingTasks() {
-    let standingTasksString: string = localStorage.getItem('standingTasks');
-    let standingTasks = standingTasksString ? JSON.parse(standingTasksString) : [];
-    return standingTasks;
+    this.saveData('standingTasks', JSON.stringify(tasks));
   }
 
   customAlertOptions: any = {

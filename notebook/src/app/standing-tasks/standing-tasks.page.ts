@@ -11,9 +11,9 @@ import {StandingTask} from "../models/standing-task";
 export class StandingTasksPage implements OnInit {
 
   constructor(
-    public alertCtrl: AlertController,
-    public navCtrl: NavController,
-    public commonService: CommonService
+    private alertCtrl: AlertController,
+    private navCtrl: NavController,
+    private commonService: CommonService
   ) { }
 
   standingTasks: StandingTask[] = [];
@@ -21,17 +21,22 @@ export class StandingTasksPage implements OnInit {
   areChangesDisabled: boolean = true;
 
   ngOnInit() {
-    this.standingTasks = this.commonService.getStandingTasks();
+    let promise = this.commonService.getDataAcync('standingTasks');
+    Promise.all([promise])
+    .then(data => {
+      let tasks = data[0];
+      this.standingTasks = tasks ? JSON.parse(tasks) : [];
 
-    this.reorderGroup = document.querySelector('ion-reorder-group');
+      this.reorderGroup = document.querySelector('ion-reorder-group');
 
-    this.reorderGroup.addEventListener('ionItemReorder', (ev) => {
-      let draggedItem = this.standingTasks.splice(ev.detail.from,1)[0];
-      this.standingTasks.splice(ev.detail.to,0, draggedItem);
-      ev.detail.complete();
-      this.changePriorities();
-      this.commonService.saveStandingTasks(this.standingTasks);
-    });
+      this.reorderGroup.addEventListener('ionItemReorder', (ev) => {
+        let draggedItem = this.standingTasks.splice(ev.detail.from,1)[0];
+        this.standingTasks.splice(ev.detail.to,0, draggedItem);
+        ev.detail.complete();
+        this.changePriorities();
+        this.commonService.saveStandingTasks(this.standingTasks);
+      });
+    })
   }
 
   changePriorities() {
@@ -57,7 +62,7 @@ export class StandingTasksPage implements OnInit {
       header: 'Describe The Task',
       inputs: [
         {
-          placeholder: 'need to do...'
+          placeholder: 'enter description...'
         }
       ],
       buttons: [
