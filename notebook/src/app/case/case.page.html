@@ -6,31 +6,53 @@
       </ion-button>
     </ion-buttons>
     <ion-title class="dates-string">{{displayDate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showDeleteAlert()">
+        <ion-icon name="trash" class="back-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="case">
     <div class="ion-padding case">
-      <ion-textarea rows="3" class="input-description input-element" placeholder="Enter description"
+      <ion-textarea rows="3" class="input-description input-element text-area-element" placeholder="Enter description"
                     [(ngModel)]="caseDescription">
       </ion-textarea>
-      <div class="date-time">
-        <ion-item class="date">
+
+      <ion-list>
+
+        <ion-item lines="none" class="date">
           <ion-label class="input-label">{{displayDate}}</ion-label>
           <ion-icon name="calendar" slot="end" class="back-button"></ion-icon>
           <ion-datetime
-                  display-format="none" picker-format="DD MMM, YYYY"
-                  [(ngModel)]="caseDateS" (ionChange)="changeDate()"
+            display-format="none" picker-format="DD MMM, YYYY"
+            [(ngModel)]="caseDateS" (ionChange)="changeDate()"
           ></ion-datetime>
         </ion-item>
-      </div>
-      <div>
-        <ion-item class="input-element" style="padding: 0px;">
+
+        <ion-item lines="none" class="" style="padding: 0px;">
+          <ion-label class="input-label">Set Time?</ion-label>
+          <ion-toggle [(ngModel)]="showTime"></ion-toggle>
+        </ion-item>
+
+        <ion-item lines="none" *ngIf="showTime" class="date">
+          <ion-label class="input-label">{{caseTime}}</ion-label>
+          <ion-icon name="calendar" slot="end" class="back-button"></ion-icon>
+          <ion-datetime
+            display-format="none" picker-format="HH:mm"
+            [(ngModel)]="caseTimeS" (ionChange)="changeTime()"
+          ></ion-datetime>
+        </ion-item>
+
+        <ion-item lines="none" class="input-element" style="padding: 0px;">
           <ion-label class="input-label">Is Done?</ion-label>
           <ion-toggle [(ngModel)]="isFinished"></ion-toggle>
         </ion-item>
-      </div>
+
+      </ion-list>
+
     </div>
   </div>
 </ion-content>

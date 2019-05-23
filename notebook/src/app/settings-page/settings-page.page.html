@@ -1,0 +1,47 @@
+<ion-header class="case-header">
+  <ion-toolbar class="case-header">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" class="back-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header-string">Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list class="list-items">
+
+    <ion-item lines="none" class="input-element" style="padding: 0px;">
+      <ion-label class="input-label">Choose Language</ion-label>
+      <ion-select placeholder="English" interface="action-sheet" [(ngModel)]="language">
+        <ion-select-option value="English">English</ion-select-option>
+        <ion-select-option value="Русский">Русский</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="input-element" style="padding: 0px;">
+      <ion-label class="input-label">Notifications</ion-label>
+      <ion-toggle [(ngModel)]="notificationsEnabled"></ion-toggle>
+    </ion-item>
+
+    <ion-item lines="none" class="input-element" style="padding: 0px;">
+      <ion-label class="input-label">Enable Sound?</ion-label>
+      <ion-toggle [(ngModel)]="soundsEnabled"></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer class="case-footer">
+  <ion-toolbar class="case-footer">
+    <div class="buttons-area">
+      <div class="ion-padding buttons-div">
+        <ion-button class="button-item" ion-button round color="danger" (click)="goBack()">Cancel</ion-button>
+        <ion-button class="button-item" ion-button round color="secondary" (click)="saveSettings()" >Save</ion-button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

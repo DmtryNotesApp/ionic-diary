@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Case} from "../models/case";
-import {Events, NavController} from "@ionic/angular";
+import {Events, NavController, Platform} from "@ionic/angular";
 import { Storage } from '@ionic/storage';
+import {LocalNotifications} from "@ionic-native/local-notifications/ngx";
+import {AppSettings} from "../models/app-settings";
 
 
 @Injectable({
@@ -17,24 +19,101 @@ export class CommonService {
   cameFromFirstDayOfWeek: Date;
   actualDate: Date = new Date();
 
+  isInitialized: boolean = false;
+
   lastCaseId: number = 0;
 
-  isInitialized: boolean = false;
+  appSettings: AppSettings = new AppSettings(
+    false,
+    false,
+    'English'
+  );
 
   constructor(
     private eventEmitter: Events,
     private navCtrl: NavController,
-    private storage: Storage
+    private storage: Storage,
+    private localNotifications: LocalNotifications,
+    private platform: Platform
   ) {
-    this.getLastCaseId();
     this.setUpData();
+    this.getLastCaseId();
+    this.getAppSettings();
+  }
+
+  getAppSettings() {
+    this.storage.get('appSettings')
+    .then(data => {
+      let applicationSettings = data ? data : this.appSettings;
+      this.appSettings.notificationsEnabled =
+        (
+          applicationSettings.notificationsEnabled != null &&
+          applicationSettings.notificationsEnabled != undefined
+        ) ?
+          applicationSettings.notificationsEnabled :
+          false;
+
+      this.appSettings.soundsEnabled =
+      (
+        applicationSettings.soundsEnabled != null &&
+        applicationSettings.soundsEnabled != undefined
+      ) ?
+        applicationSettings.soundsEnabled :
+        false;
+
+      this.appSettings.chosenLanguage =
+      (
+        applicationSettings.chosenLanguage != null &&
+        applicationSettings.chosenLanguage != undefined
+      ) ?
+        applicationSettings.chosenLanguage :
+        'English';
+
+    })
+  }
+
+  saveSettings(settings: AppSettings) {
+    this.storage.set('appSettings', settings);
+  }
+
+  scheduleNotification(caseToProcess) {
+    if (caseToProcess.caseDateTime) {
+      this.localNotifications.schedule({
+        id: caseToProcess.id,
+        title: 'Attention',
+        text: caseToProcess.description,
+        data: { mydata: caseToProcess.id },
+        trigger: { at: new Date(caseToProcess.caseDateTime.getTime()) },
+        sound: this.setSound(),
+      });
+    }
+  }
+
+  setSound() {
+    if (this.platform.is('android')) {
+      return 'file://assets/sounds/shame.mp3'
+    } else {
+      return 'file://assets/sounds/bell.mp3'
+    }
   }
 
   getLastCaseId() {
     this.getDataAcync('lastCaseId')
     .then(data => {
-      this.lastCaseId = (data && data[0]) ? +data[0] : 0;
+      this.lastCaseId = data ? +data : 0;
     })
+  }
+
+  getTimeToDisplay(time) {
+    let dateTimeFormatter = {
+      hour12: true,
+      hour: '2-digit',
+      minute:'2-digit'
+    };
+
+    let pickedTime = new Date(time).toLocaleTimeString('en-US', dateTimeFormatter);
+
+    return pickedTime;
   }
 
   saveData(key: string, value) {
@@ -110,6 +189,16 @@ export class CommonService {
     return pickedDate;
   }
 
+  getPickedTime(caseDateS, caseTimeS) {
+    let pickedDate = new Date(Date.parse(caseDateS));
+    let pickedTime = new Date(Date.parse(caseTimeS.toString()));
+
+    pickedDate.setHours(pickedTime.getHours());
+    pickedDate.setMinutes(pickedTime.getMinutes());
+
+    return pickedDate;
+  }
+
   getOutputDate(date: Date): string {
     let options = {
         month: 'long',
@@ -145,6 +234,7 @@ export class CommonService {
       firstDayOfWeek: caseEvent.firstDayOfWeek || this.getMonday(new Date(caseEvent.caseDate)),
       isCreationMode: isCreationMode,
       caseDate: caseEvent.date || new Date(caseEvent.caseDate),
+      caseDateTime: caseEvent.caseDateTime || new Date(caseEvent.caseDateTime),
       previousCaseDate: caseEvent.previousCaseDate || new Date(caseEvent.caseDate),
       case: caseEvent,
       description: caseEvent.description || '',
@@ -182,8 +272,10 @@ export class CommonService {
       caseId = this.lastCaseId + 1;
       this.lastCaseId += 1;
       this.saveData('lastCaseId', caseId);
-      let processedCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description);
+      let processedCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
       this.cases.push(processedCase);
+
+      this.scheduleNotification(processedCase);
 
       casesArray.push(processedCase);
       this.casesMap[date + ''] = casesArray;
@@ -191,7 +283,7 @@ export class CommonService {
       caseId = caseEvent.id;
       let caseToUpdate = this.cases.find(cs => cs.id == caseId);
       let index = this.cases.indexOf(caseToUpdate);
-      caseToUpdate = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description);
+      caseToUpdate = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
       this.cases[index] = caseToUpdate;
 
       if (caseEvent.previousCaseDate) {

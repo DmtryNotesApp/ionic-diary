@@ -25,21 +25,25 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item class="menu-item first-menu-element" (click)="goHome()">
+      <ion-item lines="none" class="menu-item first-menu-element" (click)="goHome()">
         <ion-icon slot="start" name="home"></ion-icon>
         Home
       </ion-item>
-      <ion-item class="menu-item" (click)="changeDate(false, null)">
+      <ion-item lines="none" class="menu-item" (click)="changeDate(false, null)">
         <ion-icon slot="start" name="calendar"></ion-icon>
         Calendar
       </ion-item>
-      <ion-item class="menu-item" (click)="openCasesManager()">
+      <ion-item lines="none" class="menu-item" (click)="openCasesManager()">
         <ion-icon slot="start" name="appstore"></ion-icon>
         Manage Cases
       </ion-item>
-      <ion-item class="menu-item" (click)="openStandingTasksPage()">
+      <ion-item lines="none" class="menu-item" (click)="openStandingTasksPage()">
         <ion-icon slot="start" name="archive"></ion-icon>
-        Standing Tasks
+        Notes
+      </ion-item>
+      <ion-item lines="none" class="menu-item" (click)="openSettingsPage()">
+        <ion-icon slot="start" name="settings"></ion-icon>
+        Settings
       </ion-item>
     </ion-list>
   </ion-content>

@@ -27,7 +27,7 @@
       <div>
         <div class="case-item">
           <div class="check-box-item">
-            <ion-item>
+            <ion-item lines="none">
               <ion-toggle color="primary" slot="start" [(ngModel)]="case.isFinished" (ionChange)="updateCase(case)" class="toggle-class"></ion-toggle>
             </ion-item>
           </div>
@@ -53,7 +53,7 @@
   </div>
 
   <div class="date-picker">
-    <ion-item>
+    <ion-item lines="none">
       <ion-label></ion-label>
       <ion-icon name="calendar"></ion-icon>
       <ion-datetime

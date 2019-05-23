@@ -82,7 +82,6 @@ export class HomePage implements OnInit, OnDestroy{
   ) {
     let self = this;
     eventEmitter.subscribe('updateHomePage', function(args) {
-      console.log(new Date().getTime());
       let date: Date = args[0];
       commonService.actualDate = date;
       commonService.setUpData();
@@ -222,6 +221,13 @@ export class HomePage implements OnInit, OnDestroy{
   }
   async openStandingTasksPage() {
     this.navCtrl.navigateForward('standing-tasks', {
+      animated: true,
+      animationDirection: 'forward'
+    });
+    this.closeMenu();
+  }
+  async openSettingsPage() {
+    this.navCtrl.navigateForward('settings-page', {
       animated: true,
       animationDirection: 'forward'
     });

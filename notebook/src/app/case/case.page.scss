@@ -43,6 +43,9 @@
     font-size: xx-large;
   }
 }
+.text-area-element {
+  padding: 3% !important;
+}
 .input-element {
   padding: 1%;
 
@@ -130,8 +133,11 @@
   @media (min-height: 500px) and (min-width: 350px) {
     font-size: small;
   }
-  @media (min-height: 600px) {
+  @media (min-height: 600px) and (min-width: 350px) {
     font-size: medium;
+  }
+  @media (min-height: 600px) and (min-width: 1000px) {
+    font-size: x-large;
   }
   @media (min-height: 800px)
   and (min-width: 400px){
@@ -139,6 +145,9 @@
   }
   @media (min-height: 1000px) {
     font-size: x-large;
+  }
+  @media (min-height: 1000px) and (min-width: 1200px) {
+    font-size: xx-large;
   }
   @media (min-height: 1200px) {
     font-size: xx-large;

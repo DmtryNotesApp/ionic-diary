@@ -83,7 +83,8 @@ export class DayCardComponent implements OnInit, OnDestroy {
 
  async showMenu(caseEvent) {
     this.commonService.caseParams = caseEvent;
-    const actionSheet = await this.actionSheetController.create({
+
+    let actionSheetParams = {
       header: this.commonService.caseParams.description,
       backdropDismiss: true,
       buttons: [
@@ -95,20 +96,20 @@ export class DayCardComponent implements OnInit, OnDestroy {
             this.updateCase(null);
           }
         }, {
-        text: 'View/Edit',
-        icon: 'settings',
-        handler: () => {
-          this.redirectToCasePage(false, this.commonService.caseParams);
-        }
-      }, {
-        text: 'Change Date',
-        icon: 'calendar',
-        handler: () => {
-          this.commonService.cameFromFirstDayOfWeek = this.date;
-          let datePicker = document.getElementById('datePicker');
-          datePicker.click();
-        }
-      }, {
+          text: 'View/Edit',
+          icon: 'settings',
+          handler: () => {
+            this.redirectToCasePage(false, this.commonService.caseParams);
+          }
+        }, {
+          text: 'Change Date',
+          icon: 'calendar',
+          handler: () => {
+            this.commonService.cameFromFirstDayOfWeek = this.date;
+            let datePicker = document.getElementById('datePicker');
+            datePicker.click();
+          }
+        }, {
           text: 'Delete',
           role: 'destructive',
           icon: 'trash',
@@ -116,13 +117,20 @@ export class DayCardComponent implements OnInit, OnDestroy {
             this.showAlert(this.commonService.caseParams);
           }
         }, {
-        text: 'Cancel',
-        icon: 'close',
-        role: 'cancel',
-        handler: () => {
-        }
-      }]
-    });
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+          }
+        }]
+    };
+    if (caseEvent.caseDateTime && caseEvent.timeToDisplay) {
+      actionSheetParams.header = caseEvent.timeToDisplay;
+      actionSheetParams['subHeader'] = this.commonService.caseParams.description;
+    } else {
+      actionSheetParams.header = this.commonService.caseParams.description;
+    }
+    const actionSheet = await this.actionSheetController.create(actionSheetParams);
     await actionSheet.present();
   }
 
@@ -130,7 +138,12 @@ export class DayCardComponent implements OnInit, OnDestroy {
     this.date = this.commonService.getDate(this.firstDayOfWeek, this.dayNum);
     this.cases = this.commonService.casesMap[this.date + ''] || [];
 
-    let isFinished: number = this.cases.filter(caseEvent => caseEvent.isFinished).length;
+    let isFinished: number = this.cases.filter(caseEvent => {
+      if (caseEvent.caseDateTime) {
+        caseEvent['timeToDisplay'] = this.commonService.getTimeToDisplay(new Date(caseEvent.caseDateTime));
+      }
+      return caseEvent.isFinished;
+    }).length;
     this.progress = isFinished / this.cases.length;
     if (this.progress == 1) {
       this.message = 'None active of ' + this.cases.length + ' cases left'
@@ -150,6 +163,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
           : 'warning'
     ;
     this.isLoaded = true;
+
   }
 
   switchShowCasesMode() {
@@ -162,6 +176,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
       isCreationMode: isCreationMode,
       date: this.date,
       previousCaseDate: caseEvent ? caseEvent.caseDate : this.date,
+      caseDateTime: caseEvent ? caseEvent.caseDateTime : null,
       description: caseEvent ? caseEvent.description : '',
       isFinished: caseEvent ? caseEvent.isFinished : false,
       id: caseEvent ? caseEvent.id : ''
@@ -177,6 +192,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
   changeDate() {
     let caseDate = this.commonService.getPickedDate(this.caseDateS);
     this.commonService.caseParams.previousCaseDate = this.commonService.caseParams.caseDate;
+    this.commonService.caseParams.caseDateTime = null;
     this.commonService.caseParams.caseDate = caseDate;
     this.updateCase(null);
   }

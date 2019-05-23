@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'case', loadChildren: './case/case.module#CasePageModule' },
   { path: 'cases-manager', loadChildren: './cases-manager/cases-manager.module#CasesManagerPageModule' },
   { path: 'standing-tasks', loadChildren: './standing-tasks/standing-tasks.module#StandingTasksPageModule' },
+  { path: 'settings-page', loadChildren: './settings-page/settings-page.module#SettingsPagePageModule' },
 ];
 
 @NgModule({

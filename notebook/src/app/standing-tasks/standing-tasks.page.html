@@ -31,7 +31,7 @@
   <ion-list>
     <ion-reorder-group [disabled]="areChangesDisabled">
 
-    <ion-item *ngFor="let task of standingTasks; let i = index">
+    <ion-item lines="none" *ngFor="let task of standingTasks; let i = index">
       <p class="overflow-visible task-item" *ngIf="areChangesDisabled">
         {{task.description}}
       </p>

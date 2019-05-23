@@ -12,7 +12,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item class="case-item-container">
+    <ion-item lines="none" class="case-item-container">
         <ion-checkbox [(ngModel)]="allCasesMarked" slot="start" (ionChange)="markAllCases()" class="case-item-icon"></ion-checkbox>
         <ion-buttons class="buttons-class">
             <ion-button (click)="deleteSelectedCases()">
@@ -37,7 +37,7 @@
       </ion-item-divider>
 
       <div *ngIf="switchedDays[i]">
-        <ion-item *ngFor="let case of casesMap[dateString]" class="case-item-container">
+        <ion-item lines="none" *ngFor="let case of casesMap[dateString]" class="case-item-container">
 
           <ion-checkbox slot="start" [(ngModel)]="markedCases[case.id]" class="case-item-icon"></ion-checkbox>
 
