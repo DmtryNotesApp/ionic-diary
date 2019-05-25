@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Case} from "../models/case";
-import {Events, NavController, Platform} from "@ionic/angular";
+import {Events, IonSlides, NavController, Platform} from "@ionic/angular";
 import { Storage } from '@ionic/storage';
 import {LocalNotifications} from "@ionic-native/local-notifications/ngx";
 import {AppSettings} from "../models/app-settings";
@@ -23,11 +23,60 @@ export class CommonService {
 
   lastCaseId: number = 0;
 
+  datePickerObj: any = {
+    inputDate: new Date(), // default new Date()
+    showTodayButton: true, // default true
+    closeOnSelect: false, // default false
+    disableWeekDays: [], // default []
+    mondayFirst: true, // default false
+    setLabel: 'Set',  // default 'Set'
+    todayLabel: 'Today', // default 'Today'
+    closeLabel: 'Cancel', // default 'Close'
+    disabledDates: [], // default []
+    titleLabel: 'Select a Date', // default null
+    monthsList: [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ],
+    weeksList: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    dateFormat: 'YYYY-MM-DD', // default DD MMM YYYY
+    clearButton : true , // default true
+    momentLocale: 'ru-RU', // Default 'en-US'
+    yearInAscending: true, // Default false
+    btnCloseSetInReverse: false, // Default false
+    btnProperties: {
+      expand: 'block', // Default 'block'
+      fill: 'solid', // Default 'solid'
+      size: '', // Default 'default'
+      disabled: false, // Default false
+      strong: true, // Default false
+      color: '' // Default ''
+    },
+    arrowNextPrev: {
+      nextArrowSrc: '',
+      prevArrowSrc: ''
+    } // This object supports only SVG files.
+  };
+
   appSettings: AppSettings = new AppSettings(
     false,
     false,
     'English'
   );
+
+  slides: IonSlides;
+
+  defaultSlide: number = 4;
+
+  slideOpts = {
+    initialSlide: this.defaultSlide,
+    allowTouchMove: false,
+    speed: 400
+  };
+
+  surroundSlidesLoaded: boolean = false;
+  currentSlide: number = 4;
+
+  needToReload: boolean = false;
 
   constructor(
     private eventEmitter: Events,
@@ -39,6 +88,37 @@ export class CommonService {
     this.setUpData();
     this.getLastCaseId();
     this.getAppSettings();
+  }
+
+  slideChanged(setDefault) {
+    if (this.slides) {
+      if (setDefault) {
+        this.currentSlide = this.defaultSlide;
+        this.slides.slideTo(this.defaultSlide);
+      }
+
+      this.slides.getActiveIndex().then(slideNumber => {
+        this.currentSlide = slideNumber;
+
+        if ((
+          slideNumber + 1 == this.firstDaysOfWeeks.length) ||
+          slideNumber == 0
+        ) {
+          this.slideOpts.allowTouchMove = false;
+          this.needToReload = true;
+          this.changeDate();
+        }
+        this.eventEmitter.publish('updateDates');
+      });
+      this.surroundSlidesLoaded = false;
+    }
+  }
+
+  async changeDate() {
+    await this.navCtrl.navigateForward('calendar-date-picker', {
+      animated: true,
+      animationDirection: 'forward'
+    });
   }
 
   getAppSettings() {

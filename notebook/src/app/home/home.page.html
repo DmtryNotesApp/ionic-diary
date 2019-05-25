@@ -9,7 +9,7 @@
   <ion-title class="dates-header-string">{{mondayString}} - {{sundayString}}</ion-title>
 
   <ion-buttons slot="end">
-    <ion-button (click)="changeDate(true, null)">
+    <ion-button (click)="changeDate(true)">
       <ion-icon slot="icon-only" name="calendar" class="header-button"></ion-icon>
     </ion-button>
   </ion-buttons>
@@ -29,7 +29,7 @@
         <ion-icon slot="start" name="home"></ion-icon>
         Home
       </ion-item>
-      <ion-item lines="none" class="menu-item" (click)="changeDate(false, null)">
+      <ion-item lines="none" class="menu-item" (click)="changeDate(false)">
         <ion-icon slot="start" name="calendar"></ion-icon>
         Calendar
       </ion-item>

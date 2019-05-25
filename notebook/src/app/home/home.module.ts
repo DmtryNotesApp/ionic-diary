@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { Ionic4DatepickerModule } from
     '@logisticinfotech/ionic4-datepicker';
 
-import { HomePage } from './home.page';
+import {HomePage} from './home.page';
 import {DayCardComponent} from "../day-card/day-card.component";
 import {SharedModule} from "../shared/shared.module";
 import {WeekContainerComponent} from "../week-container/week-container.component";
