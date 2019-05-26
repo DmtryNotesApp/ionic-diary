@@ -14,6 +14,8 @@ export class SettingsPagePage implements OnInit {
   soundsEnabled: boolean = false;
   language: string = 'English';
 
+  oldSettings: AppSettings = {};
+
   constructor(
     private navCtrl: NavController,
     private commonSerice: CommonService
@@ -27,6 +29,8 @@ export class SettingsPagePage implements OnInit {
       this.notificationsEnabled = this.commonSerice.appSettings.notificationsEnabled;
       this.soundsEnabled = this.commonSerice.appSettings.soundsEnabled;
       this.language = this.commonSerice.appSettings.chosenLanguage;
+
+      this.oldSettings = Object.assign({}, this.commonSerice.appSettings);
     }
   }
 
@@ -41,6 +45,19 @@ export class SettingsPagePage implements OnInit {
     this.commonSerice.saveSettings(appSettings);
     console.log('appSettings', appSettings);
 
+    if (this.notificationsEnabled != this.oldSettings.notificationsEnabled) {
+      if (this.notificationsEnabled) {
+        console.log('schedule notifications');
+        this.commonSerice.scheduleAllNotifications();
+      } else {
+        console.log('cancel notifications');
+        this.commonSerice.deleteAllNotifications();
+      }
+    } else if (this.soundsEnabled != this.oldSettings.soundsEnabled) {
+      console.log('update sounds for notifications');
+    }
+
+    this.oldSettings = appSettings;
     this.goBack();
   }
 

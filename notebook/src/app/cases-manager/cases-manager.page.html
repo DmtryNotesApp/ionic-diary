@@ -41,7 +41,7 @@
 
           <ion-checkbox slot="start" [(ngModel)]="markedCases[case.id]" class="case-item-icon"></ion-checkbox>
 
-          <ion-label class="case-item">{{case.description}}</ion-label>
+          <ion-label class="case-item {{case.isFinished ? 'finishedCases' : ''}}">{{case.description}}</ion-label>
 
             <ion-buttons>
               <ion-button (click)="showMenu($event, case)">

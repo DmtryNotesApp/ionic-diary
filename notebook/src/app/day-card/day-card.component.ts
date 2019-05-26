@@ -198,6 +198,8 @@ export class DayCardComponent implements OnInit, OnDestroy {
   }
 
   updateCase(caseEvent) {
+    console.log('caseEvent', caseEvent);
+    console.log('this.commonService.caseParams', this.commonService.caseParams);
     this.commonService.processCase(caseEvent || this.commonService.caseParams);
   }
 

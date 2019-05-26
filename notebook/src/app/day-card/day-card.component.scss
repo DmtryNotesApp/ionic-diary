@@ -2,25 +2,28 @@
   min-height: 13%;
 }
 .day-card {
-  margin: 0.5rem 0.5rem 0px 0.5rem;
+  margin: 1.5% 0.5rem 0px 0.5rem;
   background-color: #ffffff9e;
   height: 100%;
   display: flex;
   width: 100%;
-  @media (max-height: 500px) {
+  /*@media (max-height: 500px) {
     height: 3rem;
   }
   @media (min-height: 500px) {
-    height: 3.5rem;
+    height: 3.6rem;
   }
   @media (min-height: 600px) {
-    height: 4.5rem;
+    height: 3.8rem;
+  }
+  @media (min-height: 640px) {
+    height: 4.25rem;
   }
   @media (min-height: 700px) {
-    height: 5rem;
+    height: 4.8rem;
   }
   @media (min-height: 800px) {
-    height: 5.9rem;
+    height: 5.7rem;
   }
   @media (min-height: 900px) {
     height: 6.5rem;
@@ -30,7 +33,7 @@
   }
   @media (min-height: 1200px) {
     height: 9.5rem;
-  }
+  }*/
 }
 
 .common-day-class {

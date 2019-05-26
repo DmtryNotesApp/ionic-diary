@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title class="dates-string">{{displayDate}}</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons *ngIf="id" slot="end">
       <ion-button (click)="showDeleteAlert()">
         <ion-icon name="trash" class="back-button"></ion-icon>
       </ion-button>

@@ -1,16 +1,19 @@
 ion-toolbar {
-  min-height: 4rem;
+  min-height: 3.5rem;
   justify-content: center;
   display: flex;
 
+  @media (min-height: 600px) {
+    height: 4.5rem;
+  }
   @media (min-height: 700px) {
-    min-height: 5rem;
+    height: 4.8rem;
   }
   @media (min-height: 1000px) {
-    min-height: 6rem;
+    height: 5.8rem;
   }
   @media (min-height: 1200px) {
-    min-height: 7rem;
+    height: 6.8rem;
   }
 }
 .slyde-styles {

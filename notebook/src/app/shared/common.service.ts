@@ -158,14 +158,48 @@ export class CommonService {
 
   scheduleNotification(caseToProcess) {
     if (caseToProcess.caseDateTime) {
+      console.log(caseToProcess.id);
+      console.log(caseToProcess);
+      console.log(caseToProcess.caseDateTime);
+      console.log(new Date(caseToProcess.caseDateTime));
+      console.log(new Date(caseToProcess.caseDateTime).getTime());
       this.localNotifications.schedule({
         id: caseToProcess.id,
-        title: 'Attention',
+        title: 'New Notification',
         text: caseToProcess.description,
         data: { mydata: caseToProcess.id },
-        trigger: { at: new Date(caseToProcess.caseDateTime.getTime()) },
-        sound: this.setSound(),
+        foreground: true,
+        trigger: { at: new Date(new Date(caseToProcess.caseDateTime).getTime()) },
+        vibrate: true,
+        sound: this.setSound()
       });
+    }
+  }
+
+  scheduleAllNotifications() {
+    for (let i = 0; i < this.cases.length; i++) {
+      if (
+        !this.cases[i].isFinished &&
+        this.cases[i].caseDateTime
+      ) {
+        this.scheduleNotification(this.cases[i]);
+      }
+    }
+  }
+
+  deleteNotification(caseId) {
+    this.localNotifications.clear(caseId);
+  }
+
+  deleteAllNotifications() {
+    // this.localNotifications.clearAll();
+    for (let i = 0; i < this.cases.length; i++) {
+      if (
+        !this.cases[i].isFinished &&
+        this.cases[i].caseDateTime
+      ) {
+        this.localNotifications.clear(this.cases[i].id);
+      }
     }
   }
 
@@ -332,6 +366,7 @@ export class CommonService {
 
   processCase(caseEvent) {
     let caseId;
+    let finalCase;
 
     let date = new Date(caseEvent.caseDate);
     this.setNoneHour(date);
@@ -352,19 +387,17 @@ export class CommonService {
       caseId = this.lastCaseId + 1;
       this.lastCaseId += 1;
       this.saveData('lastCaseId', caseId);
-      let processedCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
-      this.cases.push(processedCase);
+      finalCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
+      this.cases.push(finalCase);
 
-      this.scheduleNotification(processedCase);
-
-      casesArray.push(processedCase);
+      casesArray.push(finalCase);
       this.casesMap[date + ''] = casesArray;
     } else {
       caseId = caseEvent.id;
-      let caseToUpdate = this.cases.find(cs => cs.id == caseId);
-      let index = this.cases.indexOf(caseToUpdate);
-      caseToUpdate = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
-      this.cases[index] = caseToUpdate;
+      let oldCase = this.cases.find(cs => cs.id == caseId);
+      let index = this.cases.indexOf(oldCase);
+      finalCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
+      this.cases[index] = finalCase;
 
       if (caseEvent.previousCaseDate) {
         casesArray = casesArray.filter(cs => cs.id !== caseEvent.id);
@@ -373,14 +406,14 @@ export class CommonService {
           targetArray = targetArray.filter(cs => cs.id !== caseEvent.id);
         }
 
-        targetArray.push(caseToUpdate);
+        targetArray.push(finalCase);
 
         this.casesMap[prevDate + ''] = casesArray;
         this.casesMap[date + ''] = targetArray;
       } else {
         let caseToUpdateInMap = casesArray.find(ev => ev.id == caseId);
         let indexInMap = casesArray.indexOf(caseToUpdateInMap);
-        casesArray[indexInMap] = caseToUpdate;
+        casesArray[indexInMap] = finalCase;
 
         this.casesMap[date + ''] = casesArray;
       }
@@ -391,6 +424,18 @@ export class CommonService {
       this.updateCasesManagerPage();
     }
     this.saveCases(this.cases);
+
+    if (this.appSettings.notificationsEnabled) {
+      if (!caseEvent.isCreationMode) {
+        this.deleteNotification(caseId);
+      }
+      if (
+        !finalCase.isFinished &&
+        finalCase.caseDateTime
+      ) {
+        this.scheduleNotification(finalCase);
+      }
+    }
   }
 
   updateCasesManagerPage() {
@@ -408,6 +453,13 @@ export class CommonService {
     this.cases = this.cases.filter(cs => cs.id !== caseEvent.id);
     this.saveCases(this.cases);
     this.updateDayCardComponent([date.toDateString()]);
+
+    if (
+      this.appSettings.notificationsEnabled &&
+      caseEvent.caseDateTime
+    ) {
+      this.deleteNotification(caseEvent.id);
+    }
   }
 
   deleteArrayOfCases(casesIds) {
