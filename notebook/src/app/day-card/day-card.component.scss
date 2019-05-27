@@ -2,49 +2,21 @@
   min-height: 13%;
 }
 .day-card {
-  margin: 1.5% 0.5rem 0px 0.5rem;
+  margin: 0.8vh 0.1vw 0vh 0.1vw;
   background-color: #ffffff9e;
-  height: 100%;
+  height: 11vh;
   display: flex;
   width: 100%;
-  /*@media (max-height: 500px) {
-    height: 3rem;
-  }
-  @media (min-height: 500px) {
-    height: 3.6rem;
-  }
-  @media (min-height: 600px) {
-    height: 3.8rem;
-  }
-  @media (min-height: 640px) {
-    height: 4.25rem;
-  }
-  @media (min-height: 700px) {
-    height: 4.8rem;
-  }
-  @media (min-height: 800px) {
-    height: 5.7rem;
-  }
-  @media (min-height: 900px) {
-    height: 6.5rem;
-  }
-  @media (min-height: 1000px) {
-    height: 7.5rem;
-  }
-  @media (min-height: 1200px) {
-    height: 9.5rem;
-  }*/
 }
 
 .common-day-class {
   width: min-content;
   display: flex;
   align-items: center;
-  margin: 0 0.4rem 0 0.4rem;
+  margin: 0vh 1vw 0vh 1vw;
 }
 .day-date {
   width: 18%;
-  padding-right: 0.4rem;
 
   @media (max-height: 500px) {
     font-size: small;
@@ -60,22 +32,8 @@
   }
 }
 .add-button {
-  @media (min-height: 600px) {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
-  @media (min-height: 700px) {
-    height: 2rem;
-    width: 2rem;
-  }
-  @media (min-height: 1000px) {
-    height: 3rem;
-    width: 3rem;
-  }
-  @media (min-height: 1200px) {
-    height: 4rem;
-    width: 4rem;
-  }
+  height: 6vh;
+  width: 6vw;
 }
 .day-progress {
   width: 100%;
@@ -100,44 +58,32 @@
 }
 .cases-list {
   width: 100%;
-  margin: 0px 0.5rem 0.5rem 0.5rem;
+  margin:  0vh 0.1vw 0vh 0.1vw;
   background: #ffffff;
 }
 .case-item {
   display: flex;
   border: 1px solid bisque;
-  
-  @media (min-height: 500px) {
-    height: 4rem;
+  height: 11vh;
+
+  @media (max-height: 500px) and (min-width: 550px) {
+    height: 17vh;
   }
-  @media (min-height: 800px) {
-    height: 6rem;
+  @media (max-height: 400px) and (min-width: 600px) {
+    height: 16vh;
   }
-  @media (min-height: 1000px) {
-    height: 4rem;
+  @media (max-height: 500px) and (min-width: 600px) {
+    height: 15vh;
   }
 }
 .toggle-class {
+  margin-top: 3vh;
+
   @media (max-width: 350px) {
     margin-left: -18%;
   }
   @media (max-width: 280px) {
     margin-left: -31%;
-  }
-  @media (min-height: 500px) {
-    margin-top: 9%;
-  }
-  @media (min-height: 800px) {
-    margin-top: 36%;
-  }
-  @media (min-height: 1000px) {
-    margin-top: 18%;
-  }
-  @media (min-height: 1200px) {
-    margin-top: 12%;
-  }
-  @media (min-height: 1000px) and (min-width: 1200px) {
-    margin-top: 9%;
   }
 }
 .case-item-description {
@@ -146,8 +92,6 @@
   position: relative;
 }
 .description-text {
-  width: 11rem;
-  height: 3rem;
   font-size: inherit;
   overflow: scroll;
   display: block;
@@ -157,19 +101,19 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 52%;
+  height: 67%;
   margin: auto;
+  font-size: 2.2vh;
+  padding-top: 0.5vh;
+  line-height: 2.2vh;
+
 
   @media (max-height: 500px) {
-    font-size: x-small;
     line-height: 0.75rem;
-  }
-  @media (min-height: 1000px) {
-    font-size: x-large;
   }
 }
 .check-box-item {
-  width: 26%;
+  width: 26vw;
 }
 .center-align {
   display: flex;

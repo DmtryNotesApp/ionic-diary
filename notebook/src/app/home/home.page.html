@@ -1,5 +1,5 @@
 <ion-toolbar>
-  <ion-buttons slot="start">
+  <ion-buttons slot="start" style="margin-left: 1vw">
     <ion-menu-button autoHide="true" class="header-button" style="display: none" id="menuButton"></ion-menu-button>
     <ion-button (click)="clickMenu()">
       <ion-icon name="menu" class="header-button"></ion-icon>
@@ -8,7 +8,7 @@
 
   <ion-title class="dates-header-string">{{mondayString}} - {{sundayString}}</ion-title>
 
-  <ion-buttons slot="end">
+  <ion-buttons slot="end" style="margin-right: 1vw">
     <ion-button (click)="changeDate(true)">
       <ion-icon slot="icon-only" name="calendar" class="header-button"></ion-icon>
     </ion-button>

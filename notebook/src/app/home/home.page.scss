@@ -1,20 +1,7 @@
 ion-toolbar {
-  min-height: 3.5rem;
+  min-height: 12.5vh;
   justify-content: center;
   display: flex;
-
-  @media (min-height: 600px) {
-    height: 4.5rem;
-  }
-  @media (min-height: 700px) {
-    height: 4.8rem;
-  }
-  @media (min-height: 1000px) {
-    height: 5.8rem;
-  }
-  @media (min-height: 1200px) {
-    height: 6.8rem;
-  }
 }
 .slyde-styles {
   height: auto;
@@ -47,61 +34,29 @@ ion-toolbar {
   }
 }
 .header-button {
-  @media (min-height: 500px) {
-    height: 1.6rem;
-    width: 1.6rem;
-  }
-  @media (min-height: 600px) {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
-  @media (min-height: 700px) {
-    height: 2rem;
-    width: 2rem;
-  }
-  @media (min-height: 1000px) {
-    height: 3rem;
-    width: 3rem;
-  }
-  @media (min-height: 1200px) {
-    height: 4rem;
-    width: 4rem;
-  }
+  height: 4.5vh;
+  width: 4.5vh;
 }
 .calendar {
   display: none;
 }
 .menu-item {
+  height: 11vh;
   @media (min-height: 600px) {
-    height: 4rem;
     font-size: larger;
   }
   @media (min-height: 800px) {
-    height: 5rem;
     font-size: larger;
   }
   @media (min-height: 1000px) {
-    height: 6rem;
     font-size: x-large;
   }
   @media (min-height: 1200px) {
-    height: 7rem;
     font-size: xx-large;
   }
 }
 .first-menu-element {
-  @media (min-height: 600px) {
-    margin-top: 1rem;
-  }
-  @media (min-height: 800px) {
-    margin-top: 2rem;
-  }
-  @media (min-height: 1000px) {
-    margin-top: 3rem;
-  }
-  @media (min-height: 1200px) {
-    margin-top: 4rem;
-  }
+  margin-top: 5vh;
 }
 .menu-title {
   width: auto;
@@ -116,18 +71,7 @@ ion-toolbar {
     font-size: x-large;
   }
   @media (min-height: 1200px) {
-    font-size: x-large;
-  }
-}
-.li-ionic4-datePicker {
-  .modal-wrapper {
-    height: 75%;
-    width: 310px;
-    border-radius: 0px;
-    @media (min-width: 768px) {
-      width: 350px;
-      height: 65%;
-    }
+    font-size: xx-large;
   }
 }
 .dates-container {
