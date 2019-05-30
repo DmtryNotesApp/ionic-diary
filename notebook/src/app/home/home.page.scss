@@ -15,44 +15,42 @@ ion-toolbar {
   --width: 80%;
 }
 .dates-header-string {
-  font-size: smaller;
   height: 100%;
   width: 106%;
   text-align: center;
+  font-size: 4.5vw;
 
-  @media (min-height: 600px) {
-    font-size: medium;
-  }
-  @media (min-height: 800px) {
-    font-size: large;
-  }
-  @media (min-height: 1000px) {
-    font-size: x-large;
-  }
-  @media (min-height: 1200px) {
-    font-size: xx-large;
+  @media (orientation:landscape) {
+    font-size: 4.5vh;
   }
 }
 .header-button {
   height: 4.5vh;
   width: 4.5vh;
+
+  @media (orientation:landscape) {
+    height: 4.5vw;
+    width: 4.5vw;
+  }
 }
 .calendar {
   display: none;
 }
 .menu-item {
   height: 11vh;
-  @media (min-height: 600px) {
-    font-size: larger;
-  }
-  @media (min-height: 800px) {
-    font-size: larger;
+  font-size: 6vw;
+
+  @media (orientation:landscape) {
+    font-size: 5vh;
   }
   @media (min-height: 1000px) {
-    font-size: x-large;
+    font-size: 3.8vw;
   }
-  @media (min-height: 1200px) {
-    font-size: xx-large;
+  @media (min-height: 700px) and(min-width: 1000px) {
+    font-size: 3.5vw;
+  }
+  @media (min-height: 1000px) and(min-width: 1200px) {
+    font-size: 2.5vw;
   }
 }
 .first-menu-element {
@@ -60,18 +58,19 @@ ion-toolbar {
 }
 .menu-title {
   width: auto;
+  font-size: 7vw;
 
-  @media (min-height: 600px) {
-    font-size: larger;
-  }
-  @media (min-height: 800px) {
-    font-size: x-large;
+  @media (orientation:landscape) {
+    font-size: 6vh;
   }
   @media (min-height: 1000px) {
-    font-size: x-large;
+    font-size: 4.5vw;
   }
-  @media (min-height: 1200px) {
-    font-size: xx-large;
+  @media (min-height: 700px) and(min-width: 1000px) {
+    font-size: 3.5vw;
+  }
+  @media (min-height: 1000px) and(min-width: 1200px) {
+    font-size: 2.5vw;
   }
 }
 .dates-container {

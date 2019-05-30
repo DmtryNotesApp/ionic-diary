@@ -26,7 +26,7 @@
     <session id="-1697578264">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="30" />
+          <entry key="project.closed" value="32" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.101" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -36,13 +36,13 @@
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.46" value="1" />
-          <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.47" value="2" />
           <entry key="project.open.time.49" value="2" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.54" value="1" />
-          <entry key="project.open.time.55" value="2" />
+          <entry key="project.open.time.55" value="3" />
           <entry key="project.open.time.57" value="2" />
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.63" value="1" />
@@ -52,48 +52,48 @@
           <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.77" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="30" />
+          <entry key="project.opened" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="5389" />
+          <entry key="html" value="5438" />
           <entry key="js" value="1" />
-          <entry key="scss" value="3219" />
+          <entry key="scss" value="3561" />
           <entry key="ts" value="25467" />
           <entry key="xml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="5389" />
+          <entry key="HTML" value="5438" />
           <entry key="JavaScript" value="1" />
-          <entry key="SCSS" value="3219" />
+          <entry key="SCSS" value="3561" />
           <entry key="TypeScript" value="25467" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="104" />
+          <entry key="html" value="109" />
           <entry key="json" value="2" />
           <entry key="png" value="1" />
-          <entry key="scss" value="73" />
+          <entry key="scss" value="78" />
           <entry key="ts" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="104" />
+          <entry key="HTML" value="109" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="2" />
-          <entry key="SCSS" value="73" />
+          <entry key="SCSS" value="78" />
           <entry key="TypeScript" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="28" />
+          <entry key="Angular2LanguageService" value="30" />
         </counts>
       </usages-collector>
     </session>
@@ -103,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="133">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="33" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -112,11 +112,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+            <state relative-caret-position="171">
+              <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
               <folding>
                 <element signature="n#style#0;n#ion-buttons#0;n#ion-toolbar#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ion-menu-button#0;n#ion-buttons#0;n#ion-toolbar#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ion-buttons#1;n#ion-toolbar#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ion-menu#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -124,10 +125,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss">
+        <entry file="file://$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-753">
-              <caret line="70" column="3" lean-forward="true" selection-start-line="70" selection-start-column="3" selection-end-line="70" selection-end-column="3" />
+            <state relative-caret-position="119">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -143,26 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cancel</find>
-      <find>modal</find>
-      <find>today</find>
-      <find>console.</find>
-      <find>close</find>
-      <find>updateHomePage</find>
-      <find>init</find>
-      <find>console.log</find>
-      <find>process</find>
-      <find>scheduleNotification</find>
-      <find>delete</find>
-      <find>changeDate</find>
-      <find>ion-toolbar</find>
-      <find>getAllNotifications()</find>
-      <find>ion-</find>
-      <find>day-card-container</find>
-      <find>2.5%</find>
-      <find>2%</find>
-      <find>cards-container</find>
-      <find>toggle</find>
       <find>day-card</find>
       <find>cases</find>
       <find>31%</find>
@@ -173,6 +163,26 @@
       <find>day-date</find>
       <find>common-day-class</find>
       <find>menu-title</find>
+      <find>slot</find>
+      <find>input-element</find>
+      <find>button-item</find>
+      <find>picker-wrapper</find>
+      <find>date-time</find>
+      <find>date</find>
+      <find>datePicker</find>
+      <find>date-time-height</find>
+      <find>back-button</find>
+      <find>dates-header-string</find>
+      <find>case-header</find>
+      <find>day-progress-text</find>
+      <find>dates-string</find>
+      <find>header-button</find>
+      <find>day-progress</find>
+      <find>font-size</find>
+      <find>button</find>
+      <find>case-item-icon</find>
+      <find>case-item-container</find>
+      <find>case-item</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Dmitry\Documents\Собственные проекты\Ionic-Notes\notebook\src</dir>
@@ -215,7 +225,6 @@
         <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/models/Settings.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.scss" />
@@ -225,16 +234,17 @@
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.html" />
-        <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.scss" />
-        <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/shared/common.service.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.html" />
+        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.html" />
+        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.scss" />
+        <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/home/home.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/home/home.page.scss" />
-        <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss" />
+        <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.html" />
+        <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.scss" />
       </list>
     </option>
   </component>
@@ -284,8 +294,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -409,6 +417,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -478,16 +488,18 @@
       <workItem from="1558786409417" duration="19774000" />
       <workItem from="1558882482921" duration="14454000" />
       <workItem from="1558975758406" duration="8237000" />
+      <workItem from="1559079232134" duration="7669000" />
+      <workItem from="1559244491801" duration="9211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331816000" />
+    <option name="totallyTimeSpent" value="348696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2912254" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30030257" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -502,7 +514,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Log Viewer" order="7" weight="0.7147541" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49848714" visible="true" weight="0.49016392" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49848714" visible="true" weight="0.35573772" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015129" side_tool="true" weight="0.27868852" />
       <window_info anchor="bottom" id="Anonymous Apex" order="10" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
@@ -519,6 +531,39 @@
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
       <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.295764" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Log Viewer" order="7" weight="0.7147541" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49848714" weight="0.49016392" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015129" side_tool="true" weight="0.27868852" />
+      <window_info anchor="bottom" id="Anonymous Apex" order="10" weight="0.3295082" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3295082" />
+      <window_info anchor="bottom" id="SOQL Query" order="13" />
+      <window_info anchor="bottom" id="TypeScript" order="14" weight="0.29836065" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32980332" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -691,13 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -778,31 +816,10 @@
     <entry file="file://$PROJECT_DIR$/notebook/src/assets/icon/favicon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="152" column="3" lean-forward="true" selection-start-line="152" selection-start-column="3" selection-end-line="152" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="62" lean-forward="true" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="77" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -817,9 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6239">
           <caret line="372" column="17" selection-start-line="372" selection-start-column="17" selection-end-line="372" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -837,39 +851,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="62" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#ion-item#3;n#ion-list#0;n#div#0;n#div#0;n#ion-content#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="136">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#ion-icon#0;n#ion-button#0;n#ion-buttons#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.html">
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#ion-buttons#0;n#ion-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-menu-button#0;n#ion-buttons#0;n#ion-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-menu#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="369">
+          <caret line="98" column="3" selection-start-line="98" selection-start-column="3" selection-end-line="98" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="133">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="33" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss">
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-753">
-          <caret line="70" column="3" lean-forward="true" selection-start-line="70" selection-start-column="3" selection-end-line="70" selection-end-column="3" />
+        <state relative-caret-position="171">
+          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#ion-buttons#0;n#ion-toolbar#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-menu-button#0;n#ion-buttons#0;n#ion-toolbar#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-buttons#1;n#ion-toolbar#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ion-menu#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>

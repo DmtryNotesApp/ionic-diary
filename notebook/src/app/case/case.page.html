@@ -34,7 +34,7 @@
 
         <ion-item lines="none" class="" style="padding: 0px;">
           <ion-label class="input-label">Set Time?</ion-label>
-          <ion-toggle [(ngModel)]="showTime"></ion-toggle>
+          <ion-toggle [(ngModel)]="showTime" slot="end"></ion-toggle>
         </ion-item>
 
         <ion-item lines="none" *ngIf="showTime" class="date">
@@ -48,7 +48,7 @@
 
         <ion-item lines="none" class="input-element" style="padding: 0px;">
           <ion-label class="input-label">Is Done?</ion-label>
-          <ion-toggle [(ngModel)]="isFinished"></ion-toggle>
+          <ion-toggle [(ngModel)]="isFinished" slot="end"></ion-toggle>
         </ion-item>
 
       </ion-list>

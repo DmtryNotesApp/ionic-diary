@@ -3,7 +3,6 @@
 }
 .input-description {
   width: 100%;
-  height: 10rem;
   border: 1.3px solid greenyellow;
   border-radius: 8px;
   background-color: #ffffffa3;
@@ -20,27 +19,14 @@
   display: inline-block;
 }
 .button-item {
-  width: 8rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  width: 30vw;
+  height: 6.5vh;
+  margin-right: 3vw;
+  margin-left: 3vw;
+  font-size: 3vw;
 
-  @media (max-width: 415px) {
-    width: 6rem;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-  }
-  @media (min-height: 700px) {
-    width: 9rem;
-  }
-  @media (min-height: 1000px) {
-    width: 11rem;
-    height: 4rem;
-    font-size: x-large;
-  }
-  @media (min-height: 1200px) {
-    width: 15rem;
-    height: 5rem;
-    font-size: xx-large;
+  @media (orientation:landscape) {
+    font-size: 3vh;
   }
 }
 .text-area-element {
@@ -48,166 +34,50 @@
 }
 .input-element {
   padding: 1%;
+  height: 27vh;
+  font-size: 5vw;
 
-  @media (min-height: 600px) {
-    font-size: large;
-    height: 11rem;
+  @media (orientation:landscape) {
+    font-size: 5vh;
   }
-  @media (min-height: 700px) {
-    font-size: x-large;
-    height: 12rem;
-  }
-  @media (min-height: 800px) {
-    font-size: x-large;
-    height: 16rem;
-  }
-  @media (min-height: 1000px) {
-    font-size: xx-large;
-    height: 21rem;
-  }
-  @media (min-height: 1200px) {
-    font-size: -webkit-xxx-large;;
-    height: 30rem;
-  }
-}
-.picker-wrapper {
-  @media (min-height: 600px) {
-    height: 11rem;
-  }
-  @media (min-height: 700px) {
-    height: 12rem;
-  }
-  @media (min-height: 800px) {
-    height: 16rem;
-  }
-  @media (min-height: 1000px) {
-    height: 21rem;
-  }
-  @media (min-height: 1200px) {
-    height: 303rem;
-  }
-}
-.date-time {
-  margin: 2rem 0rem 2rem 0rem;
-  display: flex;
 }
 .date {
-  margin-right: 2rem;
   width: 100%;
-
 }
 .input-label {
-  @media (min-height: 500px) {
-    font-size: small;
+  font-size: 5vw;
+
+  @media (orientation:landscape) {
+    font-size: 5vh;
   }
-  @media (min-height: 600px) {
-    font-size: medium;
-  }
-  @media (min-height: 700px) and (min-width: 400px) {
-    font-size: large;
-  }
-  @media (min-height: 800px) and (min-width: 400px) {
-    font-size: large;
-  }
-  @media (min-height: 1000px) {
-    font-size: xx-large;
-  }
-  @media (min-height: 1200px) {
-    font-size: -webkit-xxx-large;;
-  }
-}
-.datePicker {
-  width: 23rem;
-}
-.date-time-height {
-  height: 3rem;
 }
 .dates-string {
   text-align: center;
   margin-right: 12%;
   font-stretch: condensed;
+  font-size: 5vw;
+  font-weight: bold;
 
-  @media (min-height: 500px) {
-    font-size: smaller;
-  }
-  @media (min-height: 500px) and (min-width: 350px) {
-    font-size: small;
-  }
-  @media (min-height: 600px) and (min-width: 350px) {
-    font-size: medium;
-  }
-  @media (min-height: 600px) and (min-width: 1000px) {
-    font-size: x-large;
-  }
-  @media (min-height: 800px)
-  and (min-width: 400px){
-    font-size: large;
-  }
-  @media (min-height: 1000px) {
-    font-size: x-large;
-  }
-  @media (min-height: 1000px) and (min-width: 1200px) {
-    font-size: xx-large;
-  }
-  @media (min-height: 1200px) {
-    font-size: xx-large;
+  @media (orientation:landscape) {
+    font-size: 5.5vh;
   }
 }
 .back-button {
-  @media (min-height: 500px) {
-    height: 1.6rem;
-    width: 1.6rem;
-  }
-  @media (min-height: 600px) {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
-  @media (min-height: 700px) {
-    height: 2rem;
-    width: 2rem;
-  }
-  @media (min-height: 1000px) {
-    height: 3rem;
-    width: 3rem;
-  }
-  @media (min-height: 1200px) {
-    height: 4rem;
-    width: 4rem;
+  height: 4.5vh;
+  width: 8vw;
+
+  @media (orientation:landscape) {
+    height: 8vh;
+    width: 4.5vw;
   }
 }
 .case-header {
-  min-height: 3rem;
+  height: 12.5vh;
   justify-content: center;
   display: flex;
-
-  @media (min-height: 500px) {
-    min-height: 3rem;
-  }
-  @media (min-height: 600px) {
-    min-height: 4rem;
-  }
-  @media (min-height: 1000px) {
-    min-height: 6rem;
-  }
-  @media (min-height: 1200px) {
-    min-height: 8rem;
-  }
 }
 .case-footer {
-  min-height: 3rem;
+  height: 12.5vh;
   justify-content: center;
   display: flex;
-
-  @media (min-height: 500px) {
-    min-height: 3rem;
-  }
-  @media (min-height: 600px) {
-    min-height: 4rem;
-  }
-  @media (min-height: 1000px) {
-    min-height: 8rem;
-  }
-  @media (min-height: 1200px) {
-    min-height: 10rem;
-  }
 }
