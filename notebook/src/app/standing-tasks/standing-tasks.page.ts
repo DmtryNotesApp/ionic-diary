@@ -59,10 +59,10 @@ export class StandingTasksPage implements OnInit {
 
   async presentTaskPrompt() {
     let alert = await this.alertCtrl.create({
-      header: 'Describe The Task',
+      header: 'Make a Note',
       inputs: [
         {
-          placeholder: 'enter description...'
+          placeholder: 'Enter description...'
         }
       ],
       buttons: [

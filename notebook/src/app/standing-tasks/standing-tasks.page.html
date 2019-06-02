@@ -8,7 +8,7 @@
     </ion-buttons>
 
     <ion-title *ngIf="areChangesDisabled" class="header-string">
-      Standing Tasks
+      Your Notes
     </ion-title>
     <ion-title *ngIf="!areChangesDisabled" class="header-string">
       Change Records
@@ -31,7 +31,7 @@
   <ion-list>
     <ion-reorder-group [disabled]="areChangesDisabled">
 
-    <ion-item lines="none" *ngFor="let task of standingTasks; let i = index">
+    <ion-item *ngFor="let task of standingTasks; let i = index">
       <p class="overflow-visible task-item" *ngIf="areChangesDisabled">
         {{task.description}}
       </p>
@@ -64,7 +64,7 @@
   <ion-toolbar>
     <div class="add-task-button">
       <ion-button round="true" large shape="round" class="add-button-class" (click)="presentTaskPrompt()">
-        Add New Task
+        New Note
       </ion-button>
     </div>
   </ion-toolbar>

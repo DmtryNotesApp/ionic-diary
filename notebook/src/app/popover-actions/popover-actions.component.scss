@@ -1,49 +1,37 @@
 ion-list {
-  height: 100%;
   margin: auto;
-  
-  @media (min-height: 600px) {
-    height: 7rem;
-    width: 13rem;
-  }
-  @media (min-height: 700px) {
-    height: 7rem;
-    width: 14rem;
-  }
-  @media (min-height: 800px) {
-    height: 8rem;
-    width: 17rem;
-  }
-  @media (min-height: 1000px) {
-    height: 12rem;
-    width: 21rem;
+  height: 18vh;
+  width: 34vh;
+
+  @media (orientation:landscape) {
+    height: 18vw;
+    width: 34vw;
   }
 }
 .item-action {
   height: 50%;
+  font-size: 2.6vh;
+
+  @media (orientation:landscape) {
+    font-size: 2.6vw;
+  }
 
   @media (min-height: 600px) {
-    height: 3rem;
-    width: 13rem;
     font-size: large;
   }
   @media (min-height: 700px) {
-    height: 3.5rem;
-    width: 14rem;
+    font-size: larger;
   }
   @media (min-height: 800px) {
-    height: 4rem;
-    width: 17rem;
     font-size: larger;
   }
   @media (min-height: 1000px) {
-    height: 6rem;
-    width: 21rem;
     font-size: x-large;
   }
 }
+/*
 .icon-class {
   @media (min-height: 1000px) {
     height: 6rem;
   }
-}
+}*/

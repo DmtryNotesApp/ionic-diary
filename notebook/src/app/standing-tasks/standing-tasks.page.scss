@@ -1,156 +1,54 @@
-.tool-bar-class {
-  min-height: 4rem;
+ion-toolbar {
+  min-height: 12.5vh;
   justify-content: center;
   display: flex;
 
-  @media (min-height: 500px) {
-    height: 4rem;
-  }
-  @media (min-height: 700px) {
-    height: 6rem;
-  }
-  @media (min-height: 700px) and (min-width: 1000px) {
-    height: 6rem;
-  }
-  @media (min-height: 800px) {
-    height: 6.5rem;
-  }
-  @media (min-height: 1000px) {
-    height: 8rem;
-  }
-  @media (min-height: 1200px) {
-    height: 9rem;
+  @media (orientation:landscape) {
+    min-height: 8.5vw;
   }
 }
 .add-task-button {
   margin-top: 1%;
   display: flex;
   justify-content: center;
-
-  @media (min-height: 700px) {
-    margin-top: 4%;
-  }
-  @media (min-height: 700px) and (min-width: 1000px) {
-    margin-top: 1%;
-  }
-  @media (min-height: 1000px) {
-    margin-top: 3%;
-  }
-  @media (min-height: 1200px) {
-    margin-top: 2%;
-  }
-  @media (min-height: 1000px) and (min-width: 1200px) {
-    margin-top: 1%;
-  }
 }
 .add-button-class {
-  @media (min-height: 700px) {
-    height: 3rem;
-  }
-  @media (min-height: 700px) and (min-width: 1000px) {
-    width: 15rem;
-    height: 4rem;
-    font-size: x-large;
-  }
-  @media (min-height: 800px) {
-    height: 3.5rem;
-    font-size: large;
-  }
-  @media (min-height: 1000px) {
-    height: 4.5rem;
-    font-size: x-large;
-    width: 15rem;
-  }
-  @media (min-height: 1200px) {
-    height: 5.5rem;
-    font-size: xx-large;
-    width: 20rem;
+  height: 7vh;
+  font-size: 2.3vh;
+
+  @media (orientation:landscape) {
+    height: 5.5vw;
+    font-size: 1.8vw;
   }
 }
 .overflow-visible {
   overflow: hidden;
   white-space: initial;
+  font-size: 2.5vh;
 
-  @media (min-height: 800px) {
-    font-size: large;
+  @media (orientation:landscape) {
+    font-size: 2.2vw;
   }
 }
 .task-item {
   overflow: scroll;
-
-  @media (min-height: 600px) {
-    height: 4rem;
-  }
-  @media (min-height: 700px) {
-    height: 4rem;
-    font-size: large;
-  }
-  @media (min-height: 700px) and (min-width: 1000px) {
-    height: 5rem;
-    font-size: x-large;
-  }
-  @media (min-height: 800px) {
-    height: 5rem;
-  }
-  @media (min-height: 1000px) {
-    height: 7rem;
-    font-size: x-large;
-  }
-  @media (min-height: 1000px) and (min-width: 1200px) {
-    height: 7rem;
-    font-size: xx-large;
-  }
-  @media (min-height: 1200px) {
-    height: 10rem;
-    font-size: xx-large;
-  }
+  height: 8vh;
 }
 .back-button {
-  @media (min-height: 500px) {
-    height: 1.6rem;
-    width: 1.6rem;
-  }
-  @media (min-height: 600px) {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
-  @media (min-height: 700px) {
-    height: 2rem;
-    width: 2rem;
-  }
-  @media (min-height: 700px) and (min-width: 1000px) {
-    height: 3rem;
-    width: 3rem;
-  }
-  @media (min-height: 1000px) {
-    height: 3rem;
-    width: 3rem;
-  }
-  @media (min-height: 1200px) {
-    height: 4rem;
-    width: 4rem;
+  height: 4.5vh;
+  width: 8vw;
+
+  @media (orientation:landscape) {
+    height: 8vh;
+    width: 4.5vw;
   }
 }
 .header-string {
   text-align: center;
+  font-size: 3vh;
 
-  @media (min-height: 600px) {
-    font-size: large;
-  }
-  @media (min-height: 700px) {
-    font-size: larger;
-  }
-  @media (min-height: 700px) and (min-width: 1000px) {
-    font-size: xx-large;
-  }
-  @media (min-height: 800px) {
-    font-size: larger;
-  }
-  @media (min-height: 1000px) {
-    font-size: xx-large;
-  }
-  @media (min-height: 1200px) {
-    font-size: -webkit-xxx-large;
+  @media (orientation:landscape) {
+    font-size: 3vw;
   }
 }
 .reorder-button {
@@ -158,28 +56,11 @@
   z-index: 10000;
 }
 .item-button {
-  @media (min-height: 500px) {
-    height: 1.6rem;
-    width: 1.6rem;
-  }
-  @media (min-height: 600px) {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
-  @media (min-height: 700px) {
-    height: 2rem;
-    width: 2rem;
-  }
-  @media (min-height: 700px) and (min-width: 1000px) {
-    height: 2.5rem;
-    width: 2.5rem;
-  }
-  @media (min-height: 1000px) {
-    height: 2.5rem;
-    width: 2.5rem;
-  }
-  @media (min-height: 1200px) {
-    height: 3rem;
-    width: 3rem;
+  height: 4.5vh;
+  width: 4.5vh;
+
+  @media (orientation:landscape) {
+    height: 4.5vw;
+    width: 4.5vw;
   }
 }
