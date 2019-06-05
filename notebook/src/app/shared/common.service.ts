@@ -62,6 +62,7 @@ export class CommonService {
     false,
     'English'
   );
+  language:string = localStorage.getItem('language') || 'English';
 
   slides: IonSlides;
 
@@ -148,21 +149,16 @@ export class CommonService {
       ) ?
         applicationSettings.chosenLanguage :
         'English';
-
     })
   }
 
   saveSettings(settings: AppSettings) {
     this.storage.set('appSettings', settings);
+    localStorage.setItem('language', settings.chosenLanguage);
   }
 
   scheduleNotification(caseToProcess) {
     if (caseToProcess.caseDateTime) {
-      console.log(caseToProcess.id);
-      console.log(caseToProcess);
-      console.log(caseToProcess.caseDateTime);
-      console.log(new Date(caseToProcess.caseDateTime));
-      console.log(new Date(caseToProcess.caseDateTime).getTime());
       this.localNotifications.schedule({
         id: caseToProcess.id,
         title: 'New Notification',
@@ -171,7 +167,9 @@ export class CommonService {
         foreground: true,
         trigger: { at: new Date(new Date(caseToProcess.caseDateTime).getTime()) },
         vibrate: true,
-        sound: this.setSound()
+        sound: 'notification-sound',
+        icon: 'drawable-icon',
+        smallIcon: 'drawable-icon'
       });
     }
   }
@@ -203,13 +201,13 @@ export class CommonService {
     }
   }
 
-  setSound() {
+  /*setSound() {
     if (this.platform.is('android')) {
       return 'file://assets/sounds/shame.mp3'
     } else {
       return 'file://assets/sounds/bell.mp3'
     }
-  }
+  }*/
 
   getLastCaseId() {
     this.getDataAcync('lastCaseId')

@@ -3,6 +3,7 @@ import {Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Case} from "../models/case";
 import {CommonService} from "../shared/common.service";
 import {ActionSheetController, AlertController, Events, NavController} from "@ionic/angular";
+import {TranslationService} from "../shared/translation-service.service";
 
 @Component({
   selector: 'app-day-card',
@@ -16,7 +17,8 @@ export class DayCardComponent implements OnInit, OnDestroy {
     private navCtrl: NavController,
     private actionSheetController: ActionSheetController,
     private alertController: AlertController,
-    private eventEmitter: Events
+    private eventEmitter: Events,
+    private translationService: TranslationService
   ) {
     eventEmitter.subscribe('updateDayCardComponent', (datesArray: string[]) => {
       if (this.isLoaded && datesArray.indexOf(this.date.toDateString()) != -1) {
@@ -59,7 +61,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
   date: Date;
   progressStatus: string = 'success';
   progress: number = 1;
-  message: string = 'No cases planned';
+  message: string = this.translationService.phrases['No cases planned'];
   isDoneValue: boolean = false;
   caseDateS: Date;
 
@@ -89,20 +91,20 @@ export class DayCardComponent implements OnInit, OnDestroy {
       backdropDismiss: true,
       buttons: [
         {
-          text: 'Mark as ' + (this.commonService.caseParams.isFinished ? 'Uncompleted' : 'Completed'),
+          text: this.translationService.phrases['Mark as ' + (this.commonService.caseParams.isFinished ? 'Uncompleted' : 'Completed')],
           icon: 'checkmark',
           handler: () => {
             this.commonService.caseParams.isFinished = !this.commonService.caseParams.isFinished;
             this.updateCase(null);
           }
         }, {
-          text: 'View/Edit',
+          text: this.translationService.phrases['View/Edit'],
           icon: 'settings',
           handler: () => {
             this.redirectToCasePage(false, this.commonService.caseParams);
           }
         }, {
-          text: 'Change Date',
+          text: this.translationService.phrases['Change Date'],
           icon: 'calendar',
           handler: () => {
             this.commonService.cameFromFirstDayOfWeek = this.date;
@@ -110,14 +112,14 @@ export class DayCardComponent implements OnInit, OnDestroy {
             datePicker.click();
           }
         }, {
-          text: 'Delete',
+          text: this.translationService.phrases['Delete'],
           role: 'destructive',
           icon: 'trash',
           handler: () => {
             this.showAlert(this.commonService.caseParams);
           }
         }, {
-          text: 'Cancel',
+          text: this.translationService.phrases['Cancel'],
           icon: 'close',
           role: 'cancel',
           handler: () => {
@@ -146,12 +148,13 @@ export class DayCardComponent implements OnInit, OnDestroy {
     }).length;
     this.progress = isFinished / this.cases.length;
     if (this.progress == 1) {
-      this.message = 'None active of ' + this.cases.length + ' cases left'
+      console.log(this.translationService.phrases['Active cases left'] + ': ');
+      this.message = this.translationService.phrases['Active cases left'] + ' – ' + (this.cases.length - this.cases.length) + '/' + this.cases.length;
     } else if (this.cases.length == 0) {
       this.progress = 1;
-      this.message = 'No cases planned';
+      this.message = this.translationService.phrases['No cases planned'];
     } else {
-      this.message = this.cases.length - isFinished + ' active of ' + this.cases.length + ' cases left';
+      this.message = this.translationService.phrases['Active cases left'] + ': ' + (this.cases.length - isFinished) + '/' + this.cases.length;
     }
     this.progressStatus =
       this.progress == 1
@@ -198,8 +201,6 @@ export class DayCardComponent implements OnInit, OnDestroy {
   }
 
   updateCase(caseEvent) {
-    console.log('caseEvent', caseEvent);
-    console.log('this.commonService.caseParams', this.commonService.caseParams);
     this.commonService.processCase(caseEvent || this.commonService.caseParams);
   }
 
@@ -209,16 +210,15 @@ export class DayCardComponent implements OnInit, OnDestroy {
 
   async showAlert(caseEvent) {
     const alert = await this.alertController.create({
-      header: 'Confirm Action',
-      message: 'Are you sure you want to delete this case?',
+      message: this.translationService.phrases['Are you sure you want to delete this case?'],
       buttons: [
         {
-          text: 'Yes',
+          text: this.translationService.phrases['Yes'],
           handler: () => {
             this.deleteCase(caseEvent);
           }
         }, {
-          text: 'No',
+          text: this.translationService.phrases['No'],
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
