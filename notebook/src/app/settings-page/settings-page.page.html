@@ -29,6 +29,11 @@
       <ion-toggle [(ngModel)]="notificationsEnabled"></ion-toggle>
     </ion-item>
 
+    <ion-item lines="none" class="input-element" style="padding: 0px;">
+      <ion-label class="input-label">{{'Badges' | translatePhrase}}</ion-label>
+      <ion-toggle [(ngModel)]="badgesOn"></ion-toggle>
+    </ion-item>
+
   </ion-list>
 
 </ion-content>

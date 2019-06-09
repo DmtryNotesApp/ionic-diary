@@ -87,9 +87,9 @@ export class CasePage implements OnInit {
       id: this.id,
       comeFromCasesManager: this.comeFromCasesManager
     });
+    this.goBack();
     this.caseDescription = '';
     this.isFinished = false;
-    this.goBack();
   }
 
   deleteCase() {

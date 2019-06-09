@@ -10,9 +10,10 @@ import {CommonService} from "../shared/common.service";
 })
 export class SettingsPagePage implements OnInit {
 
-  notificationsEnabled: boolean = false;
-  soundsEnabled: boolean = false;
-  language: string = 'English';
+  notificationsEnabled:boolean = true;
+  soundsEnabled:boolean = false;
+  language:string = 'English';
+  badgesOn:boolean = true;
 
   oldSettings: AppSettings = {};
 
@@ -29,6 +30,7 @@ export class SettingsPagePage implements OnInit {
     ) {
       this.notificationsEnabled = this.commonSerice.appSettings.notificationsEnabled;
       this.soundsEnabled = this.commonSerice.appSettings.soundsEnabled;
+      this.badgesOn = this.commonSerice.appSettings.badgesOn;
       this.language = this.commonSerice.language;
 
       this.oldSettings = Object.assign({}, this.commonSerice.appSettings);
@@ -39,9 +41,9 @@ export class SettingsPagePage implements OnInit {
     let appSettings = new AppSettings(
       this.notificationsEnabled,
       this.soundsEnabled,
-      this.language
+      this.language,
+      this.badgesOn
     );
-    this.commonSerice.appSettings = appSettings;
     this.commonSerice.saveSettings(appSettings);
 
     if (this.oldSettings.chosenLanguage != this.language) {
@@ -55,6 +57,10 @@ export class SettingsPagePage implements OnInit {
       } else {
         this.commonSerice.deleteAllNotifications();
       }
+    }
+
+    if (this.badgesOn != this.oldSettings.badgesOn) {
+      this.commonSerice.switchBadgesMode();
     }
 
     this.oldSettings = appSettings;

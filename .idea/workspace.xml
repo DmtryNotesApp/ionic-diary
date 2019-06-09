@@ -58,38 +58,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="5968" />
+          <entry key="html" value="5978" />
           <entry key="js" value="1" />
+          <entry key="json" value="4" />
           <entry key="scss" value="3774" />
-          <entry key="ts" value="29878" />
+          <entry key="ts" value="30533" />
           <entry key="xml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="5968" />
+          <entry key="HTML" value="5978" />
+          <entry key="JSON" value="4" />
           <entry key="JavaScript" value="1" />
           <entry key="SCSS" value="3774" />
-          <entry key="TypeScript" value="29878" />
+          <entry key="TypeScript" value="30533" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="136" />
-          <entry key="json" value="2" />
+          <entry key="html" value="137" />
+          <entry key="json" value="5" />
           <entry key="png" value="1" />
           <entry key="scss" value="91" />
-          <entry key="ts" value="268" />
+          <entry key="ts" value="277" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="136" />
+          <entry key="HTML" value="137" />
           <entry key="Image" value="1" />
-          <entry key="JSON" value="2" />
+          <entry key="JSON" value="5" />
           <entry key="SCSS" value="91" />
-          <entry key="TypeScript" value="268" />
+          <entry key="TypeScript" value="277" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -104,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="183" column="22" lean-forward="true" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
+            <state relative-caret-position="80">
+              <caret line="396" column="25" selection-start-line="396" selection-start-column="6" selection-end-line="396" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -113,11 +115,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.ts">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebook/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="114">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="90" selection-start-line="90" selection-end-line="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebook/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,17 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>customAlertOptions</find>
-      <find>customPopoverOptions</find>
-      <find>customActionSheetOptions</find>
-      <find>language</find>
-      <find>toDateString</find>
-      <find>upper</find>
-      <find>RU</find>
-      <find>toLocaleDateString</find>
-      <find>formatDateString</find>
-      <find>displayDate</find>
-      <find>font-stretch: condensed;</find>
       <find>translationService</find>
       <find>console.log(this.translationService.phrases['Active c</find>
       <find>nglist-itemslish</find>
@@ -161,8 +173,19 @@
       <find>save</find>
       <find>cards-container</find>
       <find>orientation</find>
-      <find>notif</find>
       <find>change language</find>
+      <find>notif</find>
+      <find>setCasesMap</find>
+      <find>casesMap</find>
+      <find>getNumberOfTodayCases</find>
+      <find>setNumberOfTodayCases</find>
+      <find>AppSettings</find>
+      <find>notificationsEnabled</find>
+      <find>LocalNotifications</find>
+      <find>ionic-native/core</find>
+      <find>-beta.14</find>
+      <find>setnum</find>
+      <find>badge</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Dmitry\Documents\Собственные проекты\Ionic-Notes\notebook\src</dir>
@@ -174,9 +197,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/notebook/src/app/case/event.page.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/case/case.module.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/shared/cases-filter.pipe.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/standing-cases/standing-tasks.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/standing-cases/standing-tasks.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/app-routing.module.ts" />
@@ -188,7 +208,6 @@
         <option value="$PROJECT_DIR$/notebook/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/models/case.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/models/Settings.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.module.ts" />
@@ -200,7 +219,6 @@
         <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.html" />
-        <option value="$PROJECT_DIR$/notebook/src/app/shared/shared.module.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/home/home.module.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/standing-tasks/standing-tasks.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/standing-tasks/standing-tasks.module.ts" />
@@ -214,17 +232,22 @@
         <option value="$PROJECT_DIR$/notebook/src/app/popover-actions/popover-actions.component.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/popover-actions/popover-actions.component.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/shared/format-date-string.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.scss" />
-        <option value="$PROJECT_DIR$/notebook/src/app/shared/translation-service.service.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/home/home.page.html" />
-        <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/home/home.page.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/shared/common.service.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.html" />
+        <option value="$PROJECT_DIR$/notebook/src/app/models/app-settings.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.html" />
+        <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/shared/translation-service.service.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/shared/shared.module.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/notebook/plugins/cordova-plugin-badge/package.json" />
+        <option value="$PROJECT_DIR$/notebook/package.json" />
+        <option value="$PROJECT_DIR$/notebook/src/app/shared/common.service.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.ts" />
       </list>
     </option>
   </component>
@@ -263,7 +286,7 @@
       <path value="$PROJECT_DIR$/notebook/plugins/cordova-sqlite-storage/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -305,79 +328,7 @@
               <item name="notebook" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar-date-picker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="case" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="cases-manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="day-card" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="popover-actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="settings-page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="standing-tasks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -390,10 +341,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560036367062" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560107428149" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/notebook/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="C:\Users\Dmitry\Documents\Собственные проекты\Ionic-Notes\notebook\node_modules\typescript\lib" />
   </component>
@@ -462,12 +414,12 @@
       <workItem from="1559590456660" duration="4759000" />
       <workItem from="1559758577190" duration="7302000" />
       <workItem from="1560002013957" duration="15114000" />
-      <workItem from="1560082009841" duration="10809000" />
+      <workItem from="1560082009841" duration="19745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="396595000" />
+    <option name="totallyTimeSpent" value="405531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -488,7 +440,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Log Viewer" order="7" weight="0.7147541" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49848714" weight="0.6983607" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49848714" weight="0.4737705" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015129" side_tool="true" weight="0.27868852" />
       <window_info anchor="bottom" id="Anonymous Apex" order="10" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
@@ -550,12 +502,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/notebook/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/ionic.config.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/global.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -575,13 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -617,13 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/models/case.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -672,16 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/shared.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="70" selection-start-line="9" selection-start-column="70" selection-end-line="9" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/node_modules/typescript/lib/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -703,13 +625,6 @@
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/standing-tasks/standing-tasks.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -768,16 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="151" column="78" selection-start-line="151" selection-start-column="78" selection-end-line="151" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/popover-actions/popover-actions.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -819,13 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="134" column="76" selection-start-line="134" selection-start-column="58" selection-end-line="134" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
@@ -843,41 +741,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/translation-service.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="87" column="7" lean-forward="true" selection-start-line="85" selection-start-column="4" selection-end-line="87" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/models/app-settings.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -905,20 +772,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/home/home.page.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="183" column="22" lean-forward="true" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
+        <state relative-caret-position="331">
+          <caret line="133" column="40" selection-start-line="133" selection-start-column="40" selection-end-line="133" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/models/app-settings.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="140" column="44" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="44" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/models/case.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#ion-item#2;n#ion-list#0;n#ion-content#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        <state relative-caret-position="239">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/translation-service.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/standing-tasks/standing-tasks.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/shared.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="92" lean-forward="true" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/plugins/cordova-plugin-badge/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="396" column="25" selection-start-line="396" selection-start-column="6" selection-end-line="396" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
         </state>
       </provider>
     </entry>

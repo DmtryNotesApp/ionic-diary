@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { LocalNotifications } from "@ionic-native/local-notifications/ngx";
+import { Badge } from '@ionic-native/badge/ngx';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LocalNotifications } from "@ionic-native/local-notifications/ngx";
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    LocalNotifications
+    LocalNotifications,
+    Badge
   ],
   bootstrap: [AppComponent]
 })

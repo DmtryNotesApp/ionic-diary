@@ -79,6 +79,7 @@ export class TranslationService {
     'Are you sure you want to delete this record?': 'Вы уверены,что хотите удалить эту запись?',
     'Are you sure you want to delete these records (': 'Вы уверены, что хотите удалить выбранные записи (',
     'Confirm Action': 'Подтвердите действие',
+    'Badges': 'Отображать бейдж',
     'last': 'last'
   };
   phrases = {};

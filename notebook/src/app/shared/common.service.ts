@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Case} from "../models/case";
 import {Events, IonSlides, NavController, Platform} from "@ionic/angular";
-import { Storage } from '@ionic/storage';
+import {Storage} from '@ionic/storage';
 import {LocalNotifications} from "@ionic-native/local-notifications/ngx";
 import {AppSettings} from "../models/app-settings";
+import {Badge} from '@ionic-native/badge/ngx';
+
+import {Case} from "../models/case";
 
 
 @Injectable({
@@ -30,7 +32,8 @@ export class CommonService {
   appSettings: AppSettings = new AppSettings(
     false,
     false,
-    'English'
+    'English',
+    true
   );
 
   slides: IonSlides;
@@ -53,6 +56,7 @@ export class CommonService {
     private navCtrl: NavController,
     private storage: Storage,
     private localNotifications: LocalNotifications,
+    private badge: Badge,
     private platform: Platform
   ) {
     this.setUpData();
@@ -145,7 +149,15 @@ export class CommonService {
           applicationSettings.notificationsEnabled != undefined
         ) ?
           applicationSettings.notificationsEnabled :
-          false;
+          true;
+
+      this.appSettings.badgesOn =
+        (
+          applicationSettings.badgesOn != null &&
+          applicationSettings.badgesOn != undefined
+        ) ?
+          applicationSettings.badgesOn :
+          true;
 
       this.appSettings.soundsEnabled =
       (
@@ -168,6 +180,7 @@ export class CommonService {
 
   saveSettings(settings: AppSettings) {
     this.storage.set('appSettings', settings);
+    this.appSettings = settings;
     localStorage.setItem('language', settings.chosenLanguage);
     this.language = settings.chosenLanguage;
     this.isEnglishLocale = this.language == 'English';
@@ -356,6 +369,33 @@ export class CommonService {
 
   setCasesMap(casesMap) {
     this.casesMap = casesMap;
+    this.setNumberOfTodayCases();
+  }
+
+  setNumberOfTodayCases() {
+    let date:Date = new Date();
+    this.setNoneHour(date);
+    let todayCasesNumber:number = this.casesMap[date + ''] ?
+      this.casesMap[date + ''].filter(caseToProcess => {
+        return !caseToProcess.isFinished;
+      }).length :
+      0;
+    console.log('todayCasesNumber', todayCasesNumber);
+    if (this.appSettings.badgesOn) {
+      if (todayCasesNumber > 0) {
+        this.badge.set(todayCasesNumber);
+      } else {
+        this.badge.clear();
+      }
+    }
+  }
+
+  switchBadgesMode() {
+    if (this.appSettings.badgesOn) {
+      this.setNumberOfTodayCases();
+    } else {
+      this.badge.clear();
+    }
   }
 
   getCasesMap() {
@@ -455,6 +495,7 @@ export class CommonService {
         this.scheduleNotification(finalCase);
       }
     }
+    this.setNumberOfTodayCases();
   }
 
   updateCasesManagerPage() {
@@ -479,6 +520,7 @@ export class CommonService {
     ) {
       this.deleteNotification(caseEvent.id);
     }
+    this.setNumberOfTodayCases();
   }
 
   deleteArrayOfCases(casesIds) {
