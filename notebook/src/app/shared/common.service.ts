@@ -22,47 +22,16 @@ export class CommonService {
   isInitialized: boolean = false;
 
   lastCaseId: number = 0;
+  language = localStorage.getItem('language') || 'English';
+  isEnglishLocale = this.language == 'English';
 
-  datePickerObj: any = {
-    inputDate: new Date(), // default new Date()
-    showTodayButton: true, // default true
-    closeOnSelect: false, // default false
-    disableWeekDays: [], // default []
-    mondayFirst: true, // default false
-    setLabel: 'Set',  // default 'Set'
-    todayLabel: 'Today', // default 'Today'
-    closeLabel: 'Cancel', // default 'Close'
-    disabledDates: [], // default []
-    titleLabel: 'Select a Date', // default null
-    monthsList: [
-      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
-    ],
-    weeksList: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    dateFormat: 'YYYY-MM-DD', // default DD MMM YYYY
-    clearButton : true , // default true
-    momentLocale: 'ru-RU', // Default 'en-US'
-    yearInAscending: true, // Default false
-    btnCloseSetInReverse: false, // Default false
-    btnProperties: {
-      expand: 'block', // Default 'block'
-      fill: 'solid', // Default 'solid'
-      size: '', // Default 'default'
-      disabled: false, // Default false
-      strong: true, // Default false
-      color: '' // Default ''
-    },
-    arrowNextPrev: {
-      nextArrowSrc: '',
-      prevArrowSrc: ''
-    } // This object supports only SVG files.
-  };
+  datePickerObj: any = {};
 
   appSettings: AppSettings = new AppSettings(
     false,
     false,
     'English'
   );
-  language:string = localStorage.getItem('language') || 'English';
 
   slides: IonSlides;
 
@@ -89,6 +58,50 @@ export class CommonService {
     this.setUpData();
     this.getLastCaseId();
     this.getAppSettings();
+
+    eventEmitter.subscribe('change language', () => {
+      this.setCalendarOptions();
+    });
+  }
+
+  ngOnDestroy() {
+    this.eventEmitter.unsubscribe('change language');
+  }
+
+  setCalendarOptions() {
+    this.datePickerObj = {
+      inputDate: new Date(), // default new Date()
+      showTodayButton: true, // default true
+      closeOnSelect: false, // default false
+      disableWeekDays: [], // default []
+      mondayFirst: true, // default false
+      setLabel: 'Set',  // default 'Set'
+      todayLabel: 'Today', // default 'Today'
+      closeLabel: 'Cancel', // default 'Close'
+      disabledDates: [], // default []
+      titleLabel: 'Select a Date', // default null
+      monthsList: [
+        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+      ],
+      weeksList: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      dateFormat: this.isEnglishLocale ? 'YYYY-MM-DD' : 'DD-MM-YYYY', // default DD MMM YYYY
+      clearButton : true , // default true
+      momentLocale: this.isEnglishLocale ?  'en-US' : 'ru-RU', // Default 'en-US'
+      yearInAscending: true, // Default false
+      btnCloseSetInReverse: false, // Default false
+      btnProperties: {
+        expand: 'block', // Default 'block'
+        fill: 'solid', // Default 'solid'
+        size: '', // Default 'default'
+        disabled: false, // Default false
+        strong: true, // Default false
+        color: '' // Default ''
+      },
+      arrowNextPrev: {
+        nextArrowSrc: '',
+        prevArrowSrc: ''
+      } // This object supports only SVG files.
+    };
   }
 
   slideChanged(setDefault) {
@@ -149,12 +162,15 @@ export class CommonService {
       ) ?
         applicationSettings.chosenLanguage :
         'English';
-    })
+    });
+    this.setCalendarOptions();
   }
 
   saveSettings(settings: AppSettings) {
     this.storage.set('appSettings', settings);
     localStorage.setItem('language', settings.chosenLanguage);
+    this.language = settings.chosenLanguage;
+    this.isEnglishLocale = this.language == 'English';
   }
 
   scheduleNotification(caseToProcess) {
@@ -218,7 +234,7 @@ export class CommonService {
 
   getTimeToDisplay(time) {
     let dateTimeFormatter = {
-      hour12: true,
+      hour12: this.isEnglishLocale,
       hour: '2-digit',
       minute:'2-digit'
     };
@@ -313,12 +329,17 @@ export class CommonService {
 
   getOutputDate(date: Date): string {
     let options = {
-        month: 'long',
+        month: 'short',
         day: 'numeric',
         weekday: 'short',
     };
+    let locale = this.isEnglishLocale ? 'en' : 'ru';
 
-    return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getDay()).toLocaleDateString('en', options);
+    return this.capitalize(new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getDay()).toLocaleDateString(locale, options));
+  }
+
+  capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
   setCaseParams(caseParams) {
@@ -476,23 +497,5 @@ export class CommonService {
   saveStandingTasks(tasks) {
     this.saveData('standingTasks', JSON.stringify(tasks));
   }
-
-  customAlertOptions: any = {
-    header: 'Pizza Toppings',
-    subHeader: 'Select your toppings',
-    message: '$1.00 per topping',
-    translucent: true
-  };
-
-  customPopoverOptions: any = {
-    header: 'Hair Color',
-    subHeader: 'Select your hair color',
-    message: 'Only select your dominant hair color'
-  };
-
-  customActionSheetOptions: any = {
-    header: 'Colors',
-    subHeader: 'Select your favorite color'
-  };
 
 }

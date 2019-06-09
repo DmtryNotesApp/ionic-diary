@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AlertController, PopoverController} from "@ionic/angular";
 import {CommonService} from "../shared/common.service";
+import {TranslationService} from "../shared/translation-service.service";
 
 @Component({
   selector: 'app-popover-actions',
@@ -15,7 +16,8 @@ export class PopoverActionsComponent implements OnInit {
   constructor(
     private popoverController: PopoverController,
     private alertController: AlertController,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private translationService: TranslationService
   ) { }
 
   ngOnInit() {}
@@ -34,16 +36,16 @@ export class PopoverActionsComponent implements OnInit {
 
   async showAlert() {
     const alert = await this.alertController.create({
-      header: 'Confirm Action',
-      message: 'Are you sure you want to delete this case?',
+      header: this.translationService.phrases['Confirm Action'],
+      message: this.translationService.phrases['Are you sure you want to delete this record?'],
       buttons: [
         {
-          text: 'Yes',
+          text: this.translationService.phrases['Yes'],
           handler: () => {
             this.deleteCase();
           }
         }, {
-          text: 'No',
+          text: this.translationService.phrases['No'],
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {

@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AlertController, NavController} from "@ionic/angular";
 import {CommonService} from "../shared/common.service";
 import {StandingTask} from "../models/standing-task";
+import {TranslationService} from "../shared/translation-service.service";
 
 @Component({
   selector: 'app-standing-tasks',
@@ -13,7 +14,8 @@ export class StandingTasksPage implements OnInit {
   constructor(
     private alertCtrl: AlertController,
     private navCtrl: NavController,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private translationService: TranslationService
   ) { }
 
   standingTasks: StandingTask[] = [];
@@ -59,21 +61,21 @@ export class StandingTasksPage implements OnInit {
 
   async presentTaskPrompt() {
     let alert = await this.alertCtrl.create({
-      header: 'Make a Note',
+      header: this.translationService.phrases['Make a Note'],
       inputs: [
         {
-          placeholder: 'Enter description...'
+          placeholder: this.translationService.phrases['My Note...']
         }
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: this.translationService.phrases['Cancel'],
           role: 'cancel',
           handler: data => {
           }
         },
         {
-          text: 'Ok',
+          text: this.translationService.phrases['Ok'],
           handler: description => {
             let [task] = description;
             if (task) {
@@ -87,16 +89,16 @@ export class StandingTasksPage implements OnInit {
   }
   async preventClosure(task) {
     let alert = await this.alertCtrl.create({
-      header: 'Are you sure you want to delete the task?',
+      header: this.translationService.phrases['Are you sure you want to delete this Note?'],
       buttons: [
         {
-          text: 'Cancel',
+          text: this.translationService.phrases['Cancel'],
           role: 'cancel',
           handler: data => {
           }
         },
         {
-          text: 'Ok',
+          text: this.translationService.phrases['Ok'],
           handler: data => {
             if (task) {
               this.deleteTask(task.priority);

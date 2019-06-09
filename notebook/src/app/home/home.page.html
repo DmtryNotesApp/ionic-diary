@@ -20,30 +20,32 @@
 <ion-menu style="z-index: inherit;" side="start" menuId="first">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title class="menu-title">Notes Menu</ion-title>
+      <ion-title class="menu-title">
+        {{menuString}}
+      </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
       <ion-item lines="none" class="menu-item first-menu-element" (click)="goHome()">
         <ion-icon slot="start" name="home"></ion-icon>
-        Home
+        {{homeString}}
       </ion-item>
       <ion-item lines="none" class="menu-item" (click)="changeDate(false)">
         <ion-icon slot="start" name="calendar"></ion-icon>
-        Calendar
+        {{calendarString}}
       </ion-item>
       <ion-item lines="none" class="menu-item" (click)="openCasesManager()">
         <ion-icon slot="start" name="appstore"></ion-icon>
-        Manage Cases
+        {{manageCasesString}}
       </ion-item>
       <ion-item lines="none" class="menu-item" (click)="openStandingTasksPage()">
         <ion-icon slot="start" name="archive"></ion-icon>
-        Notes
+        {{myNotesString}}
       </ion-item>
       <ion-item lines="none" class="menu-item" (click)="openSettingsPage()">
         <ion-icon slot="start" name="settings"></ion-icon>
-        Settings
+        {{settingsString}}
       </ion-item>
     </ion-list>
   </ion-content>

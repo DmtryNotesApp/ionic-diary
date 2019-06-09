@@ -17,7 +17,8 @@
 <ion-content>
   <div class="case">
     <div class="ion-padding case">
-      <ion-textarea rows="3" class="input-description input-element text-area-element" placeholder="Enter description"
+      <ion-textarea rows="3" class="input-description input-element text-area-element"
+                    placeholder="{{'Enter description' | translatePhrase}}"
                     [(ngModel)]="caseDescription">
       </ion-textarea>
 
@@ -29,11 +30,13 @@
           <ion-datetime
             display-format="none" picker-format="DD MMM, YYYY"
             [(ngModel)]="caseDateS" (ionChange)="changeDate()"
+            cancelText="{{'Cancel' | translatePhrase}}"
+            doneText="{{'Done' | translatePhrase}}"
           ></ion-datetime>
         </ion-item>
 
-        <ion-item lines="none" class="" style="padding: 0px;">
-          <ion-label class="input-label">Set Time?</ion-label>
+        <ion-item lines="none" style="padding: 0px;">
+          <ion-label class="input-label">{{'Set Time' | translatePhrase}}?</ion-label>
           <ion-toggle [(ngModel)]="showTime" slot="end"></ion-toggle>
         </ion-item>
 
@@ -47,7 +50,7 @@
         </ion-item>
 
         <ion-item lines="none" class="input-element" style="padding: 0px;">
-          <ion-label class="input-label">Is Done?</ion-label>
+          <ion-label class="input-label">{{ 'Is Completed' | translatePhrase}}?</ion-label>
           <ion-toggle [(ngModel)]="isFinished" slot="end"></ion-toggle>
         </ion-item>
 
@@ -61,8 +64,12 @@
   <ion-toolbar class="case-footer">
     <div class="buttons-area">
       <div class="ion-padding buttons-div">
-        <ion-button class="button-item" ion-button round color="danger" (click)="goBack()">Cancel</ion-button>
-        <ion-button class="button-item" ion-button round color="secondary" (click)="saveCase()" >Save</ion-button>
+        <ion-button class="button-item" ion-button round color="danger" (click)="goBack()">
+          {{'Cancel' | translatePhrase}}
+        </ion-button>
+        <ion-button class="button-item" ion-button round color="secondary" (click)="saveCase()" >
+          {{'Save' | translatePhrase}}
+        </ion-button>
       </div>
     </div>
   </ion-toolbar>

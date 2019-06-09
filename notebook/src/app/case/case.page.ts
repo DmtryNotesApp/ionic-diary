@@ -131,7 +131,8 @@ export class CasePage implements OnInit {
       weekday: 'long',
       timezone: 'UTC'
     };
-    this.displayDate = date.toLocaleDateString('en-US', options);
+    let locale = this.commonService.isEnglishLocale ? 'en-US' : 'ru-RU';
+    this.displayDate = this.commonService.capitalize(date.toLocaleDateString(locale, options));
   }
 
   goBack() {

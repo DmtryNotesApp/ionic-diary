@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController} from "@ionic/angular";
+import {Events, NavController} from "@ionic/angular";
 import {AppSettings} from "../models/app-settings";
 import {CommonService} from "../shared/common.service";
 
@@ -18,6 +18,7 @@ export class SettingsPagePage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
+    private eventEmitter: Events,
     private commonSerice: CommonService
   ) { }
 
@@ -28,14 +29,13 @@ export class SettingsPagePage implements OnInit {
     ) {
       this.notificationsEnabled = this.commonSerice.appSettings.notificationsEnabled;
       this.soundsEnabled = this.commonSerice.appSettings.soundsEnabled;
-      this.language = this.commonSerice.appSettings.chosenLanguage;
+      this.language = this.commonSerice.language;
 
       this.oldSettings = Object.assign({}, this.commonSerice.appSettings);
     }
   }
 
   saveSettings() {
-    console.log('------ saveSettings ------');
     let appSettings = new AppSettings(
       this.notificationsEnabled,
       this.soundsEnabled,
@@ -43,18 +43,18 @@ export class SettingsPagePage implements OnInit {
     );
     this.commonSerice.appSettings = appSettings;
     this.commonSerice.saveSettings(appSettings);
-    console.log('appSettings', appSettings);
+
+    if (this.oldSettings.chosenLanguage != this.language) {
+      this.eventEmitter.publish('change language');
+      this.eventEmitter.publish('updateHomePage', [new Date()]);
+    }
 
     if (this.notificationsEnabled != this.oldSettings.notificationsEnabled) {
       if (this.notificationsEnabled) {
-        console.log('schedule notifications');
         this.commonSerice.scheduleAllNotifications();
       } else {
-        console.log('cancel notifications');
         this.commonSerice.deleteAllNotifications();
       }
-    } else if (this.soundsEnabled != this.oldSettings.soundsEnabled) {
-      console.log('update sounds for notifications');
     }
 
     this.oldSettings = appSettings;

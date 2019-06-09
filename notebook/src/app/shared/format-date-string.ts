@@ -1,4 +1,5 @@
 import {Injectable, Pipe, PipeTransform} from '@angular/core';
+import {CommonService} from "./common.service";
 
 @Pipe({
   name: 'formatDateString'
@@ -7,10 +8,19 @@ import {Injectable, Pipe, PipeTransform} from '@angular/core';
 @Injectable()
 export class FormatDateString implements PipeTransform {
 
-  constructor() {}
+  constructor(
+    private commonService: CommonService
+  ) {}
 
   transform(value: any, args?: any): any {
-    return new Date(value).toDateString();
+    let options = {
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long',
+      year: 'numeric'
+    };
+    let locale = this.commonService.isEnglishLocale ? 'en' : 'ru';
+    return this.commonService.capitalize(new Date(value).toLocaleDateString(locale, options));
   }
 
 }

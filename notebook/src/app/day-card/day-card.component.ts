@@ -148,8 +148,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
     }).length;
     this.progress = isFinished / this.cases.length;
     if (this.progress == 1) {
-      console.log(this.translationService.phrases['Active cases left'] + ': ');
-      this.message = this.translationService.phrases['Active cases left'] + ' – ' + (this.cases.length - this.cases.length) + '/' + this.cases.length;
+      this.message = this.translationService.phrases['Active cases left'] + ': ' + (this.cases.length - this.cases.length) + '/' + this.cases.length;
     } else if (this.cases.length == 0) {
       this.progress = 1;
       this.message = this.translationService.phrases['No cases planned'];

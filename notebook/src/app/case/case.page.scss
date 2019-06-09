@@ -23,10 +23,13 @@
   height: 6.5vh;
   margin-right: 3vh;
   margin-left: 3vh;
-  font-size: 2.5vh;
+  font-size: 2.2vh;
 
   @media (orientation:landscape) {
-    font-size: 3vw;
+    width: 26vw;
+    height: 4.5vw;
+    margin-bottom: 2.1vw;
+    font-size: 2.2vw;
   }
 }
 .text-area-element {
@@ -45,6 +48,7 @@
   width: 100%;
 }
 .input-label {
+  font-stretch: condensed;
   font-size: 5vw;
 
   @media (orientation:landscape) {

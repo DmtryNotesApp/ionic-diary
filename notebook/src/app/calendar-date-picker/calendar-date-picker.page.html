@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar (click)="changeToDateList()">
     <ion-title>
-      <h1 *ngIf="mainObj?.titleLabel">{{mainObj?.titleLabel}}</h1>
+      <h1 *ngIf="mainObj?.titleLabel">{{(mainObj?.titleLabel) | translatePhrase}}</h1>
       {{selectedDateString}}
     </ion-title>
   </ion-toolbar>
@@ -22,7 +22,7 @@
           <ion-row>
             <ion-col class="dp-select-month-year" size="5.5" no-padding (click)="selectMonthYear(true)">
               <ion-button class="dp-buttons">
-                {{ data.currentMonth }}
+                {{ data.currentMonth  | translatePhrase}}
                 <ion-icon name="md-arrow-dropdown" class="dp-down-arrow"></ion-icon>
               </ion-button>
             </ion-col>
@@ -48,21 +48,21 @@
   <ion-grid class="dp-weeks-container" *ngIf="daysList" [ngClass]="isMonthYearSelectorOpen ? 'dp-virual-scroller-hide' : 'dp-virual-scroller-show'">
     <ion-row class=" dp-weeks-name">
       <ion-col *ngFor="let weekName of mainObj?.weeksList;">
-        <div class="weeks">{{weekName}}</div>
+        <div class="weeks">{{weekName | translatePhrase}}</div>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let row of rows;" class="dp-days-list">
       <ion-col *ngFor="let col of cols; let i = index ;" (click)="dateSelected(daysList[row + i])" no-padding [ngClass]="{'dp-selecteddate': (daysList[row + i]?.epoch === selctedDateEpoch),
                                 'dp-today' : (daysList[row + i]?.epoch == today),
                                 'disabled' : (daysList[row + i]?.disabled)}">
-        <div class="days">{{daysList[row + col]?.date}}</div>
+        <div class="days">{{(daysList[row + col]?.date)}}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-list class="dp-month-year-scroll-container" [ngClass]="isMonthYearSelectorOpen ? 'dp-virual-scroller-show' : 'dp-virual-scroller-hide'">
     <ion-item *ngFor="let monthYear of scrollingMonthOrYearArray;let i=index;" id="{{i +'list'}}" (click)="onChangeMonthYear(monthYear)">
-      <ion-label [ngClass]="selectedYearOrMonth === monthYear ? 'dp-selected' : ''">{{ monthYear }}</ion-label>
+      <ion-label [ngClass]="selectedYearOrMonth === monthYear ? 'dp-selected' : ''">{{ monthYear | translatePhrase }}</ion-label>
     </ion-item>
   </ion-list>
 
@@ -76,21 +76,21 @@
           <ion-button class="ion-button" expand="{{mainObj?.btnProperties?.expand}}" fill="{{mainObj?.btnProperties?.fill}}"
                       size="{{mainObj?.btnProperties?.size}}" color="{{mainObj?.btnProperties?.color}}" disabled="{{mainObj?.btnProperties?.disabled}}"
                       strong="{{mainObj?.btnProperties?.strong}}" (click)="closeIonicDatePickerModal()">
-            {{mainObj?.closeLabel}}
+            {{mainObj?.closeLabel | translatePhrase}}
           </ion-button>
         </ion-col>
         <ion-col no-padding *ngIf="mainObj?.showTodayButton">
           <ion-button class="ion-button" expand="{{mainObj?.btnProperties?.expand}}" fill="{{mainObj?.btnProperties?.fill}}"
                       size="{{mainObj?.btnProperties?.size}}" color="{{mainObj?.btnProperties?.color}}" disabled="{{mainObj?.btnProperties?.disabled}}"
                       strong="{{mainObj?.btnProperties?.strong}}" (click)="setIonicDatePickerTodayDate()">
-            {{mainObj?.todayLabel}}
+            {{mainObj?.todayLabel | translatePhrase}}
           </ion-button>
         </ion-col>
         <ion-col no-padding *ngIf="!mainObj?.closeOnSelect">
           <ion-button class="ion-button" expand="{{mainObj?.btnProperties?.expand}}" fill="{{mainObj?.btnProperties?.fill}}"
                       size="{{mainObj?.btnProperties?.size}}" color="{{mainObj?.btnProperties?.color}}" disabled="{{mainObj?.btnProperties?.disabled}}"
                       strong="{{mainObj?.btnProperties?.strong}}" (click)="setIonicDatePickerDate()">
-            {{mainObj?.setLabel}}
+            {{mainObj?.setLabel | translatePhrase}}
           </ion-button>
         </ion-col>
       </ion-row>

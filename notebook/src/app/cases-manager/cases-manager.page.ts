@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CommonService} from "../shared/common.service";
 import {AlertController, Events, NavController, PopoverController} from "@ionic/angular";
 import {PopoverActionsComponent} from "../popover-actions/popover-actions.component";
+import {TranslationService} from "../shared/translation-service.service";
 
 @Component({
   selector: 'app-cases-manager',
@@ -23,7 +24,8 @@ export class CasesManagerPage implements OnInit {
     private alertController: AlertController,
     private eventEmitter: Events,
     private popoverController: PopoverController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private translationService: TranslationService
   ) {
     let self = this;
     this.eventEmitter.subscribe('updateCasesManagerPage', function eventHandler() {
@@ -101,23 +103,22 @@ export class CasesManagerPage implements OnInit {
 
   async showAlert(arrayToDelete) {
     const alert = await this.alertController.create({
-      header: 'Confirm Action',
+      header: this.translationService.phrases['Confirm Action'],
       message: (arrayToDelete.length > 1) ?
-      'Are you sure you want to delete ' + arrayToDelete.length + ' cases?' :
-      'Are you sure you want to delete the selected case?',
+        this.translationService.phrases['Are you sure you want to delete these records ('] +
+          arrayToDelete.length + ')?' :
+        this.translationService.phrases['Are you sure you want to delete this record?'],
       buttons: [
         {
-          text: 'Yes',
+          text: this.translationService.phrases['Yes'],
           handler: () => {
             this.deleteForward(arrayToDelete);
           }
         }, {
-          text: 'No',
+          text: this.translationService.phrases['No'],
           role: 'cancel',
           cssClass: 'secondary',
-          handler: (blah) => {
-            this.popoverController.dismiss();
-          }
+          handler: (blah) => {}
         }
       ]
     });

@@ -5,7 +5,7 @@
         <ion-icon name="arrow-back" class="back-button"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="header-string">Settings</ion-title>
+    <ion-title class="header-string">{{'Settings' | translatePhrase}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,21 +14,19 @@
   <ion-list class="list-items">
 
     <ion-item lines="none" class="input-element input-label" style="padding: 0px;">
-      <ion-label class="input-label">Choose Language</ion-label>
-      <ion-select placeholder="English" interface="action-sheet" [(ngModel)]="language">
-        <ion-select-option value="Englist-itemslish">English</ion-select-option>
+      <ion-label class="input-label">{{'Language' | translatePhrase}}</ion-label>
+      <ion-select placeholder="English" interface="action-sheet"
+                  [(ngModel)]="language"
+                  cancelText="{{'Cancel' | translatePhrase}}"
+      >
+        <ion-select-option value="English">English</ion-select-option>
         <ion-select-option value="Русский">Русский</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item lines="none" class="input-element" style="padding: 0px;">
-      <ion-label class="input-label">Notifications</ion-label>
+      <ion-label class="input-label">{{'Notifications' | translatePhrase}}</ion-label>
       <ion-toggle [(ngModel)]="notificationsEnabled"></ion-toggle>
-    </ion-item>
-
-    <ion-item lines="none" class="input-element" style="padding: 0px;" *ngIf="notificationsEnabled">
-      <ion-label class="input-label">Enable Sound?</ion-label>
-      <ion-toggle [(ngModel)]="soundsEnabled"></ion-toggle>
     </ion-item>
 
   </ion-list>
@@ -39,8 +37,12 @@
   <ion-toolbar class="case-footer">
     <div class="buttons-area">
       <div class="ion-padding buttons-div">
-        <ion-button class="button-item" ion-button round color="danger" (click)="goBack()">Cancel</ion-button>
-        <ion-button class="button-item" ion-button round color="secondary" (click)="saveSettings()" >Save</ion-button>
+        <ion-button class="button-item" ion-button round color="danger" (click)="goBack()">
+          {{'Cancel' | translatePhrase}}
+          </ion-button>
+        <ion-button class="button-item" ion-button round color="secondary" (click)="saveSettings()" >
+          {{'Save' | translatePhrase}}
+        </ion-button>
       </div>
     </div>
   </ion-toolbar>

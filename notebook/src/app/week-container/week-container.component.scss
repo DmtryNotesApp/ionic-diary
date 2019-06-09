@@ -7,6 +7,10 @@
   height: 100%;
   padding-top: 3%;
   padding-bottom: 0px;
+
+  @media (orientation:landscape) {
+    padding-top: 0px;
+  }
 }
 .empty-div {
   height: 2%;

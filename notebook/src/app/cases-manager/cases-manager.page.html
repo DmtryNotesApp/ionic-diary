@@ -5,7 +5,7 @@
             <ion-icon name="arrow-back" class="back-button"></ion-icon>
         </ion-button>
     </ion-buttons>
-    <ion-title class="header-string">Case Manager</ion-title>
+    <ion-title class="header-string">{{'Case Manager' | translatePhrase}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,14 +13,14 @@
 
   <ion-list>
     <ion-item lines="none" class="case-item-container">
-        <ion-checkbox [(ngModel)]="allCasesMarked" slot="start" (ionChange)="markAllCases()" class="case-item-icon"></ion-checkbox>
-        <ion-buttons class="buttons-class">
+        <ion-checkbox [(ngModel)]="allCasesMarked" slot="start" (ionChange)="markAllCases()" class="case-item-icon" *ngIf="numberOfCases > 0"></ion-checkbox>
+        <ion-buttons class="buttons-class" *ngIf="numberOfCases > 0">
             <ion-button (click)="deleteSelectedCases()">
                 <ion-icon name="trash" class="case-item-icon"></ion-icon>
             </ion-button>
         </ion-buttons>
         <ion-label class="case-item header-label">
-            {{numberOfCases}} Cases Created
+            {{'Cases planned' | translatePhrase}}: {{numberOfCases}}
         </ion-label>
         <ion-buttons slot="end" class="buttons-class">
             <ion-button (click)="createNewCase()">

@@ -8,18 +8,18 @@
     </ion-buttons>
 
     <ion-title *ngIf="areChangesDisabled" class="header-string">
-      Your Notes
+      {{'Your Notes' | translatePhrase}}
     </ion-title>
     <ion-title *ngIf="!areChangesDisabled" class="header-string">
-      Change Records
+      {{'Change Records' | translatePhrase}}
     </ion-title>
 
     <div slot="end" class="reorder-button header-string">
       <a (click)="switchReorderState()" *ngIf="areChangesDisabled">
-        Change
+        {{'Change' | translatePhrase}}
       </a>
       <a (click)="switchReorderState(true)" *ngIf="!areChangesDisabled">
-        Done
+        {{'Done' | translatePhrase}}
       </a>
     </div>
 
@@ -64,7 +64,7 @@
   <ion-toolbar>
     <div class="add-task-button">
       <ion-button round="true" large shape="round" class="add-button-class" (click)="presentTaskPrompt()">
-        New Note
+        {{'New Note' | translatePhrase}}
       </ion-button>
     </div>
   </ion-toolbar>

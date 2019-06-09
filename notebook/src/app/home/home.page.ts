@@ -1,6 +1,7 @@
 import {Component, Injectable, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {CommonService} from "../shared/common.service";
 import {Events, IonSlides, MenuController, NavController} from "@ionic/angular";
+import {TranslationService} from "../shared/translation-service.service";
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,8 @@ export class HomePage implements OnInit, OnDestroy{
     private commonService: CommonService,
     private eventEmitter: Events,
     private navCtrl: NavController,
-    private menu: MenuController
+    private menu: MenuController,
+    private translationService: TranslationService
   ) {
     let self = this;
     eventEmitter.subscribe('updateHomePage', function(args) {
@@ -40,16 +42,34 @@ export class HomePage implements OnInit, OnDestroy{
       commonService.actualDate = date;
       commonService.setUpData();
       self.prepareData(false);
+      self.prepareTranslation();
     });
     eventEmitter.subscribe('updateDates', function(args) {
       self.setDatesToDisplay(self.commonService.currentSlide);
     });
   }
 
+  menuString: string;
+  homeString: string;
+  calendarString: string;
+  manageCasesString: string;
+  myNotesString: string;
+  settingsString: string;
+
+  prepareTranslation() {
+    this.menuString = this.translationService.phrases['Menu'];
+    this.homeString = this.translationService.phrases['Home'];
+    this.calendarString = this.translationService.phrases['Calendar'];
+    this.manageCasesString = this.translationService.phrases['Manage Cases'];
+    this.myNotesString = this.translationService.phrases['My Notes'];
+    this.settingsString = this.translationService.phrases['Settings'];
+  }
   ngOnInit() {
     this.prepareData(true);
     this.slideOpts.allowTouchMove = true;
     this.commonService.slides = this.slides;
+
+    this.prepareTranslation();
   }
   ngOnDestroy() {
     this.eventEmitter.unsubscribe('updateHomePage');
@@ -62,7 +82,13 @@ export class HomePage implements OnInit, OnDestroy{
   setDatesToDisplay(slideNumber) {
     let mondayDate = this.firstDaysOfWeeks[slideNumber];
     let tmpMondayArray = mondayDate.toDateString().split(' ').slice(1);
-    this.mondayString = tmpMondayArray.join(' ');
+    this.mondayString = this.commonService.isEnglishLocale ?
+      tmpMondayArray.join(' ') :
+      (
+        tmpMondayArray[1] + ' ' +
+        this.translationService.phrases[tmpMondayArray[0]] + ' ' +
+        tmpMondayArray[2]
+      );
     let tempDateMls = mondayDate;
     let tempDate = new Date(
       mondayDate.getFullYear(),
@@ -71,7 +97,13 @@ export class HomePage implements OnInit, OnDestroy{
     );
     tempDate.setDate(tempDate.getDate() + 6);
     let tmpSundayArray = tempDate.toDateString().split(' ').slice(1);
-    this.sundayString = tmpSundayArray.join(' ');
+    this.sundayString = this.commonService.isEnglishLocale ?
+      tmpSundayArray.join(' ') :
+      (
+        tmpSundayArray[1] + ' ' +
+        this.translationService.phrases[tmpSundayArray[0]] + ' ' +
+        tmpSundayArray[2]
+      );
   }
 
   prepareData(isInitial) {
