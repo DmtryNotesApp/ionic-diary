@@ -91,6 +91,7 @@ export class TranslationService {
   constructor(private events: Events) {
     events.subscribe('change language', () => {
       this.initializeTranslationService();
+      this.events.publish('updateHomePage', [new Date()]);
     });
     this.initializeTranslationService();
   }

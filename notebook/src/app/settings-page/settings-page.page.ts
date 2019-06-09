@@ -48,7 +48,6 @@ export class SettingsPagePage implements OnInit {
 
     if (this.oldSettings.chosenLanguage != this.language) {
       this.eventEmitter.publish('change language');
-      this.eventEmitter.publish('updateHomePage', [new Date()]);
     }
 
     if (this.notificationsEnabled != this.oldSettings.notificationsEnabled) {
