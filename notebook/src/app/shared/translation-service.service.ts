@@ -80,10 +80,15 @@ export class TranslationService {
     'Are you sure you want to delete these records (': 'Вы уверены, что хотите удалить выбранные записи (',
     'Confirm Action': 'Подтвердите действие',
     'Badges': 'Отображать бейдж',
+    'New Notification': 'Новое уведомление',
     'last': 'last'
   };
   phrases = {};
-  constructor(private events: Events, private commonService: CommonService) {
+
+  language = localStorage.getItem('language') || 'English';
+  isEnglishLocale = this.language == 'English';
+
+  constructor(private events: Events) {
     events.subscribe('change language', () => {
       this.initializeTranslationService();
     });
@@ -91,7 +96,7 @@ export class TranslationService {
   }
 
   getTranslation(phrase) {
-    if (!this.commonService.isEnglishLocale) {
+    if (!this.isEnglishLocale) {
       return this.dictionary[phrase] || phrase;
     } else {
       return phrase;
@@ -99,6 +104,9 @@ export class TranslationService {
   }
 
   initializeTranslationService() {
+    this.language = localStorage.getItem('language') || 'English';
+    this.isEnglishLocale = this.language == 'English';
+
     for(let phrase in this.dictionary) {
       this.phrases[phrase] = this.getTranslation(phrase);
     }

@@ -6,6 +6,7 @@ import {AppSettings} from "../models/app-settings";
 import {Badge} from '@ionic-native/badge/ngx';
 
 import {Case} from "../models/case";
+import {TranslationService} from "./translation-service.service";
 
 
 @Injectable({
@@ -57,7 +58,8 @@ export class CommonService {
     private storage: Storage,
     private localNotifications: LocalNotifications,
     private badge: Badge,
-    private platform: Platform
+    private platform: Platform,
+    private translationService: TranslationService
   ) {
     this.setUpData();
     this.getLastCaseId();
@@ -190,7 +192,7 @@ export class CommonService {
     if (caseToProcess.caseDateTime) {
       this.localNotifications.schedule({
         id: caseToProcess.id,
-        title: 'New Notification',
+        title: this.translationService.phrases['New Notification'],
         text: caseToProcess.description,
         data: { mydata: caseToProcess.id },
         foreground: true,
@@ -380,7 +382,6 @@ export class CommonService {
         return !caseToProcess.isFinished;
       }).length :
       0;
-    console.log('todayCasesNumber', todayCasesNumber);
     if (this.appSettings.badgesOn) {
       if (todayCasesNumber > 0) {
         this.badge.set(todayCasesNumber);

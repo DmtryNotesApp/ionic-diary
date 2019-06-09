@@ -46,6 +46,8 @@
           <ion-datetime
             display-format="none" picker-format="HH:mm"
             [(ngModel)]="caseTimeS" (ionChange)="changeTime()"
+            cancelText="{{'Cancel' | translatePhrase}}"
+            doneText="{{'Done' | translatePhrase}}"
           ></ion-datetime>
         </ion-item>
 
