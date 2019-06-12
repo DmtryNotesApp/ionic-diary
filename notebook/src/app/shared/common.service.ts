@@ -31,7 +31,7 @@ export class CommonService {
   datePickerObj: any = {};
 
   appSettings: AppSettings = new AppSettings(
-    false,
+    true,
     false,
     'English',
     true
@@ -409,6 +409,7 @@ export class CommonService {
       isCreationMode: isCreationMode,
       caseDate: caseEvent.date || new Date(caseEvent.caseDate),
       caseDateTime: caseEvent.caseDateTime || new Date(caseEvent.caseDateTime),
+      caseDateTimeInPicker: caseEvent.caseDateTimeInPicker,
       previousCaseDate: caseEvent.previousCaseDate || new Date(caseEvent.caseDate),
       case: caseEvent,
       description: caseEvent.description || '',
@@ -447,7 +448,14 @@ export class CommonService {
       caseId = this.lastCaseId + 1;
       this.lastCaseId += 1;
       this.saveData('lastCaseId', caseId);
-      finalCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
+      finalCase = new Case(
+        caseId,
+        caseEvent.caseDate,
+        caseEvent.isFinished,
+        caseEvent.description,
+        caseEvent.caseDateTime,
+        caseEvent.caseDateTimeInPicker
+      );
       this.cases.push(finalCase);
 
       casesArray.push(finalCase);
@@ -456,7 +464,14 @@ export class CommonService {
       caseId = caseEvent.id;
       let oldCase = this.cases.find(cs => cs.id == caseId);
       let index = this.cases.indexOf(oldCase);
-      finalCase = new Case(caseId, caseEvent.caseDate, caseEvent.isFinished, caseEvent.description, caseEvent.caseDateTime);
+      finalCase = new Case(
+        caseId,
+        caseEvent.caseDate,
+        caseEvent.isFinished,
+        caseEvent.description,
+        caseEvent.caseDateTime,
+        caseEvent.caseDateTimeInPicker
+      );
       this.cases[index] = finalCase;
 
       if (caseEvent.previousCaseDate) {

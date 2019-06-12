@@ -26,7 +26,7 @@
     <session id="-1697578264">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="40" />
+          <entry key="project.closed" value="41" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.101" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -45,6 +45,7 @@
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.55" value="4" />
           <entry key="project.open.time.57" value="3" />
+          <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.60" value="2" />
           <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.66" value="1" />
@@ -53,7 +54,7 @@
           <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.77" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="40" />
+          <entry key="project.opened" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -62,7 +63,7 @@
           <entry key="js" value="1" />
           <entry key="json" value="4" />
           <entry key="scss" value="3774" />
-          <entry key="ts" value="30785" />
+          <entry key="ts" value="31027" />
           <entry key="xml" value="8" />
         </counts>
       </usages-collector>
@@ -72,42 +73,42 @@
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="1" />
           <entry key="SCSS" value="3774" />
-          <entry key="TypeScript" value="30785" />
+          <entry key="TypeScript" value="31027" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="138" />
+          <entry key="html" value="139" />
           <entry key="json" value="5" />
           <entry key="png" value="1" />
           <entry key="scss" value="91" />
-          <entry key="ts" value="279" />
+          <entry key="ts" value="282" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="138" />
+          <entry key="HTML" value="139" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="5" />
           <entry key="SCSS" value="91" />
-          <entry key="TypeScript" value="279" />
+          <entry key="TypeScript" value="282" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="38" />
+          <entry key="Angular2LanguageService" value="39" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="192" selection-start-line="192" selection-end-line="192" />
+            <state relative-caret-position="238">
+              <caret line="348" column="25" lean-forward="true" selection-start-line="348" selection-start-column="25" selection-end-line="348" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -115,13 +116,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/translation-service.service.ts">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="271">
+              <caret line="41" column="49" lean-forward="true" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="181" column="70" selection-start-line="181" selection-start-column="70" selection-end-line="181" selection-end-column="70" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="47" column="34" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="34" />
+              <folding>
+                <element signature="n#style#0;n#ion-item#1;n#ion-list#0;n#div#0;n#div#0;n#ion-content#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,11 +160,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nglist-itemslish</find>
-      <find>my new</find>
-      <find>cancel</find>
-      <find>getTranslation</find>
-      <find>subscribe</find>
       <find>translatePhrase</find>
       <find>unsubscribe</find>
       <find>активных</find>
@@ -168,6 +185,11 @@
       <find>badge</find>
       <find>sche</find>
       <find>consol</find>
+      <find>caseTimeS</find>
+      <find>case'</find>
+      <find>navCtrl</find>
+      <find>caseTimeS =</find>
+      <find>console.log(</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Dmitry\Documents\Собственные проекты\Ionic-Notes\notebook\src</dir>
@@ -189,7 +211,6 @@
         <option value="$PROJECT_DIR$/notebook/src/theme/variables.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/week-container/week-container.component.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/models/case.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/models/Settings.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.scss" />
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.module.ts" />
@@ -209,7 +230,6 @@
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/calendar-date-picker/calendar-date-picker.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/shared/translate-phrase.pipe.ts" />
-        <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/popover-actions/popover-actions.component.html" />
         <option value="$PROJECT_DIR$/notebook/src/app/cases-manager/cases-manager.page.ts" />
@@ -225,11 +245,13 @@
         <option value="$PROJECT_DIR$/notebook/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/notebook/plugins/cordova-plugin-badge/package.json" />
         <option value="$PROJECT_DIR$/notebook/package.json" />
-        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.html" />
-        <option value="$PROJECT_DIR$/notebook/src/app/shared/common.service.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.ts" />
         <option value="$PROJECT_DIR$/notebook/src/app/shared/translation-service.service.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/models/case.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/case/case.page.ts" />
+        <option value="$PROJECT_DIR$/notebook/src/app/shared/common.service.ts" />
       </list>
     </option>
   </component>
@@ -280,7 +302,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,12 +333,37 @@
               <item name="notebook" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="case" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
+              <item name="notebook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="day-card" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
+              <item name="notebook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ionic-Notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ionic-Notes" type="462c0819:PsiDirectoryNode" />
+              <item name="notebook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="settings-page" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,17 +444,18 @@
       <workItem from="1560002013957" duration="15114000" />
       <workItem from="1560082009841" duration="24016000" />
       <workItem from="1560114852454" duration="127000" />
+      <workItem from="1560368072074" duration="6480000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="409929000" />
+    <option name="totallyTimeSpent" value="416409000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33963692" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34493193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -706,9 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -747,23 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="140" column="44" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/models/case.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/settings-page/settings-page.page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -799,30 +826,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#ion-item#1;n#ion-list#0;n#div#0;n#div#0;n#ion-content#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,22 +840,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/translation-service.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="47" column="34" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#ion-item#1;n#ion-list#0;n#div#0;n#div#0;n#ion-content#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="181" column="70" selection-start-line="181" selection-start-column="70" selection-end-line="181" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/models/case.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/case/case.page.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="41" column="49" lean-forward="true" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook/src/app/shared/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="348" column="25" lean-forward="true" selection-start-line="348" selection-start-column="25" selection-end-line="348" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

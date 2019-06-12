@@ -4,6 +4,7 @@ export class Case {
       public caseDate: Date,
       public isFinished: boolean,
       public description?: string,
-      public caseDateTime?: Date
+      public caseDateTime?: Date,
+      public caseDateTimeInPicker?: Date
     ) {}
 }

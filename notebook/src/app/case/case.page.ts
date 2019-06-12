@@ -62,9 +62,10 @@ export class CasePage implements OnInit {
           this.isFinished = this.caseOptions.case.isFinished;
           this.caseDescription = this.caseOptions.case.description;
           this.id = this.caseOptions.case.id;
-          this.showTime = this.caseOptions.case.caseDateTime != null && this.caseOptions.case.caseDateTime != undefined;
-          if (this.caseOptions.case.caseDateTime) {
-            this.caseTimeS = this.caseOptions.case.caseDateTime;
+          this.showTime =
+            this.caseOptions.case.caseDateTime != null && this.caseOptions.case.caseDateTime != undefined;
+          if (this.caseOptions.case.caseDateTimeInPicker) {
+            this.caseTimeS = this.caseOptions.case.caseDateTimeInPicker;
             this.setDisplayTime(this.caseOptions.case.caseDateTime);
           }
         }
@@ -82,6 +83,7 @@ export class CasePage implements OnInit {
       caseDateTime: (this.showTime && this.caseTime != null) ?
         this.commonService.getPickedTime(this.caseOptions.caseDate, this.caseTimeS) :
         null,
+      caseDateTimeInPicker: this.caseTimeS,
       isFinished: this.isFinished,
       isCreationMode: this.caseOptions.isCreationMode,
       id: this.id,

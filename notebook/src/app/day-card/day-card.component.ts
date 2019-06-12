@@ -179,6 +179,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
       date: this.date,
       previousCaseDate: caseEvent ? caseEvent.caseDate : this.date,
       caseDateTime: caseEvent ? caseEvent.caseDateTime : null,
+      caseDateTimeInPicker: caseEvent ? caseEvent.caseDateTimeInPicker : null,
       description: caseEvent ? caseEvent.description : '',
       isFinished: caseEvent ? caseEvent.isFinished : false,
       id: caseEvent ? caseEvent.id : ''
