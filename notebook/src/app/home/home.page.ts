@@ -70,6 +70,7 @@ export class HomePage implements OnInit, OnDestroy{
     this.commonService.slides = this.slides;
 
     this.prepareTranslation();
+    this.menu.toggle();
   }
   ngOnDestroy() {
     this.eventEmitter.unsubscribe('updateHomePage');
