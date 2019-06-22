@@ -109,6 +109,7 @@ export class DayCardComponent implements OnInit, OnDestroy {
           handler: () => {
             this.commonService.cameFromFirstDayOfWeek = this.date;
             let datePicker = document.getElementById('datePicker');
+            this.commonService.blockChangeDate = false;
             datePicker.click();
           }
         }, {
@@ -193,11 +194,16 @@ export class DayCardComponent implements OnInit, OnDestroy {
   }
 
   changeDate() {
+    if (this.commonService.blockChangeDate) {
+      return;
+    }
     let caseDate = this.commonService.getPickedDate(this.caseDateS);
     this.commonService.caseParams.previousCaseDate = this.commonService.caseParams.caseDate;
     this.commonService.caseParams.caseDateTime = null;
     this.commonService.caseParams.caseDate = caseDate;
     this.updateCase(null);
+    this.commonService.blockChangeDate = true;
+    this.caseDateS = new Date();
   }
 
   updateCase(caseEvent) {

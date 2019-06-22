@@ -52,6 +52,8 @@ export class CommonService {
 
   needToReload: boolean = false;
 
+  blockChangeDate: boolean;
+
   constructor(
     private eventEmitter: Events,
     private navCtrl: NavController,
