@@ -284,7 +284,7 @@ export class CalendarDatePickerPage implements OnInit {
     if (this.mainObj.weeksList && this.mainObj.weeksList.length === 7) {
       this.weeksList = this.mainObj.weeksList;
     }
-    if (this.mainObj.mondayFirst) {
+    if (this.mainObj.mondayFirst && this.weeksList[0] != 'Mon') {
       this.weeksList.push(this.mainObj.weeksList.shift());
     }
     if (this.mainObj.yearInAscending) {
