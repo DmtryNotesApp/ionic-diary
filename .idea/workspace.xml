@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="492d8bce-04ac-4a4a-93c5-6c1f96075bf0" name="Default Changelist" comment="Fix for style issue in Action Sheet header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/src/app/day-card/day-card.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/src/global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebook/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/src/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,8 +129,18 @@
       <workItem from="1562408663118" duration="38000" />
       <workItem from="1563738614967" duration="124000" />
       <workItem from="1563739726367" duration="76000" />
-      <workItem from="1572089461551" duration="6823000" />
+      <workItem from="1572089461551" duration="7867000" />
+      <workItem from="1572098154566" duration="3181000" />
+      <workItem from="1572130963945" duration="611000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix for style issue in Action Sheet header">
+      <created>1572096818267</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572096818267</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +151,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
