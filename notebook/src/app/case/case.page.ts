@@ -24,6 +24,7 @@ export class CasePage implements OnInit {
   displayDate;
   comeFromCasesManager: boolean = false;
   showTime: boolean = false;
+  monthNames = "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Okt, Nov, Dec";
 
   constructor(
     private navCtrl: NavController,
@@ -72,6 +73,7 @@ export class CasePage implements OnInit {
         this.previousCaseDate = this.caseOptions.previousCaseDate;
       }
     }
+    this.setCalendarMonthNames();
   }
 
   saveCase() {
@@ -135,6 +137,13 @@ export class CasePage implements OnInit {
     };
     let locale = this.commonService.isEnglishLocale ? 'en-US' : 'ru-RU';
     this.displayDate = this.commonService.capitalize(date.toLocaleDateString(locale, options));
+  }
+
+  setCalendarMonthNames() {
+    console.log('*setCalendarMonthNames*');
+    this.monthNames = this.commonService.isEnglishLocale ?
+      "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Okt, Nov, Dec" :
+      "Янв, Февр, Март, Апр, Май, Июн, Июл, Авг, Сент, Окт, Ноя, Дек"
   }
 
   goBack() {
