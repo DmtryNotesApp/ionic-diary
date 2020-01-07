@@ -26,7 +26,7 @@ export class TranslationService {
     'Case Manager': 'Список дел',
     'My Notes': 'Мои заметки',
     'Settings': 'Настройки',
-    'Cases planned': 'Сделано записей',
+    'Cases': 'Записей',
     'Your Notes': 'Ваши заметки',
     'Change Records': 'Изменение записей',
     'Change': 'Изменить',
